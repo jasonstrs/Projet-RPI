@@ -7,8 +7,6 @@
 
 #define	BUZZER	1 //pin wiringPi
 
-extern int tabNotes[8];
-
 
 //Variables globales permettant de connaître l'état des boutons
 extern int lastBtn;

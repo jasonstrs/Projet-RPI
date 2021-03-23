@@ -5,13 +5,18 @@
 #include "projet_rpi.h"
 #include "boutons.h"
 #include "buzzer.h" 
+#include "read_write.h"
 
 
 void* threadBoutons();
 void* threadBuzzer ();
 
-
-void creerMelodieExemple1(melodie_t mel);
+/**
+ * @brief Crée une mélodie aléatoire
+ * 
+ * @param mel 
+ */
+void creerMelodieExemple1(partition_t* part);
 
 
 #endif

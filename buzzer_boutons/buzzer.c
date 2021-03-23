@@ -9,6 +9,11 @@ int threadBuzzer (){
 	int i ;
 
 	wiringPiSetup () ;
+
+    /* jouerNote(DO);
+    delay(200); */
+    softToneWrite (BUZZER, 0) ;
+
 	CHECK(softToneCreate (BUZZER),"Problème lors de la création du softTone() sur le buzzer");
     atexit(eteindre_buzzer);
 
@@ -19,6 +24,7 @@ int threadBuzzer (){
 }
 
 void jouerExemple(){
+    printf("début\n");
     jouerNoteTemps(DO,300);
     delay(100);
 
@@ -64,6 +70,7 @@ void jouerExemple(){
 
     jouerNoteTemps(SOL,300);
     delay(100);
+    printf("fin");
 }
 
 void jouerNote(note_t note){

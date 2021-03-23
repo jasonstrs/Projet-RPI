@@ -4,14 +4,20 @@ int main(int argc, int* argv){
     int i;
     pthread_t threadBtn,threadMain = pthread_self(),threadBuzz;
 
-    melodie_t exemple1, exemple2;
+    partition_t exemple1, exemple2;
 
     /* CHECK_T(pthread_create (&threadBtn, NULL, (pf_t)threadBoutons, NULL),"pthread_create() boutons");
 	CHECK_T(pthread_create (&threadBuzz, NULL, (pf_t)threadBuzzer, NULL),"pthread_create() buzzer"); */
+    creerMelodieExemple1(&exemple1);
+    strcpy(exemple1.titre,"testEcriture");
+    ecrireMelodie("testEcriture",&exemple1);
 
-    creerMelodieExemple1(exemple1);
+    printf("Mélodie générée aléatoirement\n");
+    for(i=0;i<MAX_NOTES;i++){
+        printf("%d : %d\n",exemple1.mel[i].note,exemple1.mel[i].ms);
+    }
 
-    
+
 
     //Programme principal
 	/* while(1){
@@ -25,25 +31,22 @@ int main(int argc, int* argv){
 
 }
 
-void creerMelodieExemple1(melodie_t mel){
+void creerMelodieExemple1(partition_t* part){
     int i=0;
     unsigned int ms = 0;
     note_t note;
     une_note_t laNote;
 
-    for(i=0;i<30;i++){
+    for(i=0;i<MAX_NOTES;i++){
         ms = 50 + (rand() % 451);
         note = tabNotes[rand() % 8];
 
         laNote.ms = ms;
         laNote.note = note;
-        mel[i] = laNote;
+        part->mel[i] = laNote;
     }
 
-    printf("Mélodie générée aléatoirement");
-    for(i=0;i<30;i++){
-        printf("%d : %d\n",mel[i].note,mel[i].ms);
-    }
+    
 }
 
 
