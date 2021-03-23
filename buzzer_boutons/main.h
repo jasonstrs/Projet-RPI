@@ -5,6 +5,7 @@
 #include "projet_rpi.h"
 #include "boutons.h"
 #include "buzzer.h" 
+#include "read_write.h"
 
 
 void* threadBoutons();

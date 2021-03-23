@@ -9,19 +9,20 @@ int main(int argc, int* argv){
     /* CHECK_T(pthread_create (&threadBtn, NULL, (pf_t)threadBoutons, NULL),"pthread_create() boutons");
 	CHECK_T(pthread_create (&threadBuzz, NULL, (pf_t)threadBuzzer, NULL),"pthread_create() buzzer"); */
 
-    creerMelodieExemple1(exemple1);
+    //creerMelodieExemple1(exemple1);
 
     
 
     //Programme principal
 	/* while(1){
 
-
+    
 
 
 
 
     } */
+    lireMelodie("Hello.txt");
 
 }
 
