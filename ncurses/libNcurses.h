@@ -37,4 +37,6 @@ void wCenterTitle(WINDOW *pwin, const char * title);
 int handleChoice(int choix);
 void initFenetre();
 void runNcurses(void);
-
+int initFormHelp();
+WINDOW * getWindowBorder(char *title);
+WINDOW * getUserInterface(WINDOW * wBorder);

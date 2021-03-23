@@ -13,7 +13,7 @@ CC=/home/jason/Bureau/COURS_LINUX/LE3/RPI/tools-master/arm-bcm2708/gcc-linaro-ar
 #L'option -L<PATH> permet d'indiquer le chemin des librairies
 
 
-all: menu_simple_PC 
+all: menu 
 
 
 #################### PC ########################

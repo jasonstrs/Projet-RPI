@@ -150,17 +150,9 @@ int initFormPartition(){
 	WINDOW *wUI=NULL;
 
 
-	/* SET UP WINDOW FOR MENU'S BORDER */
-	wBorder = newwin(50, 100, 2, 50);
-	wattrset(wBorder, COLOR_PAIR(WHITEONRED) | WA_BOLD);
-	wclrscr(wBorder); 
-	box(wBorder, 0, 0);
-	wCenterTitle(wBorder, "Nouvelle Partition");
-
-	/* Set up WINDOW FOR USER  */
-	wUI = derwin(wBorder, 20,80, 2, 2);
-	wbkgd(wUI,COLOR_PAIR(WHITEONRED) | WA_BOLD);
-
+	wBorder = getWindowBorder("Nouvelle Partition");
+	wUI = getUserInterface(wBorder);
+	
     /*
         new_field(1, 50, 20, 15, 0, 0);
         1=>
@@ -172,7 +164,6 @@ int initFormPartition(){
     fields[0] = new_field(1, 50, 10, 0, 0, 0); // création champs 1
 	fields[1] = new_field(1, 50, 10, 25, 0, 0); // création champs 1
 	fields[2] = NULL;
-
 	assert(fields[0] != NULL && fields[1] != NULL);
 
 	// color field + ajout attribut
@@ -223,6 +214,74 @@ int initFormPartition(){
 }
 
 ///////////////////////////////////////////////////////////////////
+
+WINDOW * getWindowBorder(char *title){
+	WINDOW * wBorder=NULL;
+	/* SET UP WINDOW FOR MENU'S BORDER */
+	wBorder = newwin(50, 100, 2, 50);
+	wattrset(wBorder, COLOR_PAIR(WHITEONRED) | WA_BOLD);
+	wclrscr(wBorder); 
+	box(wBorder, 0, 0);
+	wCenterTitle(wBorder, title);
+	return wBorder;
+}
+
+WINDOW * getUserInterface(WINDOW * wBorder){
+	WINDOW *wUI;
+	/* Set up WINDOW FOR USER  */
+	wUI = derwin(wBorder, 20,80, 2, 2);
+	wbkgd(wUI,COLOR_PAIR(WHITEONRED) | WA_BOLD);
+	return wUI;
+}
+
+
+int initFormHelp(){
+	int ch,res;
+    FORM *form;
+    FIELD *fields[2];
+	WINDOW * wBorder=NULL;
+	WINDOW *wUI=NULL;
+
+	wBorder = getWindowBorder("Aide");
+	wUI = getUserInterface(wBorder);
+
+    fields[0] = new_field(2, 60, 10, 0, 0, 0); // création champs 1
+	fields[1] = NULL;
+
+	assert(fields[0] != NULL);
+
+	// color field + ajout attribut
+	set_field_back(fields[0],COLOR_PAIR(WHITEONRED) | WA_BOLD);
+	set_field_buffer(fields[0], 0, "Veuillez consulter la page SDL qui vient de s'ouvrir !              F1 pour quitter");
+
+    form = new_form(fields); // on crée le formulaire
+	assert(form != NULL);
+	curs_set(0); // on cache le curseur
+
+	set_form_win(form, wBorder); // on synchronise le form avec les deux interfaces
+	set_form_sub(form,wUI);
+	post_form(form); // on l'ajoute
+
+	/* REFRESH THE BORDER WINDOW PRIOR TO ACCEPTING USER INTERACTION */
+	touchwin(wBorder);
+	wrefresh(wBorder);
+	touchwin(wUI);
+	wrefresh(wUI); 
+
+    do { // tant que la touche appuyé est différente de F1
+        ch=getch();
+    } while (ch != KEY_F(1));
+
+	unpost_form(form);
+	free_form(form);
+	free_field(fields[0]);
+	delwin(wUI);
+	delwin(wBorder);
+	return res;
+}
+
+
+//////////////////////////////////////////////////////////////////////
 
 void wCenterTitle(WINDOW *pwin, const char * title)
 	{
@@ -324,7 +383,7 @@ int runMenu(
 	curs_set(0);		/* make cursor invisible */
 
     mvprintw(LINES - 3, 2, "Appuyer sur <ENTER> pour choisir une option");
-	mvprintw(LINES - 2, 2, "Up and Down pour naviguer (F1 to quitter)");
+	mvprintw(LINES - 2, 2, "Up and Down pour naviguer (F1 pour quitter)");
 
 	/* DISPLAY THE MENU */
 	post_menu(my_menu);
@@ -378,11 +437,13 @@ int runMenu(
 
 	/* RETURN THE ZERO BASED NUMERIC USER CHOICE */
 	return(my_choice);
-	}
+}
 
 int handleChoice(int choix){
     int choiceno;
     char **menu_options=NULL;
+	int nbPartition=20;
+
     switch (choix)
     {
 
@@ -399,10 +460,6 @@ int handleChoice(int choix){
 
 
         case 1:
-            printf("Charger partition \n");
-            printf("Lancer une fonctionnement qui compte le nombre de partitions...\n");
-            int nbPartition=20;
-
             menu_options = calloc (nbPartition,sizeof(char*));
             menu_options[0]="Partition 1";
             menu_options[1]="Partition 2";
@@ -436,7 +493,9 @@ int handleChoice(int choix){
         break;
 
         case 2:
-            printf("Aide partition \n");
+			printf(("On lance une partition dans SDL\n"));
+			initFormHelp();
+			endwin();
         break;
 
 		case -3:
