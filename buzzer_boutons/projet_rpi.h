@@ -51,7 +51,6 @@ typedef enum
  */
 #define resetTerm()		setTerm(0);
 
-char* CharTestGETSTRING;
 
 
 // ------------------------------------------------------------------------------------ //
@@ -86,6 +85,10 @@ char* CharTestGETSTRING;
  * 
  */
 #define PAUSE 		setTerm(GREEN);printf("\n\t\t\tAppuyer sur Entrée pour continuer...\n");getchar();resetTerm();
+
+
+#define 	MAX_NOTES		30
+#define 	MAX_TITRE 		50
 
 // ------------------------------------------------------------------------------------ //
 // ------------------------------------------------------------------------------------ //
@@ -124,7 +127,14 @@ typedef struct{
  * @brief Une mélodie est un tableau de une_note_t
  * 
  */
-typedef une_note_t melodie_t[100];
+typedef une_note_t melodie_t[MAX_NOTES];
+
+typedef struct{
+  char titre[MAX_TITRE];
+  melodie_t mel;
+}partition_t;
+
+
 
 // ------------------------------------------------------------------------------------ //
 // ------------------------------------------------------------------------------------ //
