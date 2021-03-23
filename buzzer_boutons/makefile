@@ -1,6 +1,9 @@
-PATH_WPI=/home/simon/Documents/pi/target_wpi
+#PATH_WPI=/home/simon/Documents/pi/target_wpi
 
-CC=gcc_croise
+#CC=gcc_croise
+PATH_WPI=/home/jason/Bureau/COURS_LINUX/LE3/RPI/SEANCE_4/target_wpi
+
+CC=/home/jason/Bureau/COURS_LINUX/LE3/RPI/tools-master/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-gcc
 
 
 all: buzzer.o boutons.o main.o read_write.o

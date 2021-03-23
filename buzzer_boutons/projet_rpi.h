@@ -8,6 +8,8 @@
 #include <string.h> 
 #include <pthread.h>
 #include <wiringPi.h>
+#include <dirent.h>
+
 
 // ------------------------------------------------------------------------------------ //
 // ------------------------------------------------------------------------------------ //
@@ -79,6 +81,7 @@ typedef enum
  * 
  */
 #define CHECK_P(sts, msg) if ((sts)==NULL) {perror(msg); exit(-1);}
+
 
 /**
  * @brief Suspend l'execution jusqu'à l'appui sur Entrer

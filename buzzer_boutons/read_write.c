@@ -1,6 +1,15 @@
 #include "read_write.h"
 
-int ecrireMelodie(char* titre, partition_t* part){
+
+
+/**
+ * @brief Fonction qui permet d'écrire une mélodie dans un fichier
+ * 
+ * @param titre titre d'une partition (et aussi nom du fichier qui va être créé)
+ * @param part partition que l'on souhaite écrire dans notre fichier
+ */
+
+void ecrireMelodie(char* titre, partition_t* part){
     FILE* f;
     int i=0;
     char path[100], error[150];
@@ -26,9 +35,16 @@ int ecrireMelodie(char* titre, partition_t* part){
     strcpy(error,"ERREUR LORS DE LA FERMETURE DU FICHIER ");
     strcat(error,path);
     CHECK(fclose(f),error);
+}
 
 
-int lireMelodie(char *titre, melodie_t melodie) {
+/**
+ * @brief Fonction qui permet de lire une mélodie dans un fichier
+ * 
+ * @param titre titre de la partition que l'on souhaite ouvrir
+ * @param partition objet partition que l'on va remplir en lisant le fichier
+ */
+void lireMelodie(char *titre, partition_t *partition) {
     FILE * fp=NULL;
     char path[100];
     char error[100];
@@ -37,8 +53,8 @@ int lireMelodie(char *titre, melodie_t melodie) {
     size_t len = 0;
     ssize_t read;
 
-    int cpt=0,frequence,duree;
-
+    int cpt=0;
+    
     strcpy(path,"./partitions/");
     strcat(path,titre);
 
@@ -47,18 +63,93 @@ int lireMelodie(char *titre, melodie_t melodie) {
 
     CHECK_P(fp = fopen(path, "r"),error);
 
+    strcpy(partition->titre,titre); // on donne un nom à notre partition
+
     while ((read = getline(&line, &len, fp)) != -1) {
         printf("%s", line);
         if(!cpt){
             printf("Le nom de la partition est : '%s'",line);
-        } else {
-            sscanf(line,"%d:%d",&frequence,&duree);
-        }
+        } else 
+            sscanf(line,"%d:%d",&(partition->mel[cpt-1].note),&(partition->mel[cpt-1].ms));            
 
         cpt++;
     }
 
-    fclose(fp);
+    if (cpt ==0){// on vérifie si cpt est 0 ou pas
+        perror("ERREUR : LA PARTITION EST VIDE"); exit(-1);
+    }
+
+    partition->mel[cpt-1].note=-1; // dernière note !!
+
+    strcpy(error,"ERREUR LORS DE LA FERMETURE DU FICHIER ");
+    strcat(error,path);
+    CHECK(fclose(fp),error);
+
     if (line)
         free(line);
 }
+
+/**
+ * @brief Fonction qui permet de compter le nombre de ligne du résultat d'une commande
+ * Cette fonction est utile pour allouer la mémoire dans les tableaux
+ * @param commande commmande que l'on veut exécuter (chemin absolu). Ex: /bin/cat
+ * @param chemin chemin sur lequel on veut exécuter la commande
+ * @return int nombre de lignes du résultat
+ */
+int countNumberOfLineOutput(char *commande,char *chemin){
+    FILE *fp;
+    char path[10];
+    char error[100];
+    char path_commande_complete[100];
+    int nb;
+
+    strcpy(error,"ERREUR LORS DE LA COMMANDE : ");
+    strcat(error,path);
+
+    strcpy(path_commande_complete,commande);
+    strcat(path_commande_complete," ");
+    strcat(path_commande_complete,chemin);
+    strcat(path_commande_complete," | wc -l");
+
+
+        /* Open the command for reading. */
+    CHECK_P(fp = popen(path_commande_complete, "r"),error);
+
+
+    /* Read the output a line at a time - output it. */
+    nb=atoi(fgets(path, sizeof(path), fp));
+
+    strcpy(error,"ERREUR LORS DE LA FERMETURE DE LA COMMANDE ");
+    strcat(error,path);
+    /* close */
+    CHECK(pclose(fp),error);
+    return nb;
+}
+
+
+/**
+ * @brief Fonction qui permet de récupérer un tableau qui contient l'ensemble des noms des partitions et donc des fichiers
+ * @return char* tableau contenant les noms des partitions
+ */
+char **getNamesOfAllPartitions(){
+    int nbPartitions = countNumberOfLineOutput("/bin/ls","./partitions/");
+    char **tabNamePartition=(char **)malloc(sizeof(char)*(nbPartitions+1));  // +1 pour mettre le '\0'
+    DIR *d;
+    struct dirent *dir;
+    int cpt=0;
+
+    d = opendir("./partitions");
+    if (d) {
+        while ((dir = readdir(d)) != NULL) {
+            if (strcmp(dir->d_name,".") !=0 && strcmp(dir->d_name,"..") !=0){ // on ne prend pas le répertoire "." et ".."
+                strcpy(tabNamePartition[cpt],dir->d_name);
+                cpt++;
+            }
+        }
+        closedir(d);
+    }
+    tabNamePartition[cpt]='\0';
+    return tabNamePartition;
+}
+
+

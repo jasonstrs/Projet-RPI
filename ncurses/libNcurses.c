@@ -1,6 +1,9 @@
 #include "libNcurses.h"
 
-char *choices[] =			/* The menu choices */
+/**
+ * @brief Liste des choix possibles proposés à l'utilisateur dans le menu principal
+ */
+char *choices[] =
 {
     "Nouvelle partition",
     "Charger une partition",
@@ -9,6 +12,10 @@ char *choices[] =			/* The menu choices */
     NULL
 };
 
+/**
+ * @brief Cette fonction permet de démarrer la librairie ncurses, elle appelle une fonction d'initialisation de la fenêtre
+ * et elle lance le menu principal de notre librairie
+ */
 void runNcurses(void){
     int choiceno;
 
@@ -26,6 +33,10 @@ void runNcurses(void){
 }
 
 
+/**
+ * @brief Fonction qui permet d'initialiser la fenêtre, c'est-à-dire mettre un fond bleu, activer la détection des touches,
+ * activer les couleurs et afficher la fenêtre
+ */
 void initFenetre(){
 	initscr();		/* start ncurses */
     cbreak();		/* immediately acquire each keystroke */
@@ -42,10 +53,12 @@ void initFenetre(){
     
 }
 
-
-//////////////////////// FORM NOUVELLE ////////////////////////
-/*
- * This is useful because ncurses fill fields blanks with spaces.
+/**
+ * @brief Fonction qui permet de supprimer les espaces ajoutés à la fin du champs de formulaire ncurses
+ * /!\ On utilise cette fonction car ncurses ajoute des espaces à la fin du champs
+ * 
+ * @param str champs de formulaire récupéré dans ncurses
+ * @return char* chaine de caractères sans les espaces à la fin
  */
 char* trim_whitespaces(char *str)
 {
@@ -70,7 +83,16 @@ char* trim_whitespaces(char *str)
 	return str;
 }
 
-int driver(int ch,FORM *form,FIELD *fields[3],WINDOW *wUI)
+/**
+ * @brief Fonction qui permet de gérer les touches appuyées par l'utilisateur dans le sous menu "Nouvelle Partition".
+ * F1 => Revenir au menu supérieur
+ * Le reste permet de se déplacer/écrire/supprimer/espace...
+ * @param ch correspond à la touche qui a été appuyée
+ * @param form correspond au formulaire 
+ * @param wUI correspond à la fenêtre dans laquelle se trouve le formulaire (fenêtre rouge)
+ * @return int retourne -1 si on quitte le menu, 0 si entrée, 1 sinon 
+ */
+int driver(int ch,FORM *form,WINDOW *wUI)
 {
 	int i;
 
@@ -83,25 +105,6 @@ int driver(int ch,FORM *form,FIELD *fields[3],WINDOW *wUI)
         case 10:
             return 0;
         break;
-
-		case KEY_F(2):
-			// Or the current field buffer won't be sync with what is displayed
-			form_driver(form, REQ_NEXT_FIELD);
-			form_driver(form, REQ_PREV_FIELD);
-			move(LINES-3, 2);
-
-			for (i = 0; fields[i]; i++) {
-				printw("%s", trim_whitespaces(field_buffer(fields[i], 0)));
-
-				if (field_opts(fields[i]) & O_ACTIVE)
-					printw("\"\t");
-				else
-					printw(": \"");
-			}
-
-			refresh();
-			pos_form_cursor(form);
-			break;
 
 		case KEY_DOWN:
 			form_driver(form, REQ_NEXT_FIELD);
@@ -142,6 +145,10 @@ int driver(int ch,FORM *form,FIELD *fields[3],WINDOW *wUI)
 }
 
 
+/**
+ * @brief Cette fonction permet d'initialiser et d'afficher le formulaire "Nouvelle Partition"
+ * @return int return -1 si on souhaite revenir au menu principal, 0 sinon
+ */
 int initFormPartition(){
     int ch,res;
     FORM *form;
@@ -192,7 +199,7 @@ int initFormPartition(){
 
     do {
         ch=getch();
-        res=driver(ch,form,fields,wUI);
+        res=driver(ch,form,wUI);
     } while (res != -1 && res !=0);
 
     // Or the current field buffer won't be sync with what is displayed
@@ -213,8 +220,11 @@ int initFormPartition(){
 	return res;
 }
 
-///////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Fonction qui permet de récupérer une fenêtre qui va servir de bordure
+ * @param title titre que l'on veut donner à la fenêtre
+ * @return WINDOW* fenêtre wBorder qui est retournée
+ */
 WINDOW * getWindowBorder(char *title){
 	WINDOW * wBorder=NULL;
 	/* SET UP WINDOW FOR MENU'S BORDER */
@@ -226,6 +236,12 @@ WINDOW * getWindowBorder(char *title){
 	return wBorder;
 }
 
+/**
+ * @brief Fonction qui permet de récupérer l'interface utilisateur sur laquelle sera mise des écritures ou 
+ * un formulaire, dans notre projet, c'est la fenêtre rouge
+ * @param wBorder bordure qui va encadrée notre fenêtre
+ * @return WINDOW* fenêtre interface utilisateur qui est retournée
+ */
 WINDOW * getUserInterface(WINDOW * wBorder){
 	WINDOW *wUI;
 	/* Set up WINDOW FOR USER  */
@@ -234,8 +250,10 @@ WINDOW * getUserInterface(WINDOW * wBorder){
 	return wUI;
 }
 
-
-int initFormHelp(){
+/**
+ * @brief Cette fonction permet d'initialiser et d'afficher le formulaire "Aide"
+ */
+void initFormHelp(){
 	int ch,res;
     FORM *form;
     FIELD *fields[2];
@@ -280,11 +298,12 @@ int initFormHelp(){
 	return res;
 }
 
-
-//////////////////////////////////////////////////////////////////////
-
-void wCenterTitle(WINDOW *pwin, const char * title)
-	{
+/**
+ * @brief Fonction qui permet de centrer le titre en haut de la fenêtre
+ * @param pwin fênetre sur laquelle on veut placer le titre
+ * @param title titre que l'on veut donner
+ */
+void wCenterTitle(WINDOW *pwin, const char * title) {
 	int x, maxy, maxx, stringsize;
 	getmaxyx(pwin, maxy, maxx);
 	stringsize = 4 + strlen(title);
@@ -295,42 +314,49 @@ void wCenterTitle(WINDOW *pwin, const char * title)
 	waddstr(pwin, title);
 	waddch(pwin, ' ');
 	waddch(pwin, ACS_LTEE);
-	}
+}
 
-void wclrscr(WINDOW * pwin)
-	{
+/**
+ * @brief Fonction qui permet de dessiner le fond de la fenêtre
+ * @param pwin fenêtre sur laquelle on met un fond
+ */
+void wclrscr(WINDOW * pwin) {
 	int y, x, maxy, maxx;
 	getmaxyx(pwin, maxy, maxx);
 	for(y=0; y < maxy; y++)
 		for(x=0; x < maxx; x++)
 			mvwaddch(pwin, y, x, 32);
-	}
+}
 
-bool initColors()
-{
-    if(has_colors())
-        {
+/**
+ * @brief Fonction qui permet d'initialiser les couleurs pour notre librairie ncurses
+ * @return true : si le terminal est capable d'afficher des couleurs
+ * @return false : si le terminal n'est pas capable d'afficher des couleurs
+ */
+bool initColors() {
+    if(has_colors()) {
         start_color();
         init_pair(WHITEONRED, COLOR_WHITE, COLOR_RED);
         init_pair(WHITEONBLUE, COLOR_WHITE, COLOR_BLUE);
         init_pair(REDONWHITE, COLOR_RED, COLOR_WHITE);
         return(true);
-        }
+    }
     else
         return(false);
 }
 
-
-int runMenu(
-		WINDOW *wParent,
-		int height,
-		int width,
-		int y,
-		int x,
-		char *choices[],
-		char titre[20]
-		)
-	{
+/**
+ * @brief Fonction qui permet de démarrer le menu principal sur la fenêtre principal, en y insérant le titre et les coordonnées
+ * @param wParent fenêtre principale
+ * @param height hauteur de la fenêtre fille
+ * @param width largeur de la fenêtre fille
+ * @param y coordonnée y de la fenêtre fille
+ * @param x coordonnée x de la fenêtre fille
+ * @param choices choix disponibles dans le menu
+ * @param titre titre de la fenêtre/bordule
+ * @return int return -3 si on souhaite quitter l'application, sinon retourne l'index de l'option choisie dans le menu
+ */
+int runMenu(WINDOW *wParent, int height, int width, int y, int x, char *choices[], char titre[20]) {
 	int c;			/* key pressed */	
 	ITEM **my_items;	/* list of items on this menu */
 	MENU *my_menu;		/* the menu structure */
@@ -439,6 +465,12 @@ int runMenu(
 	return(my_choice);
 }
 
+
+/**
+ * @brief Fonction qui permet de gérer le choix de l'utilisateur dans le menu principal
+ * @param choix index de l'option choisie par l'utilisateur
+ * @return int return -1 si on doit relancer le menu principal, sinon 1
+ */
 int handleChoice(int choix){
     int choiceno;
     char **menu_options=NULL;
@@ -506,7 +538,8 @@ int handleChoice(int choix){
         
         default:
             break;
-        }
+    }
+	return 1;
 }
 
 
