@@ -2,23 +2,10 @@
 #define BUZZ_HEADER
 
 
-#include "main.h"
+#include "projet_rpi.h"
 #include <softTone.h>
 
 #define	BUZZER	1 //pin wiringPi
-
-
-typedef enum{
-    DO=261,
-    RE=293,
-    MI=329,
-    FA=349,
-    SOL=392,
-    LA=440,
-    SI=493,
-    DO2=523,
-    BLANC=0,
-}note_t;
 
 extern int tabNotes[8];
 
