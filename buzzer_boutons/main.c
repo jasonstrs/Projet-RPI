@@ -17,17 +17,19 @@ int main(int argc, int* argv){
         printf("%d : %d\n",exemple1.mel[i].note,exemple1.mel[i].ms);
     }
 
+    //creerMelodieExemple1(exemple1);
 
 
     //Programme principal
 	/* while(1){
 
-
+    
 
 
 
 
     } */
+    lireMelodie("Hello.txt");
 
 }
 
