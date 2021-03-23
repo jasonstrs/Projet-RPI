@@ -495,7 +495,7 @@ int handleChoice(int choix){
         case 2:
 			printf(("On lance une partition dans SDL\n"));
 			initFormHelp();
-			endwin();
+			return -1;
         break;
 
 		case -3:
