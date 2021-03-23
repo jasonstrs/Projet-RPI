@@ -2,11 +2,12 @@ PATH_WPI=/home/simon/Documents/pi/target_wpi
 
 CC=gcc_croise
 
-all: buzzer.o boutons.o buzzerEtBoutons.o
-	$(CC) -L$(PATH_WPI)/lib buzzer.o boutons.o buzzerEtBoutons.o -o buzzerEtBoutons -lwiringPi -lpthread
 
-buzzerEtBoutons.o: buzzerEtBoutons.c
-	$(CC) -c -I$(PATH_WPI)/include buzzerEtBoutons.c -o buzzerEtBoutons.o 
+all: buzzer.o boutons.o main.o
+	$(CC) -L$(PATH_WPI)/lib buzzer.o boutons.o main.o -o main -lwiringPi -lpthread
+
+main.o: main.c
+	$(CC) -c -I$(PATH_WPI)/include main.c -o main.o 
 
 
 buzzer.o:buzzer.c

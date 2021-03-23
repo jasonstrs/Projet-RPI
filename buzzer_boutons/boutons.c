@@ -37,7 +37,7 @@ int HeldDown(int pin){
 	return (rowPins[pin] == 0);
 }
 
-int AnalyserMatrice(void){
+void AnalyserMatrice(void){
 	int i,j;
 	int pin;
 	float ticks;
@@ -73,19 +73,18 @@ int AnalyserMatrice(void){
 }
 
 
+void* threadBoutons(){
 
-/* int main (int argc, char ** argv ){
-
-	wiringPiSetup () ;
-	int buttonPin = BUTTON; 
+    wiringPiSetup () ;
+	int buttonPin = -1; 
 	int i = 0,j;
-	printf("Début du programme\n");	
 	
 	InitBoutons();
 
 	while(1) {
-		buttonPin = AnalyserMatrice();
+		AnalyserMatrice();
 	}
 
-	return 0 ;
-} */
+	pthread_exit(0) ;
+
+}
