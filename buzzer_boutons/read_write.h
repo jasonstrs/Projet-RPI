@@ -33,6 +33,7 @@ int countNumberOfLineOutput(char *commande,char *chemin);
 
 /**
  * @brief Fonction qui permet de récupérer un tableau qui contient l'ensemble des noms des partitions et donc des fichiers
+ * @param nbPartitions correspond au nombre de partitions présentes dans le répertoire ./partitions
  * @return char* tableau contenant les noms des partitions
  */
-char **getNamesOfAllPartitions(void);
+char **getNamesOfAllPartitions(int nbPartitions);

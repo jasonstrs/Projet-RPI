@@ -1,4 +1,6 @@
 #include "libNcurses.h"
+#include "../buzzer_boutons/read_write.h"
+
 
 /**
  * @brief Liste des choix possibles proposés à l'utilisateur dans le menu principal
@@ -492,28 +494,13 @@ int handleChoice(int choix){
 
 
         case 1:
-            menu_options = calloc (nbPartition,sizeof(char*));
-            menu_options[0]="Partition 1";
-            menu_options[1]="Partition 2";
-            menu_options[2]="Partition 3";
-            menu_options[3]="Partition 4";
-            menu_options[4]="Partition 5";
-            menu_options[5]="Partition 1";
-            menu_options[6]="Partition 2";
-            menu_options[7]="Partition 3";
-            menu_options[8]="Partition 4";
-            menu_options[9]="Partition 5";
-            menu_options[10]="Partition 1";
-            menu_options[11]="Partition 2";
-            menu_options[12]="Partition 3";
-            menu_options[13]="Partition 4";
-            menu_options[14]="Partition 5";
-            menu_options[15]="Partition 1";
-            menu_options[16]="Partition 2";
-            menu_options[17]="Partition 3";
-            menu_options[18]="Quitter";
+			nbPartition=countNumberOfLineOutput("/bin/ls","./partitions");
+            menu_options = getNamesOfAllPartitions(nbPartition); // on obtient toutes les partitions
                
             choiceno = runMenu(stdscr, 50, 100, 2, 50, menu_options,"Charger Partition");
+
+			// TODO : ETRE SUR QUE C'EST NBPARTITION-2 PAS SUR DU TOUT !!!!!!!!!!!!!!!
+			printf("nbPartition => %d || Choix => %d\n",nbPartition,choiceno);
 
             if (nbPartition-2 == choiceno || choiceno == -3) { // QUITTER
                 free(menu_options);

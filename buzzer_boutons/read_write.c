@@ -129,11 +129,13 @@ int countNumberOfLineOutput(char *commande,char *chemin){
 
 /**
  * @brief Fonction qui permet de récupérer un tableau qui contient l'ensemble des noms des partitions et donc des fichiers
+ * @param nbPartitions correspond au nombre de partitions présentes dans le répertoire ./partitions
  * @return char* tableau contenant les noms des partitions
  */
-char **getNamesOfAllPartitions(){
+char **getNamesOfAllPartitions(int nbPartitions){
     int nbPartitions = countNumberOfLineOutput("/bin/ls","./partitions/");
-    char **tabNamePartition=(char **)malloc(sizeof(char)*(nbPartitions+1));  // +1 pour mettre le '\0'
+    // on alloue de la mémoire pour l'ensemble des cases du tableau
+    char **tabNamePartition=(char **)malloc(sizeof(char*)*(nbPartitions+2));  // +2 pour mettre le '\0' et "Quitter"
     DIR *d;
     struct dirent *dir;
     int cpt=0;
@@ -142,13 +144,15 @@ char **getNamesOfAllPartitions(){
     if (d) {
         while ((dir = readdir(d)) != NULL) {
             if (strcmp(dir->d_name,".") !=0 && strcmp(dir->d_name,"..") !=0){ // on ne prend pas le répertoire "." et ".."
+                tabNamePartition[cpt] = (char *)malloc(sizeof(char) * 30); // on alloue de la mémoire pour la case
                 strcpy(tabNamePartition[cpt],dir->d_name);
                 cpt++;
             }
         }
         closedir(d);
     }
-    tabNamePartition[cpt]='\0';
+    strcpy(tabNamePartition[cpt],"Quitter");
+    tabNamePartition[cpt+1]='\0';
     return tabNamePartition;
 }
 
