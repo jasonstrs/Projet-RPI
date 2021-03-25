@@ -6,6 +6,7 @@
 #include "boutons.h"
 #include "buzzer.h" 
 #include "read_write.h"
+#include "afficheur.h"
 
 
 void* threadBoutons();
@@ -17,6 +18,12 @@ void* threadBuzzer ();
  * @param mel 
  */
 void creerMelodieExemple1(partition_t* part);
+
+
+/**
+ * @brief Fonction qui permet de tester l'afficheur 7 segments en écrivant 440 (fréquence du 'LA')
+ */
+void exemple7Segments(void);
 
 
 #endif

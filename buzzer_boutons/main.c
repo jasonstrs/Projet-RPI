@@ -40,7 +40,7 @@ int main(int argc, int* argv){
         i++;
     } while (partitionExemple.mel[i].note != -1);*/
     //char **tableau = getNamesOfAllPartitions();
-    
+
 
 }
 
@@ -58,8 +58,32 @@ void creerMelodieExemple1(partition_t* part){
         laNote.note = note;
         part->mel[i] = laNote;
     }
+}
 
-    
+/**
+ * @brief Fonction qui permet de tester l'afficheur 7 segments en écrivant 440 (fréquence du 'LA')
+ */
+void exemple7Segments(){
+// setup 
+	int fda = wiringPiI2CSetup(0x70); // 0x70 adresse du 7 segments
+	int centaine,dizaine,unite;
+
+	// begin 
+	begin(fda); 
+	// clear 
+	clear(); 
+
+    decomposerFrequence(440,&centaine,&dizaine,&unite);
+    // write first display 
+    writeDigitNum(0, 0, false); 
+    writeDigitNum(1, centaine, false); 
+    writeDigitNum(2, dizaine, false); 
+    writeDigitNum(3, unite, false); 
+    writeDisplay(fda,0);
+
+    clear();
+    sleep(5);
+    writeDisplay(fda,0); // on l'éteint
 }
 
 

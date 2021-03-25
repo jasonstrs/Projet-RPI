@@ -133,7 +133,6 @@ int countNumberOfLineOutput(char *commande,char *chemin){
  * @return char* tableau contenant les noms des partitions
  */
 char **getNamesOfAllPartitions(int nbPartitions){
-    int nbPartitions = countNumberOfLineOutput("/bin/ls","./partitions/");
     // on alloue de la mémoire pour l'ensemble des cases du tableau
     char **tabNamePartition=(char **)malloc(sizeof(char*)*(nbPartitions+2));  // +2 pour mettre le '\0' et "Quitter"
     DIR *d;
