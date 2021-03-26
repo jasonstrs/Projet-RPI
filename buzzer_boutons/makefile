@@ -1,10 +1,14 @@
-PATH_WPI=/home/simon/Documents/pi/target_wpi
+#PATH_WPI=/home/simon/Documents/pi/target_wpi
 
 CC=gcc
+#CC=gcc_croise
+PATH_WPI=/home/jason/Bureau/COURS_LINUX/LE3/RPI/SEANCE_4/target_wpi
+
+CC=/home/jason/Bureau/COURS_LINUX/LE3/RPI/tools-master/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-gcc
 
 
-all: buzzer.o boutons.o main.o read_write.o
-	$(CC) -L$(PATH_WPI)/lib buzzer.o boutons.o main.o read_write.o  -o main -lwiringPi -lpthread -lSDL -lSDL_ttf `sdl-config --cflags --libs`
+all: buzzer.o boutons.o main.o read_write.o afficheur.o
+	$(CC) -L$(PATH_WPI)/lib buzzer.o boutons.o main.o read_write.o afficheur.o -o main -lwiringPi -lpthread
 
 main.o: main.c
 	$(CC) -c -I$(PATH_WPI)/include main.c -o main.o 
@@ -19,6 +23,10 @@ boutons.o:boutons.c
 
 read_write.o:read_write.c
 	$(CC) -c -I$(PATH_WPI)/include read_write.c -o read_write.o 
+
+
+afficheur.o:afficheur.c
+	$(CC) -c -I$(PATH_WPI)/include afficheur.c -o afficheur.o 
 	
 	
 	
