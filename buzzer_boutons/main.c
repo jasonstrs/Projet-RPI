@@ -9,8 +9,8 @@ int main(int argc, int* argv){
     /* CHECK_T(pthread_create (&threadBtn, NULL, (pf_t)threadBoutons, NULL),"pthread_create() boutons");
 	CHECK_T(pthread_create (&threadBuzz, NULL, (pf_t)threadBuzzer, NULL),"pthread_create() buzzer"); */
     creerMelodieExemple1(&exemple1);
-    strcpy(exemple1.titre,"testEcriture");
-    ecrireMelodie("testEcriture",&exemple1);
+    strcpy(exemple1.titre,"testEcriture2");
+    ecrireMelodie("testEcriture2",&exemple1);
 
     printf("Mélodie générée aléatoirement\n");
     for(i=0;i<MAX_NOTES;i++){
@@ -29,7 +29,7 @@ int main(int argc, int* argv){
 
 
     } */
-    lireMelodie("Hello.txt");
+    
 
 }
 

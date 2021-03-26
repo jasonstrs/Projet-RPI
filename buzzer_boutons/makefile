@@ -1,10 +1,10 @@
 PATH_WPI=/home/simon/Documents/pi/target_wpi
 
-CC=gcc_croise
+CC=gcc
 
 
 all: buzzer.o boutons.o main.o read_write.o
-	$(CC) -L$(PATH_WPI)/lib buzzer.o boutons.o main.o read_write.o -o main -lwiringPi -lpthread
+	$(CC) -L$(PATH_WPI)/lib buzzer.o boutons.o main.o read_write.o  -o main -lwiringPi -lpthread -lSDL -lSDL_ttf `sdl-config --cflags --libs`
 
 main.o: main.c
 	$(CC) -c -I$(PATH_WPI)/include main.c -o main.o 

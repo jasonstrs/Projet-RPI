@@ -11,7 +11,7 @@ int ecrireMelodie(char* titre, partition_t* part){
 
     strcpy(error,"ERREUR LORS DE L'OUVERTURE DU FICHIER ");
     strcat(error,path);
-    f = fopen(path,"w");
+    CHECK_P(f = fopen(path,"w"),error);
 
 
     fprintf(f,"%s\n",part->titre);
@@ -27,8 +27,10 @@ int ecrireMelodie(char* titre, partition_t* part){
     strcat(error,path);
     CHECK(fclose(f),error);
 
+}
 
-int lireMelodie(char *titre, melodie_t melodie) {
+
+int lireMelodie(char *titre, partition_t melodie) {
     FILE * fp=NULL;
     char path[100];
     char error[100];
