@@ -27,7 +27,6 @@ void resetPart(){
 }
 
 int threadBuzzer (){
-    printf("Thread buzzer lancé! \n");
     /* lireMelodie("testEcriture4",&part); */
 	int i ;
     
@@ -162,7 +161,7 @@ void enregistrerAvecBoutons(){
                 tpsCumule+=currentTime;
                 part.mel[indexEnregistrement].ms = currentTime;
                 //printf("%d\n",enregistrement);
-                printf("Note %d : %d | %d\n",indexEnregistrement,part.mel[indexEnregistrement].note,part.mel[indexEnregistrement].ms);
+                //printf("Note %d : %d | %d\n",indexEnregistrement,part.mel[indexEnregistrement].note,part.mel[indexEnregistrement].ms);
                 indexEnregistrement++;
             }      
         }
@@ -174,7 +173,7 @@ void enregistrerAvecBoutons(){
             currentTime = ((tv.tv_sec) * 1000 + (tv.tv_usec) / 1000) - initialTime;
             tpsCumule+=currentTime;
             part.mel[indexEnregistrement].ms = currentTime;
-            printf("Note %d : %d | %d\n",indexEnregistrement,part.mel[indexEnregistrement].note,part.mel[indexEnregistrement].ms);
+            //printf("Note %d : %d | %d\n",indexEnregistrement,part.mel[indexEnregistrement].note,part.mel[indexEnregistrement].ms);
             indexEnregistrement++;
         }
             
@@ -189,8 +188,6 @@ void enregistrerAvecBoutons(){
 
 void eteindre_buzzer(){
     int i;
-
-    printf("Fin du programme, on s'assure que le buzzer s'éteint bien\n");
     softToneWrite (BUZZER, 0) ;
     delay(500);
     softToneWrite (BUZZER, 0) ;
@@ -247,6 +244,7 @@ void majCommandes(){
             }
             else{
                 indexEnregistrement = 0;
+                resetPart();
             }
             commandeBuzzer = 0;
         break;

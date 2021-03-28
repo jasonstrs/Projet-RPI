@@ -1,40 +1,34 @@
 #include "main.h"
 
 extern void* threadSDL();
-
+pthread_t threadBtn,threadMain,threadBuzz,threadSDL2;
 
 int main(int argc, int* argv){
     int i;
-    pthread_t threadBtn,threadMain = pthread_self(),threadBuzz,threadSDL2;
+    
+    threadMain = pthread_self();
 
-    partition_t exemple1, exemple2;
 
-    printf("Lancment thread Boutons...\n");
+    /* begin(); */
+
+
+
+/*     printf("Lancment thread Boutons...\n");
     CHECK_T(pthread_create (&threadBtn, NULL, (pf_t)threadBoutons, NULL),"pthread_create() boutons");
 
     printf("Lancment thread Buzzer...\n");
 	CHECK_T(pthread_create (&threadBuzz, NULL, (pf_t)threadBuzzer, NULL),"pthread_create() buzzer"); 
 
     printf("Lancment thread SDL...\n");
-	CHECK_T(pthread_create (&threadSDL2, NULL, (pf_t)threadSDL, NULL),"pthread_create() sdl"); 
-    
+	CHECK_T(pthread_create (&threadSDL2, NULL, (pf_t)threadSDL, NULL),"pthread_create() sdl");  */
 
-    /* creerMelodieExemple1(&exemple1);
-    strcpy(exemple1.titre,"testEcriture4");
-    ecrireMelodie("testEcriture4",&exemple1);
 
-    printf("Mélodie générée aléatoirement\n");
-    for(i=0;i<MAX_NOTES;i++){
-        printf("%d : %d\n",exemple1.mel[i].note,exemple1.mel[i].ms);
-    } */
-
-    //creerMelodieExemple1(exemple1);
 
 
     //Programme principal
 	while(1){
 
-    
+        menu();
 
 
 

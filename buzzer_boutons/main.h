@@ -8,6 +8,7 @@
 #include "partition_sdl.h" 
 #include "read_write.h"
 #include "afficheur.h"
+#include "libNcurses.h"
 
 
 void* threadBoutons();

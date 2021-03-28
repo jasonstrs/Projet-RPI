@@ -84,7 +84,7 @@ void writeDisplay(int fd, int offset);
  * @brief Fonction qui permet de vider le buffer, autrement dit d'éteindre tout le 7 segments
  * 
  */
-void clear(void);
+void clear7Seg(void);
 
 
 /**

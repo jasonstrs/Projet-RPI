@@ -6,10 +6,14 @@ CC=gcc
 #CC=gcc_croise
 PATH_WPI=/home/jason/Bureau/COURS_LINUX/LE3/RPI/SEANCE_4/target_wpi
 
+LINK_FLAGS= -lSDL2_ttf -lSDL2_image -lm -lwiringPi -lpthread -lncurses -lpanel -lmenu -lform
+
+ALL_O = buzzer.o boutons.o main.o read_write.o afficheur.o partition_sdl.o libNcurses.o menu.o
+
 #CC=/home/jason/Bureau/COURS_LINUX/LE3/RPI/tools-master/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-gcc
 
-all: buzzer.o boutons.o main.o read_write.o afficheur.o partition_sdl.o
-	$(CC) $(PATH_L) buzzer.o boutons.o main.o read_write.o afficheur.o partition_sdl.o  -o main -lwiringPi -lpthread `sdl2-config --cflags --libs` -lSDL2_ttf -lSDL2_image -lm
+all: $(ALL_O)
+	$(CC) $(PATH_L) $(ALL_O) -o main `sdl2-config --cflags --libs` $(LINK_FLAGS)
 
 main.o: main.c
 	$(CC) -c $(PATH_I) main.c -o main.o 
@@ -33,6 +37,13 @@ afficheur.o:afficheur.c
 
 partition_sdl.o : partition_sdl.c
 	$(CC) -c partition_sdl.c -o partition_sdl.o `sdl2-config --cflags --libs`
+
+libNcurses.o : libNcurses.c
+	gcc -c libNcurses.c
+
+menu.o: menu.c
+	gcc -c menu.c -o menu.o
+
 
 
 clean: 

@@ -9,14 +9,17 @@
  * @param part partition que l'on souhaite écrire dans notre fichier
  */
 
-void ecrireMelodie(char* titre, partition_t* part){
+void ecrireMelodie(partition_t* part){
     FILE* f;
-    int i=0;
+    int i=0,j;
     char path[100], error[150];
-
+    j=0;
+    while(part->mel[j].note != -1 && j<MAX_NOTES){
+        j++;
+    }
     system("mkdir -p partitions");
     strcpy(path,"./partitions/");
-    strcat(path,titre);
+    strcat(path,part->titre);
 
     strcpy(error,"ERREUR LORS DE L'OUVERTURE DU FICHIER ");
     strcat(error,path);
@@ -25,7 +28,7 @@ void ecrireMelodie(char* titre, partition_t* part){
 
     fprintf(f,"%s\n",part->titre);
 
-    while((part->mel[i].note != -1 && i<MAX_NOTES && (part->mel[i].note != 0 || part->mel[i].note != 0))){
+    while(part->mel[i].note != -1 && i<MAX_NOTES){
         fprintf(f,"%d:%d\n",part->mel[i].note,part->mel[i].ms);
         i++;
     }
@@ -147,14 +150,18 @@ char **getNamesOfAllPartitions(int nbPartitions){
     if (d) {
         while ((dir = readdir(d)) != NULL) {
             if (strcmp(dir->d_name,".") !=0 && strcmp(dir->d_name,"..") !=0){ // on ne prend pas le répertoire "." et ".."
+                
                 tabNamePartition[cpt] = (char *)malloc(sizeof(char) * 30); // on alloue de la mémoire pour la case
                 strcpy(tabNamePartition[cpt],dir->d_name);
                 cpt++;
             }
         }
         closedir(d);
+        
     }
+    tabNamePartition[cpt] = (char *)malloc(sizeof(char) * 30);
     strcpy(tabNamePartition[cpt],"Quitter");
+    tabNamePartition[cpt + 1] = (char *)malloc(sizeof(char) * 30);
     tabNamePartition[cpt+1]='\0';
     return tabNamePartition;
 }

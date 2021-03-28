@@ -167,8 +167,6 @@ SDL_Rect** GetTabRectNotes(partition_t p, SDL_Rect** tab, int size){
 
 void* threadSDL()
 {
-    printf("Thread SDL lancé! \n");
-
     SDL_Surface *ecran = NULL, *texte = NULL, *fond = NULL;
     SDL_Rect position;
     SDL_Event events, quitEvent;
@@ -190,7 +188,6 @@ void* threadSDL()
 
     CHECK_T(SDL_Init(SDL_INIT_VIDEO),"ERREUR INIT");
     atexit(SDL_Quit);
-    printf("Init Fait\n");
     TTF_Init(); 
 
     
@@ -198,9 +195,7 @@ void* threadSDL()
 
     SDL_SetWindowTitle(sdlWindow,"Test SDL2");
 
-    printf("Fenetre Fait\n");
-
-    CHECK_P(sdlRenderer = SDL_CreateRenderer(sdlWindow,-1,SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC),SDL_GetError())
+    CHECK_P(sdlRenderer = SDL_CreateRenderer(sdlWindow,-1,0),SDL_GetError())
 
     SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");  // permet d'obtenir les redimensionnements plus doux. 
     SDL_RenderSetLogicalSize(sdlRenderer, 1000, 1000);
@@ -208,28 +203,30 @@ void* threadSDL()
 
     ecran = SDL_GetWindowSurface(sdlWindow);
 
-    printf("Ecran Fait\n");
-
 // ------------------------------------------------------------------------------------ //
 // ------------------------------------------------------------------------------------ //
 // --------------------------------- CREATION DES 4 PARTITIONS ------------------------ //
 // ------------------------------------------------------------------------------------ //
 // ------------------------------------------------------------------------------------ //
 
-    SDL_Surface* image;
+    SDL_Surface* image, * imageCommandes;
     CHECK_P(image = IMG_Load("Partition_resized.png"),"Erreur creation image");
+    CHECK_P(imageCommandes = IMG_Load("Commandes_projet_rpi.png"),"Erreur creation image");
     SDL_Texture* pTexturePartition1 = SDL_CreateTextureFromSurface(sdlRenderer, image);
     SDL_Texture* pTexturePartition2 = SDL_CreateTextureFromSurface(sdlRenderer, image);
     SDL_Texture* pTexturePartition3 = SDL_CreateTextureFromSurface(sdlRenderer, image);
     SDL_Texture* pTexturePartition4 = SDL_CreateTextureFromSurface(sdlRenderer, image);
+    SDL_Texture* pTextureCommandes = SDL_CreateTextureFromSurface(sdlRenderer, imageCommandes);
     SDL_FreeSurface(image);
-    SDL_Rect src_part1 = {0, 0, 0, 0}, src_part2 = {0, 0, 0, 0}, src_part3 = {0, 0, 0, 0}, src_part4 = {0, 0, 0, 0};
-    SDL_Rect dst_part1 = { 0, 50, 1000, 170 }, dst_part2 = { 0, 220, 1000, 170 }, dst_part3 = { 0, 390, 1000, 170 }, dst_part4 = { 0, 550, 1000, 170 };
+    SDL_FreeSurface(imageCommandes);
+    SDL_Rect src_part1 = {0, 0, 0, 0}, src_part2 = {0, 0, 0, 0}, src_part3 = {0, 0, 0, 0}, src_part4 = {0, 0, 0, 0}, src_comm={0,0,0,0};
+    SDL_Rect dst_part1 = { 0, 50, 1000, 170 }, dst_part2 = { 0, 220, 1000, 170 }, dst_part3 = { 0, 390, 1000, 170 }, dst_part4 = { 0, 550, 1000, 170 }, dst_comm = { 0, 700, 300, 300 };
 
     SDL_QueryTexture(pTexturePartition1, NULL, SDL_TEXTUREACCESS_STATIC, &src_part1.w, &src_part1.h);
     SDL_QueryTexture(pTexturePartition2, NULL, SDL_TEXTUREACCESS_STATIC, &src_part2.w, &src_part2.h);
     SDL_QueryTexture(pTexturePartition3, NULL, SDL_TEXTUREACCESS_STATIC, &src_part3.w, &src_part3.h);
     SDL_QueryTexture(pTexturePartition4, NULL, SDL_TEXTUREACCESS_STATIC, &src_part4.w, &src_part4.h);
+    SDL_QueryTexture(pTextureCommandes, NULL, SDL_TEXTUREACCESS_STATIC, &src_comm.w, &src_comm.h);
 
 
 
@@ -241,20 +238,16 @@ void* threadSDL()
     // ------------------------------------------------------------------------------------ //
     // ------------------------------------------------------------------------------------ //
 
-    char* titre = "Test titre";
-
 
     //Chargement de la police 
     //police = TTF_OpenFont("/usr/share/fonts/truetype/msttcorefonts/Arial.ttf", 40);
     //Pour le rpi
     police = TTF_OpenFont("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 40);
     //Écriture du texte dans la SDL_Surface texte en mode Blended (optimal)
-    texte = TTF_RenderText_Blended(police, titre, couleurNoire);
+    texte = TTF_RenderText_Blended(police, part.titre, couleurNoire);
     SDL_Texture* pTextureTitre = SDL_CreateTextureFromSurface(sdlRenderer, texte);
     SDL_Rect srcTexte={0,0,0,0} , dst_Texte={425,5,150,40};
     SDL_QueryTexture(pTextureTitre, NULL, SDL_TEXTUREACCESS_STATIC, &srcTexte.w, &srcTexte.h);
-    
-    printf("Titre fait\n");
 
 
     //Partie permettant le réglage de la hauteur de chaque note dans la partition
@@ -316,6 +309,7 @@ void* threadSDL()
         SDL_RenderCopy(sdlRenderer, pTexturePartition2, &src_part2, &dst_part2); // Affiche la texture entièrement
         SDL_RenderCopy(sdlRenderer, pTexturePartition3, &src_part3, &dst_part3); // Affiche la texture entièrement
         SDL_RenderCopy(sdlRenderer, pTexturePartition4, &src_part4, &dst_part4); // Affiche la texture entièrement
+        SDL_RenderCopy(sdlRenderer, pTextureCommandes, &src_comm, &dst_comm); // Affiche la texture entièrement
 
         //Affichage du titre
         SDL_RenderCopy(sdlRenderer, pTextureTitre, &srcTexte, &dst_Texte); // Affiche la texture entièrement
@@ -371,19 +365,12 @@ void* threadSDL()
                     lastTime = currentTime - 11;
                 }
             break;
-            case SAUVEGARDER:
-                j=0;
-                while(part.mel[j].note != -1 && j<MAX_NOTES){
-                    printf("Note %d\t|\t%d\t|\t%d\t|\n",j,part.mel[j].note,part.mel[j].ms);
-                    j++;
-                }
-
-
-                ecrireMelodie("Test",&part);
+            case SAUVEGARDER:            
+                ecrireMelodie(&part);
             break;
             case QUITTER:
-                quitEvent.type = SDL_QUIT;
-                SDL_PushEvent(&quitEvent);
+
+                isOpen = 0;
             break;
             case RESET:
                 firstTime = 1;
@@ -471,17 +458,20 @@ void* threadSDL()
         //printf("%s\n",SDL_GetError());
     }
 
-    SDL_DestroyTexture(pTexturePartition1);
+    /* SDL_DestroyTexture(pTexturePartition1);
     SDL_DestroyTexture(pTexturePartition2);
     SDL_DestroyTexture(pTexturePartition3);
     SDL_DestroyTexture(pTexturePartition4);
+    SDL_DestroyTexture(pTextureCommandes);
 
     TTF_CloseFont(police);
-    TTF_Quit();
+    SDL_FreeSurface(texte);*/
+    TTF_Quit(); 
 
-    SDL_FreeSurface(texte);
+
+
     SDL_Quit();
 
-    return EXIT_SUCCESS;
+    pthread_exit(EXIT_SUCCESS) ;
 } 
  

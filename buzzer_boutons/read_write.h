@@ -10,7 +10,7 @@
  * @param titre titre d'une partition (et aussi nom du fichier qui va être créé)
  * @param part partition que l'on souhaite écrire dans notre fichier
  */
-void ecrireMelodie(char* titre, partition_t* part);
+void ecrireMelodie(partition_t* part);
 
 
 /**

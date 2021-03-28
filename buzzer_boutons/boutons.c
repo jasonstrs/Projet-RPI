@@ -82,8 +82,6 @@ void AnalyserMatrice(void){
 
 
 void* threadBoutons(){
-	printf("Thread boutons lancé! \n");
-
     wiringPiSetup () ;
 	int buttonPin = -1; 
 	int i = 0,j;
