@@ -3,4 +3,4 @@
 
 
 int ecrireMelodie(char* titre, partition_t* part);
-int lireMelodie(char *titre,partition_t melodie);
+int lireMelodie(char *titre,partition_t* melodie);

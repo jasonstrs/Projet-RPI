@@ -26,10 +26,13 @@ void jouerNoteTemps(note_t note, unsigned int ms);
 
 void eteindre_buzzer(void);
 
-void jouerNoteSelonBoutons();
+void enregistrerAvecBoutons();
 
 void jouerExemple(void);
 
+void jouerMelodie(melodie_t mel);
+
+void majCommandes(void);
 
 
 #endif

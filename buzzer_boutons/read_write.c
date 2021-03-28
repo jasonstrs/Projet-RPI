@@ -30,7 +30,7 @@ int ecrireMelodie(char* titre, partition_t* part){
 }
 
 
-int lireMelodie(char *titre, partition_t melodie) {
+int lireMelodie(char *titre, partition_t* melodie) {
     FILE * fp=NULL;
     char path[100];
     char error[100];
@@ -50,15 +50,19 @@ int lireMelodie(char *titre, partition_t melodie) {
     CHECK_P(fp = fopen(path, "r"),error);
 
     while ((read = getline(&line, &len, fp)) != -1) {
-        printf("%s", line);
+        //printf("%s", line);
         if(!cpt){
-            printf("Le nom de la partition est : '%s'",line);
+            //printf("Le nom de la partition est : '%s'",line);
         } else {
             sscanf(line,"%d:%d",&frequence,&duree);
+            melodie->mel[cpt - 1].note = frequence;
+            melodie->mel[cpt - 1].ms = duree;
         }
 
         cpt++;
     }
+        melodie->mel[cpt].note = -1;
+
 
     fclose(fp);
     if (line)
