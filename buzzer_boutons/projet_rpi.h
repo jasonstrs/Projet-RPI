@@ -9,7 +9,11 @@
 #include <pthread.h>
 #include <wiringPi.h>
 #include <dirent.h>
-
+#include <sys/time.h>
+#include <stdint.h>
+#include <inttypes.h>
+#include <math.h>
+#include <unistd.h>
 
 // ------------------------------------------------------------------------------------ //
 // ------------------------------------------------------------------------------------ //
@@ -90,7 +94,7 @@ typedef enum
 #define PAUSE 		setTerm(GREEN);printf("\n\t\t\tAppuyer sur Entrée pour continuer...\n");getchar();resetTerm();
 
 
-#define 	MAX_NOTES		30
+#define 	MAX_NOTES		100
 #define 	MAX_TITRE 		50
 
 // ------------------------------------------------------------------------------------ //
@@ -115,6 +119,17 @@ typedef enum{
     DO2=523,
     BLANC=0,
 }note_t;
+
+typedef enum{
+    PLAY_PAUSE = 8,
+    DEBUT_FIN_ENR = 9,
+    RETOUR_DEBUT = 10,
+    RESET = 11,
+    SAUVEGARDER = 12,
+    QUITTER = 13,
+
+}bouton_commande_t;
+
 
 /**
  * @brief Représentation d'une note -> fréquence + temps en ms

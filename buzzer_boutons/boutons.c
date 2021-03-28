@@ -13,7 +13,8 @@ int columnPins[4] = {23,24,25,6};
 int lastBtn = 0;
 int lastTime = 0;
 int isPressed = 0;
-
+int commandeSDL;
+int commandeBuzzer;
 
 void InitBoutons(){
 	int i;
@@ -40,7 +41,7 @@ int HeldDown(int pin){
 void AnalyserMatrice(void){
 	int i,j;
 	int pin;
-	float ticks;
+	double ticks;
 	for(i=0;i<4;i++){
 		//Analyse des colonnes
 		//printf("On met à 0 la colonne %d (pin %d)\n\n", 4 - i,columnPins[i]);
@@ -53,16 +54,23 @@ void AnalyserMatrice(void){
 
 			if(digitalRead(rowPins[j]) == 0){
 				pin = GetIndex(j,i);
-				printf("Bouton %d appuyé",pin + 1);
+				//printf("Bouton %d appuyé",pin + 1);
 				isPressed = 1;
 				lastBtn = pin;
-				ticks = 0;                             
+				ticks = 0;   
+
+				if(pin>7){
+					commandeSDL = pin;
+					commandeBuzzer = pin;
+				}
+					
+					
 				while(digitalRead(rowPins[j]) == 0){
 					ticks++;
-					delay(100);
+					delay(1);
 				}
-				printf(" relaché! (maintenu %.1f secondes) \n",0.1*ticks);
-				lastTime=0.1*ticks;
+				//printf(" relaché! (maintenu %.1f secondes) \n",0.1*ticks);
+				lastTime=0.001*ticks;
 				isPressed = 0;
 			}
 			
@@ -74,6 +82,7 @@ void AnalyserMatrice(void){
 
 
 void* threadBoutons(){
+	printf("Thread boutons lancé! \n");
 
     wiringPiSetup () ;
 	int buttonPin = -1; 

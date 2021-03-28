@@ -4,10 +4,6 @@
 // pour lister les fichiers du répertoire
 // https://www.studytonight.com/c/programs/files-and-streams/program-to-list-files-in-directory
 
-<<<<<<< HEAD
-int ecrireMelodie(char* titre, partition_t* part);
-int lireMelodie(char *titre,partition_t melodie);
-=======
 /**
  * @brief Fonction qui permet d'écrire une mélodie dans un fichier
  * 
@@ -41,4 +37,3 @@ int countNumberOfLineOutput(char *commande,char *chemin);
  * @return char* tableau contenant les noms des partitions
  */
 char **getNamesOfAllPartitions(int nbPartitions);
->>>>>>> 974267e36c833ed0d0e1044be98df332daf9ed64

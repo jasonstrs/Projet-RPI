@@ -5,12 +5,14 @@
 #include "projet_rpi.h"
 #include "boutons.h"
 #include "buzzer.h" 
+#include "partition_sdl.h" 
 #include "read_write.h"
 #include "afficheur.h"
 
 
 void* threadBoutons();
 void* threadBuzzer ();
+void* threadSDL ();
 
 /**
  * @brief Crée une mélodie aléatoire
