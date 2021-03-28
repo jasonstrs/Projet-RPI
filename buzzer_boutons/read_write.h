@@ -19,7 +19,7 @@ void ecrireMelodie(char* titre, partition_t* part);
  * @param titre titre de la partition que l'on souhaite ouvrir
  * @param partition objet partition que l'on va remplir en lisant le fichier
  */
-void lireMelodie(char *titre,partition_t *partition);
+void lireMelodie(char *titre,partition_t *melodie);
 
 /**
  * @brief Fonction qui permet de compter le nombre de ligne du résultat d'une commande

@@ -37,18 +37,18 @@ void ecrireMelodie(char* titre, partition_t* part){
     CHECK(fclose(f),error);
 }
 
-}
+
 /**
  * @brief Fonction qui permet de lire une mélodie dans un fichier
  * 
  * @param titre titre de la partition que l'on souhaite ouvrir
  * @param partition objet partition que l'on va remplir en lisant le fichier
  */
-int lireMelodie(char *titre, partition_t* melodie) {
+void lireMelodie(char *titre,partition_t *melodie) {
     FILE * fp=NULL;
     char path[100];
     char error[100];
-
+    int frequence, duree;
     char * line = NULL;
     size_t len = 0;
     ssize_t read;
