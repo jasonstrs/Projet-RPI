@@ -10,5 +10,5 @@ extern int tabNotes[8];
 int GetTailleTabNotes(partition_t p);
 SDL_Rect** GetTabRectNotes(partition_t p, SDL_Rect** tab, int size);
 
-extern int ecrireMelodie(char* titre, partition_t* part);
-extern int lireMelodie(char *titre,partition_t* melodie);
+extern void ecrireMelodie(char* titre, partition_t* part);
+extern void lireMelodie(char *titre,partition_t* melodie);

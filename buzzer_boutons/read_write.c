@@ -25,7 +25,7 @@ void ecrireMelodie(char* titre, partition_t* part){
 
     fprintf(f,"%s\n",part->titre);
 
-    while(part->mel[i].note != -1 && i<MAX_NOTES){
+    while((part->mel[i].note != -1 && i<MAX_NOTES && (part->mel[i].note != 0 || part->mel[i].note != 0))){
         fprintf(f,"%d:%d\n",part->mel[i].note,part->mel[i].ms);
         i++;
     }

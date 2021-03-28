@@ -34,15 +34,27 @@ int threadBuzzer (){
 	wiringPiSetup () ;
     
 
-    softToneWrite (BUZZER, 0) ;
+    
 
 	CHECK(softToneCreate (BUZZER),"Problème lors de la création du softTone() sur le buzzer");
+    softToneWrite (BUZZER, 0) ;
     atexit(eteindre_buzzer);
-
+    enregistrement = 0;
+    playpause = 0;
     while(1)
-    {        
-        enregistrerAvecBoutons();
-        /* jouerMelodie(part.mel); */
+    {   majCommandes();   
+        if(enregistrement && !playpause){
+            //printf("Enre\n");
+            enregistrerAvecBoutons();
+        }
+        else if(playpause){
+            //printf("Play\n");
+            jouerMelodie(part.mel);
+        }
+        else{
+            delay(1);
+        }
+            
     }
 
     
@@ -135,8 +147,9 @@ void enregistrerAvecBoutons(){
     double currentTime,initialTime, tpsCumule = 0;
     indexEnregistrement = 0;
     majCommandes();
-    /* if(playpause)return; */
+    if(playpause || !enregistrement)return;
     while(enregistrement && indexEnregistrement < MAX_NOTES && tpsCumule < 18000){
+        majCommandes();
         gettimeofday(&tv, NULL);
         initialTime = (tv.tv_sec) * 1000 + (tv.tv_usec) / 1000 ;
         if(isPressed){
@@ -148,6 +161,7 @@ void enregistrerAvecBoutons(){
                 currentTime = ((tv.tv_sec) * 1000 + (tv.tv_usec) / 1000) - initialTime;
                 tpsCumule+=currentTime;
                 part.mel[indexEnregistrement].ms = currentTime;
+                //printf("%d\n",enregistrement);
                 printf("Note %d : %d | %d\n",indexEnregistrement,part.mel[indexEnregistrement].note,part.mel[indexEnregistrement].ms);
                 indexEnregistrement++;
             }      
@@ -155,7 +169,7 @@ void enregistrerAvecBoutons(){
         else{
             softToneWrite (BUZZER, 0) ;
             part.mel[indexEnregistrement].note = BLANC;
-            while((!isPressed || (isPressed && lastBtn>7)) && enregistrement)majCommandes();
+            while(((!isPressed || (isPressed && lastBtn>7))) && enregistrement)majCommandes();
             gettimeofday(&tv, NULL);
             currentTime = ((tv.tv_sec) * 1000 + (tv.tv_usec) / 1000) - initialTime;
             tpsCumule+=currentTime;
@@ -190,7 +204,7 @@ void jouerMelodie(melodie_t mel){
     while(mel[i].note != -1 && i<MAX_NOTES){
         //printf("note %d = %d : %d\n",i, mel[i].note,mel[i].ms);
         majCommandes();
-        /* if(enregistrement)return; */
+        if(enregistrement)return;
         if(reset){
             i = 0;
             reset = 0;
@@ -211,34 +225,41 @@ void majCommandes(){
     switch(commandeBuzzer){
         case PLAY_PAUSE:
             playpause = !playpause;
+            enregistrement = 0;
+            commandeBuzzer = 0;
         break;
         case RETOUR_DEBUT:
             playpause = 0;
             indexEnregistrement = 0;
+            enregistrement = 0;
             reset = 1;
-            resetPart();
+            commandeBuzzer = 0;
         break;
-        case DEBUT_FIN_ENR:   
-            indexEnregistrement = 0;   
+        case DEBUT_FIN_ENR:                 
             enregistrement = !enregistrement;
-            resetPart();
-            /* if(!enregistrement){
+            //printf("AAAAAAAAAAAAAAAAAAAAAAAAa\n");
+            playpause = 0;
+            if(!enregistrement){
+                //printf("BBBBBBBBBBBBBBBBBBBBBBBB\n");
                 if(indexEnregistrement<MAX_NOTES){
                     part.mel[indexEnregistrement].note = -1;
                 }
             }
             else{
                 indexEnregistrement = 0;
-            } */
+            }
+            commandeBuzzer = 0;
         break;
         case RESET:
             indexEnregistrement = 0;
+            enregistrement = 0;
             resetPart();
+            commandeBuzzer = 0;
         break;
         default:
-            /* printf("commande : %d\n",commandeBuzzer); */
+            /* if(commandeBuzzer!=0)  
+                printf("commande : %d\n",commandeBuzzer); */
         break;
     }
-    commandeBuzzer = 0;
     
 }
