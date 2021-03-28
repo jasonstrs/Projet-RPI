@@ -38,19 +38,13 @@ void ecrireMelodie(char* titre, partition_t* part){
 }
 
 }
-
-<<<<<<< HEAD
-
-int lireMelodie(char *titre, partition_t melodie) {
-=======
 /**
  * @brief Fonction qui permet de lire une mélodie dans un fichier
  * 
  * @param titre titre de la partition que l'on souhaite ouvrir
  * @param partition objet partition que l'on va remplir en lisant le fichier
  */
-void lireMelodie(char *titre, partition_t *partition) {
->>>>>>> 974267e36c833ed0d0e1044be98df332daf9ed64
+int lireMelodie(char *titre, partition_t* melodie) {
     FILE * fp=NULL;
     char path[100];
     char error[100];
@@ -69,23 +63,27 @@ void lireMelodie(char *titre, partition_t *partition) {
 
     CHECK_P(fp = fopen(path, "r"),error);
 
-    strcpy(partition->titre,titre); // on donne un nom à notre partition
+    strcpy(melodie->titre,titre); // on donne un nom à notre partition
 
     while ((read = getline(&line, &len, fp)) != -1) {
-        printf("%s", line);
+        //printf("%s", line);
         if(!cpt){
-            printf("Le nom de la partition est : '%s'",line);
-        } else 
-            sscanf(line,"%d:%d",&(partition->mel[cpt-1].note),&(partition->mel[cpt-1].ms));            
+            //printf("Le nom de la partition est : '%s'",line);
+        } else {
+            sscanf(line,"%d:%d",&frequence,&duree);
+            melodie->mel[cpt - 1].note = frequence;
+            melodie->mel[cpt - 1].ms = duree;
+        }
 
         cpt++;
     }
+
 
     if (cpt ==0){// on vérifie si cpt est 0 ou pas
         perror("ERREUR : LA PARTITION EST VIDE"); exit(-1);
     }
 
-    partition->mel[cpt-1].note=-1; // dernière note !!
+    melodie->mel[cpt-1].note=-1; // dernière note !!
 
     strcpy(error,"ERREUR LORS DE LA FERMETURE DU FICHIER ");
     strcat(error,path);
