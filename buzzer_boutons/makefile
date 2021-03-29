@@ -4,7 +4,7 @@ PATH_L = #-L$(PATH_WPI)/lib
 
 CC=gcc
 #CC=gcc_croise
-PATH_WPI=/home/jason/Bureau/COURS_LINUX/LE3/RPI/SEANCE_4/target_wpi
+#PATH_WPI=/home/jason/Bureau/COURS_LINUX/LE3/RPI/SEANCE_4/target_wpi
 
 LINK_FLAGS= -lSDL2_ttf -lSDL2_image -lm -lwiringPi -lpthread -lncurses -lpanel -lmenu -lform
 

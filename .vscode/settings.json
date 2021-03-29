@@ -2,6 +2,7 @@
     "files.associations": {
         "main.h": "c",
         "cmath": "c",
-        "*.tcc": "c"
+        "*.tcc": "c",
+        "buzzer.h": "c"
     }
 }

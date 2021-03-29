@@ -1,10 +1,9 @@
-#include <softTone.h>
 #include "buzzer.h"
 
 #define	BUZZER	1 //Buzzer connecté à la pin 37 du RPI -> pin 25 wPi
 
 extern int lireMelodie(char *titre,partition_t* melodie);
-
+int fda;
 extern int commandeBuzzer;
 extern int commandeSDL;
 int playpause = 0;
@@ -26,12 +25,20 @@ void resetPart(){
     }
 }
 
+
 int threadBuzzer (){
     /* lireMelodie("testEcriture4",&part); */
 	int i ;
-    
+    fda = wiringPiI2CSetup(0x70); 
 	wiringPiSetup () ;
     
+    begin(fda);
+    writeDigitNum(0, 0, false); 
+    writeDigitNum(1, 0, false); 
+    writeDigitNum(2, 0, false); 
+    writeDigitNum(3, 0, false); 
+    writeDisplay(fda, 0); 
+
 
     
 
@@ -121,12 +128,28 @@ void jouerExemple(){
 }
 
 void jouerNote(note_t note){
+    int centaine, dizaine,unite;
     softToneWrite(BUZZER,note);
+    decomposerFrequence(note,&centaine,&dizaine,&unite);
+    writeDigitNum(0, 0, false); 
+    writeDigitNum(1, centaine, false); 
+    writeDigitNum(2, dizaine, false); 
+    writeDigitNum(3, unite, false); 
+    writeDisplay(fda, 0); 
 }
 
 
 void jouerNoteTemps(note_t note, unsigned int ms){
     int i=0;
+    int centaine, dizaine,unite;
+
+    decomposerFrequence(note,&centaine,&dizaine,&unite);
+    writeDigitNum(0, 0, false); 
+    writeDigitNum(1, centaine, false); 
+    writeDigitNum(2, dizaine, false); 
+    writeDigitNum(3, unite, false); 
+    writeDisplay(fda, 0); 
+
     softToneWrite(BUZZER,note);
     while(i<ms){
         majCommandes();
@@ -143,7 +166,7 @@ void jouerNoteTemps(note_t note, unsigned int ms){
 }
 
 void enregistrerAvecBoutons(){
-    double currentTime,initialTime, tpsCumule = 0;
+    double currentTime,initialTime, tpsCumule = 0; 
     indexEnregistrement = 0;
     majCommandes();
     if(playpause || !enregistrement)return;
@@ -167,6 +190,11 @@ void enregistrerAvecBoutons(){
         }
         else{
             softToneWrite (BUZZER, 0) ;
+            writeDigitNum(0, 0, false); 
+            writeDigitNum(1, 0, false); 
+            writeDigitNum(2, 0, false); 
+            writeDigitNum(3, 0, false); 
+            writeDisplay(fda, 0); 
             part.mel[indexEnregistrement].note = BLANC;
             while(((!isPressed || (isPressed && lastBtn>7))) && enregistrement)majCommandes();
             gettimeofday(&tv, NULL);

@@ -4,6 +4,7 @@
 
 #include "projet_rpi.h"
 #include <softTone.h>
+#include "afficheur.h"
 
 #define	BUZZER	1 //pin wiringPi
 
@@ -33,6 +34,7 @@ void jouerExemple(void);
 void jouerMelodie(melodie_t mel);
 
 void majCommandes(void);
+
 
 
 #endif
