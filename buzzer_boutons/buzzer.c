@@ -44,7 +44,6 @@ int threadBuzzer (){
 
 	CHECK(softToneCreate (BUZZER),"Problème lors de la création du softTone() sur le buzzer");
     softToneWrite (BUZZER, 0) ;
-    atexit(eteindre_buzzer);
     enregistrement = 0;
     playpause = 0;
     while(1)

@@ -10,39 +10,41 @@ LINK_FLAGS= -lSDL2_ttf -lSDL2_image -lm -lwiringPi -lpthread -lncurses -lpanel -
 
 ALL_O = buzzer.o boutons.o main.o read_write.o afficheur.o partition_sdl.o libNcurses.o menu.o
 
+CC_FLAGS = #-Wall -Wextra
+
 #CC=/home/jason/Bureau/COURS_LINUX/LE3/RPI/tools-master/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-gcc
 
 all: $(ALL_O)
-	$(CC) $(PATH_L) $(ALL_O) -o main `sdl2-config --cflags --libs` $(LINK_FLAGS)
+	$(CC) $(CC_FLAGS) $(PATH_L) $(ALL_O) -o main `sdl2-config --cflags --libs` $(LINK_FLAGS)
 
 main.o: main.c
-	$(CC) -c $(PATH_I) main.c -o main.o 
+	$(CC) $(CC_FLAGS) -c $(PATH_I) main.c -o main.o 
 
 
 buzzer.o:buzzer.c
-	$(CC) -c $(PATH_I) buzzer.c -o buzzer.o 
+	$(CC) $(CC_FLAGS) -c $(PATH_I) buzzer.c -o buzzer.o 
 	
 boutons.o:boutons.c
-	$(CC) -c $(PATH_I) boutons.c -o boutons.o 
+	$(CC) $(CC_FLAGS) -c $(PATH_I) boutons.c -o boutons.o 
 	
 
 read_write.o:read_write.c
-	$(CC) -c  read_write.c -o read_write.o 
+	$(CC) $(CC_FLAGS) -c  read_write.c -o read_write.o 
 
 
 afficheur.o:afficheur.c
-	$(CC) -c  afficheur.c -o afficheur.o 
+	$(CC) $(CC_FLAGS) -c  afficheur.c -o afficheur.o 
 	
 
 
 partition_sdl.o : partition_sdl.c
-	$(CC) -c partition_sdl.c -o partition_sdl.o `sdl2-config --cflags --libs`
+	$(CC) $(CC_FLAGS) -c partition_sdl.c -o partition_sdl.o `sdl2-config --cflags --libs`
 
 libNcurses.o : libNcurses.c
-	gcc -c libNcurses.c
+	gcc $(CC_FLAGS) -c libNcurses.c
 
 menu.o: menu.c
-	gcc -c menu.c -o menu.o
+	gcc $(CC_FLAGS) -c menu.c -o menu.o
 
 
 

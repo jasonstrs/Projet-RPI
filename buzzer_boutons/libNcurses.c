@@ -99,8 +99,6 @@ char* trim_whitespaces(char *str)
  */
 int driver(int ch,FORM *form,WINDOW *wUI)
 {
-	int i;
-
 	switch (ch) {
 
         case KEY_F(1):
@@ -155,7 +153,7 @@ int driver(int ch,FORM *form,WINDOW *wUI)
  * @return int return -1 si on souhaite revenir au menu principal, 0 sinon
  */
 int initFormPartition(){
-    int ch,res;
+    int ch, res;
     FORM *form;
     FIELD *fields[3];
 	WINDOW * wBorder=NULL;
@@ -451,7 +449,7 @@ int handleChoice(int choix){
 				CHECK_T(pthread_create (&threadBuzz, NULL, (pf_t)threadBuzzer, NULL),"pthread_create() buzzer"); 
 				CHECK_T(pthread_create (&threadSDL2, NULL, (pf_t)threadSDL, NULL),"pthread_create() sdl"); 
 
-				CHECK_T(pthread_join(threadSDL2,&ret),"Erreur pthread SDL2 join");
+				CHECK_T(pthread_join(threadSDL2,(void **)&ret),"Erreur pthread SDL2 join");
 
             }
         break;
