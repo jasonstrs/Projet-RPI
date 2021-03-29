@@ -7,7 +7,7 @@ int lancerDefilement = 0;
 int lancerEnr = 0;
 extern int commandeSDL;
 extern partition_t part;
-
+SDL_Rect** notes;
 
 /**
  * @brief Analyse la partition pour calculer combien de rectangles seront nécessaires pour représenter toutes les notes
@@ -167,7 +167,7 @@ SDL_Rect** GetTabRectNotes(partition_t p, SDL_Rect** tab, int size){
 
 void* threadSDL()
 {
-    SDL_Surface *ecran = NULL, *texte = NULL, *fond = NULL;
+    SDL_Surface *ecran = NULL, *texte = NULL;
     SDL_Rect position;
     SDL_Event events, quitEvent;
     TTF_Font *police = NULL;
@@ -187,7 +187,6 @@ void* threadSDL()
     int majLastTime = 0;
 
     CHECK_T(SDL_Init(SDL_INIT_VIDEO),"ERREUR INIT");
-    atexit(SDL_Quit);
     TTF_Init(); 
 
     
@@ -220,7 +219,7 @@ void* threadSDL()
     SDL_FreeSurface(image);
     SDL_FreeSurface(imageCommandes);
     SDL_Rect src_part1 = {0, 0, 0, 0}, src_part2 = {0, 0, 0, 0}, src_part3 = {0, 0, 0, 0}, src_part4 = {0, 0, 0, 0}, src_comm={0,0,0,0};
-    SDL_Rect dst_part1 = { 0, 50, 1000, 170 }, dst_part2 = { 0, 220, 1000, 170 }, dst_part3 = { 0, 390, 1000, 170 }, dst_part4 = { 0, 550, 1000, 170 }, dst_comm = { 0, 720, 640, 250 };
+    SDL_Rect dst_part1 = { 0, 50, 1000, 170 }, dst_part2 = { 0, 220, 1000, 170 }, dst_part3 = { 0, 390, 1000, 170 }, dst_part4 = { 0, 550, 1000, 170 }, dst_comm = { 0, 720, 1000, 250 };
 
     SDL_QueryTexture(pTexturePartition1, NULL, SDL_TEXTUREACCESS_STATIC, &src_part1.w, &src_part1.h);
     SDL_QueryTexture(pTexturePartition2, NULL, SDL_TEXTUREACCESS_STATIC, &src_part2.w, &src_part2.h);
@@ -270,8 +269,6 @@ void* threadSDL()
 
    
     /* lireMelodie("testEcriture4",&p); */
-
-    SDL_Rect** notes;
 
     int nbRec = GetTailleTabNotes(part);
     notes = GetTabRectNotes(part,notes,nbRec);
@@ -458,18 +455,24 @@ void* threadSDL()
         //printf("%s\n",SDL_GetError());
     }
 
-    /* SDL_DestroyTexture(pTexturePartition1);
+    SDL_DestroyTexture(pTexturePartition1);
     SDL_DestroyTexture(pTexturePartition2);
     SDL_DestroyTexture(pTexturePartition3);
     SDL_DestroyTexture(pTexturePartition4);
     SDL_DestroyTexture(pTextureCommandes);
+    SDL_DestroyTexture(pTextureTitre);
 
     TTF_CloseFont(police);
-    SDL_FreeSurface(texte);*/
+    SDL_FreeSurface(texte);
+    SDL_FreeSurface(ecran);
+
+    SDL_DestroyRenderer(sdlRenderer);
+    SDL_DestroyWindow(sdlWindow);
+
+
+    SDL_QuitSubSystem(SDL_INIT_VIDEO);
+
     TTF_Quit(); 
-
-
-
     SDL_Quit();
 
     pthread_exit(EXIT_SUCCESS) ;
