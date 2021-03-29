@@ -220,7 +220,7 @@ void* threadSDL()
     SDL_FreeSurface(image);
     SDL_FreeSurface(imageCommandes);
     SDL_Rect src_part1 = {0, 0, 0, 0}, src_part2 = {0, 0, 0, 0}, src_part3 = {0, 0, 0, 0}, src_part4 = {0, 0, 0, 0}, src_comm={0,0,0,0};
-    SDL_Rect dst_part1 = { 0, 50, 1000, 170 }, dst_part2 = { 0, 220, 1000, 170 }, dst_part3 = { 0, 390, 1000, 170 }, dst_part4 = { 0, 550, 1000, 170 }, dst_comm = { 0, 700, 300, 300 };
+    SDL_Rect dst_part1 = { 0, 50, 1000, 170 }, dst_part2 = { 0, 220, 1000, 170 }, dst_part3 = { 0, 390, 1000, 170 }, dst_part4 = { 0, 550, 1000, 170 }, dst_comm = { 0, 720, 640, 250 };
 
     SDL_QueryTexture(pTexturePartition1, NULL, SDL_TEXTUREACCESS_STATIC, &src_part1.w, &src_part1.h);
     SDL_QueryTexture(pTexturePartition2, NULL, SDL_TEXTUREACCESS_STATIC, &src_part2.w, &src_part2.h);
