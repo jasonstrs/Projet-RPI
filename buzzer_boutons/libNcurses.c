@@ -10,7 +10,6 @@ char *choices[] =
 {
     "Nouvelle partition",
     "Charger une partition",
-    "Aide",
     "Quitter l'application",
     NULL
 };
@@ -21,18 +20,21 @@ char *choices[] =
  */
 void runNcurses(void){
     int choiceno;
+	int res;
 
     initFenetre();
 
     /* ACQUIRE THE USER'S CHOICE */
     do {
         choiceno = runMenu(stdscr, 20, 40, 2, 50, choices,"Choisir une option");
-
-    } while (handleChoice(choiceno) == -1);
+		printf("CHOICEEEEE %d",choiceno);
+		res = handleChoice(choiceno);
+    } while ( res == -1);
 
 
     printf("\n\nYou chose item %d, %s\n", choiceno, choiceno>=0 ? choices[choiceno] : choices[-choiceno]);
     printf("'%s'\n",name_Partition);
+	return;
 }
 
 
@@ -171,8 +173,8 @@ int initFormPartition(){
         15=>coordonnée x
 	*/
 
-    fields[0] = new_field(1, 50, 10, 0, 0, 0); // création champs 1
-	fields[1] = new_field(1, 50, 10, 25, 0, 0); // création champs 1
+    fields[0] = new_field(1, 25, 0, 0, 0, 0); // création champs 1
+	fields[1] = new_field(1, 10, 0, 22, 0, 0); // création champs 1
 	fields[2] = NULL;
 	assert(fields[0] != NULL && fields[1] != NULL);
 
@@ -180,6 +182,7 @@ int initFormPartition(){
 	set_field_back(fields[0],COLOR_PAIR(WHITEONRED) | WA_BOLD);
 	set_field_back(fields[1],COLOR_PAIR(WHITEONRED) | WA_BOLD);
 
+	//set_field_buffer(fields[0], 0, "Nom de la partition :");
 	set_field_buffer(fields[0], 0, "Nom de la partition :");
 	set_field_buffer(fields[1], 0, "");
 
@@ -231,7 +234,7 @@ int initFormPartition(){
 WINDOW * getWindowBorder(char *title){
 	WINDOW * wBorder=NULL;
 	/* SET UP WINDOW FOR MENU'S BORDER */
-	wBorder = newwin(50, 100, 2, 50);
+	wBorder = newwin(20, 40, 2, 50);
 	wattrset(wBorder, COLOR_PAIR(WHITEONRED) | WA_BOLD);
 	wclrscr(wBorder); 
 	box(wBorder, 0, 0);
@@ -248,58 +251,11 @@ WINDOW * getWindowBorder(char *title){
 WINDOW * getUserInterface(WINDOW * wBorder){
 	WINDOW *wUI;
 	/* Set up WINDOW FOR USER  */
-	wUI = derwin(wBorder, 20,80, 2, 2);
+	wUI = derwin(wBorder, 18,38, 2, 2);
 	wbkgd(wUI,COLOR_PAIR(WHITEONRED) | WA_BOLD);
 	return wUI;
 }
 
-/**
- * @brief Cette fonction permet d'initialiser et d'afficher le formulaire "Aide"
- */
-void initFormHelp(){
-	int ch,res;
-    FORM *form;
-    FIELD *fields[2];
-	WINDOW * wBorder=NULL;
-	WINDOW *wUI=NULL;
-
-	wBorder = getWindowBorder("Aide");
-	wUI = getUserInterface(wBorder);
-
-    fields[0] = new_field(2, 60, 10, 0, 0, 0); // création champs 1
-	fields[1] = NULL;
-
-	assert(fields[0] != NULL);
-
-	// color field + ajout attribut
-	set_field_back(fields[0],COLOR_PAIR(WHITEONRED) | WA_BOLD);
-	set_field_buffer(fields[0], 0, "Veuillez consulter la page SDL qui vient de s'ouvrir !              F1 pour quitter");
-
-    form = new_form(fields); // on crée le formulaire
-	assert(form != NULL);
-	curs_set(0); // on cache le curseur
-
-	set_form_win(form, wBorder); // on synchronise le form avec les deux interfaces
-	set_form_sub(form,wUI);
-	post_form(form); // on l'ajoute
-
-	/* REFRESH THE BORDER WINDOW PRIOR TO ACCEPTING USER INTERACTION */
-	touchwin(wBorder);
-	wrefresh(wBorder);
-	touchwin(wUI);
-	wrefresh(wUI); 
-
-    do { // tant que la touche appuyé est différente de F1
-        ch=getch();
-    } while (ch != KEY_F(1));
-
-	unpost_form(form);
-	free_form(form);
-	free_field(fields[0]);
-	delwin(wUI);
-	delwin(wBorder);
-/* 	return res; */
-}
 
 /**
  * @brief Fonction qui permet de centrer le titre en haut de la fenêtre
@@ -431,7 +387,7 @@ int runMenu(WINDOW *wParent, int height, int width, int y, int x, char *choices[
 		c = getch();
 		switch(c)
 			{
-			case KEY_F(1): return -3; break;
+			case KEY_F(1): printf("fhfhj"); return -3; break;
 			case KEY_DOWN:
 				menu_driver(my_menu, REQ_DOWN_ITEM);
 				break;
@@ -465,7 +421,7 @@ int runMenu(WINDOW *wParent, int height, int width, int y, int x, char *choices[
 	wrefresh(wParent);
 
 	/* RETURN THE ZERO BASED NUMERIC USER CHOICE */
-	return(my_choice);
+	return my_choice;
 }
 
 
@@ -497,7 +453,6 @@ int handleChoice(int choix){
 
 				CHECK_T(pthread_join(threadSDL2,&ret),"Erreur pthread SDL2 join");
 
-				endwin(); /// POUR LE MOMENT !
             }
         break;
 
@@ -508,8 +463,6 @@ int handleChoice(int choix){
                
             choiceno = runMenu(stdscr, 20, 40, 2, 50, menu_options,"Charger Partition");
 
-			// TODO : ETRE SUR QUE C'EST NBPARTITION-2 PAS SUR DU TOUT !!!!!!!!!!!!!!!
-			printf("nbPartition => %d || Choix => %d\n",nbPartition,choiceno);
 
             if (nbPartition == choiceno || choiceno == -3) { // QUITTER
                 free(menu_options);
@@ -530,16 +483,12 @@ int handleChoice(int choix){
             }
         break;
 
-        case 2:
-			printf(("On lance une partition dans SDL\n"));
-			initFormHelp();
-			return -1;
-        break;
 
+		case -1:
 		case -3:
-        case 3:
+        case 2:
             printf("Quitter\n");
-            endwin();	/* end ncurses */
+            endwin();
         break;
         
         default:

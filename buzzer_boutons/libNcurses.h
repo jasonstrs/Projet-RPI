@@ -121,11 +121,6 @@ void initFenetre(void);
 void runNcurses(void);
 
 /**
- * @brief Cette fonction permet d'initialiser et d'afficher le formulaire "Aide"
- */
-void initFormHelp();
-
-/**
  * @brief Fonction qui permet de récupérer une fenêtre qui va servir de bordure
  * @param title titre que l'on veut donner à la fenêtre
  * @return WINDOW* fenêtre wBorder qui est retournée

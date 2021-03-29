@@ -469,9 +469,9 @@ void* threadSDL()
     TTF_Quit(); 
 
 
+    //SDL_Quit();
+    pthread_kill(pthread_self(),SIGKILL);
 
-    SDL_Quit();
-
-    pthread_exit(EXIT_SUCCESS) ;
+    //pthread_exit(EXIT_SUCCESS) ;
 } 
  

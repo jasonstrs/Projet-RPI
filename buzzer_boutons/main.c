@@ -26,14 +26,10 @@ int main(int argc, int* argv){
 
 
     //Programme principal
-	while(1){
 
         menu();
 
 
-
-
-    }
     
 
 }
