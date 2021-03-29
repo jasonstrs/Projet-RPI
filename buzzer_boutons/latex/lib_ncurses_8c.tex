@@ -1,0 +1,483 @@
+\hypertarget{lib_ncurses_8c}{}\doxysection{lib\+Ncurses.\+c File Reference}
+\label{lib_ncurses_8c}\index{libNcurses.c@{libNcurses.c}}
+{\ttfamily \#include \char`\"{}lib\+Ncurses.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../buzzer\+\_\+boutons/read\+\_\+write.\+h\char`\"{}}\newline
+Include dependency graph for lib\+Ncurses.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lib_ncurses_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lib_ncurses_8c_a82a715ca7b0a5c4c79ac5fdc003c4d22}{run\+Ncurses}} (void)
+\begin{DoxyCompactList}\small\item\em Cette fonction permet de démarrer la librairie ncurses, elle appelle une fonction d\textquotesingle{}initialisation de la fenêtre et elle lance le menu principal de notre librairie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lib_ncurses_8c_a40a181d3637cc186e020e3f0e855a788}{init\+Fenetre}} ()
+\begin{DoxyCompactList}\small\item\em Fonction qui permet d\textquotesingle{}initialiser la fenêtre, c\textquotesingle{}est-\/à-\/dire mettre un fond bleu, activer la détection des touches, activer les couleurs et afficher la fenêtre. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{lib_ncurses_8c_a6e7f09d8d818433b540bff4203510c7c}{trim\+\_\+whitespaces}} (char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de supprimer les espaces ajoutés à la fin du champs de formulaire ncurses /!\textbackslash{} On utilise cette fonction car ncurses ajoute des espaces à la fin du champs. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{lib_ncurses_8c_a58f63fe461c12ba902473717d4d2b36e}{driver}} (int ch, F\+O\+RM $\ast$form, W\+I\+N\+D\+OW $\ast$w\+UI)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de gérer les touches appuyées par l\textquotesingle{}utilisateur dans le sous menu \char`\"{}\+Nouvelle Partition\char`\"{}. F1 =$>$ Revenir au menu supérieur Le reste permet de se déplacer/écrire/supprimer/espace... \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{lib_ncurses_8c_a04685be81041ee1623f8857c885cf3cf}{init\+Form\+Partition}} ()
+\begin{DoxyCompactList}\small\item\em Cette fonction permet d\textquotesingle{}initialiser et d\textquotesingle{}afficher le formulaire \char`\"{}\+Nouvelle Partition\char`\"{}. \end{DoxyCompactList}\item 
+W\+I\+N\+D\+OW $\ast$ \mbox{\hyperlink{lib_ncurses_8c_a916baa177ce9814b4ffcc0d800684432}{get\+Window\+Border}} (char $\ast$title)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de récupérer une fenêtre qui va servir de bordure. \end{DoxyCompactList}\item 
+W\+I\+N\+D\+OW $\ast$ \mbox{\hyperlink{lib_ncurses_8c_a50017d15edfc9d7008b46e4007772e7b}{get\+User\+Interface}} (W\+I\+N\+D\+OW $\ast$w\+Border)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de récupérer l\textquotesingle{}interface utilisateur sur laquelle sera mise des écritures ou un formulaire, dans notre projet, c\textquotesingle{}est la fenêtre rouge. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lib_ncurses_8c_a5dad0fc619e605137598389cebdef238}{w\+Center\+Title}} (W\+I\+N\+D\+OW $\ast$pwin, const char $\ast$title)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de centrer le titre en haut de la fenêtre. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lib_ncurses_8c_a5aba62cb07979f6d9917707fb26a37fd}{wclrscr}} (W\+I\+N\+D\+OW $\ast$pwin)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de dessiner le fond de la fenêtre. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{lib_ncurses_8c_a9491faf0a8087d1d63fa74a90b5a8fdf}{init\+Colors}} ()
+\begin{DoxyCompactList}\small\item\em Fonction qui permet d\textquotesingle{}initialiser les couleurs pour notre librairie ncurses. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{lib_ncurses_8c_ad37d7746ffb1041d213a557176cf2355}{run\+Menu}} (W\+I\+N\+D\+OW $\ast$w\+Parent, int height, int width, int y, int x, char $\ast$\mbox{\hyperlink{lib_ncurses_8h_a186d0241c62502fb176689d6e6d56a46}{choices}}\mbox{[}$\,$\mbox{]}, char titre\mbox{[}20\mbox{]})
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de démarrer le menu principal sur la fenêtre principal, en y insérant le titre et les coordonnées. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{lib_ncurses_8c_a3f8a9f5fee211450d7581f39ae989106}{handle\+Choice}} (int choix)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de gérer le choix de l\textquotesingle{}utilisateur dans le menu principal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int $\ast$ \mbox{\hyperlink{lib_ncurses_8c_ab3105867cb7dd8d3a67bf1113f0045b7}{ret}}
+\item 
+char $\ast$ \mbox{\hyperlink{lib_ncurses_8c_a186d0241c62502fb176689d6e6d56a46}{choices}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Liste des choix possibles proposés à l\textquotesingle{}utilisateur dans le menu principal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{lib_ncurses_8c_a58f63fe461c12ba902473717d4d2b36e}\label{lib_ncurses_8c_a58f63fe461c12ba902473717d4d2b36e}} 
+\index{libNcurses.c@{libNcurses.c}!driver@{driver}}
+\index{driver@{driver}!libNcurses.c@{libNcurses.c}}
+\doxysubsubsection{\texorpdfstring{driver()}{driver()}}
+{\footnotesize\ttfamily int driver (\begin{DoxyParamCaption}\item[{int}]{ch,  }\item[{F\+O\+RM $\ast$}]{form,  }\item[{W\+I\+N\+D\+OW $\ast$}]{w\+UI }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de gérer les touches appuyées par l\textquotesingle{}utilisateur dans le sous menu \char`\"{}\+Nouvelle Partition\char`\"{}. F1 =$>$ Revenir au menu supérieur Le reste permet de se déplacer/écrire/supprimer/espace... 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ch} & correspond à la touche qui a été appuyée \\
+\hline
+{\em form} & correspond au formulaire \\
+\hline
+{\em w\+UI} & correspond à la fenêtre dans laquelle se trouve le formulaire (fenêtre rouge) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int retourne -\/1 si on quitte le menu, 0 si entrée, 1 sinon 
+\end{DoxyReturn}
+
+
+Definition at line 100 of file lib\+Ncurses.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lib_ncurses_8c_a58f63fe461c12ba902473717d4d2b36e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{lib_ncurses_8c_a50017d15edfc9d7008b46e4007772e7b}\label{lib_ncurses_8c_a50017d15edfc9d7008b46e4007772e7b}} 
+\index{libNcurses.c@{libNcurses.c}!getUserInterface@{getUserInterface}}
+\index{getUserInterface@{getUserInterface}!libNcurses.c@{libNcurses.c}}
+\doxysubsubsection{\texorpdfstring{getUserInterface()}{getUserInterface()}}
+{\footnotesize\ttfamily W\+I\+N\+D\+OW$\ast$ get\+User\+Interface (\begin{DoxyParamCaption}\item[{W\+I\+N\+D\+OW $\ast$}]{w\+Border }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de récupérer l\textquotesingle{}interface utilisateur sur laquelle sera mise des écritures ou un formulaire, dans notre projet, c\textquotesingle{}est la fenêtre rouge. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em w\+Border} & bordure qui va encadrée notre fenêtre \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+W\+I\+N\+D\+O\+W$\ast$ fenêtre interface utilisateur qui est retournée 
+\end{DoxyReturn}
+
+
+Definition at line 249 of file lib\+Ncurses.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lib_ncurses_8c_a50017d15edfc9d7008b46e4007772e7b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{lib_ncurses_8c_a916baa177ce9814b4ffcc0d800684432}\label{lib_ncurses_8c_a916baa177ce9814b4ffcc0d800684432}} 
+\index{libNcurses.c@{libNcurses.c}!getWindowBorder@{getWindowBorder}}
+\index{getWindowBorder@{getWindowBorder}!libNcurses.c@{libNcurses.c}}
+\doxysubsubsection{\texorpdfstring{getWindowBorder()}{getWindowBorder()}}
+{\footnotesize\ttfamily W\+I\+N\+D\+OW$\ast$ get\+Window\+Border (\begin{DoxyParamCaption}\item[{char $\ast$}]{title }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de récupérer une fenêtre qui va servir de bordure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & titre que l\textquotesingle{}on veut donner à la fenêtre \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+W\+I\+N\+D\+O\+W$\ast$ fenêtre w\+Border qui est retournée 
+\end{DoxyReturn}
+
+
+Definition at line 232 of file lib\+Ncurses.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{lib_ncurses_8c_a916baa177ce9814b4ffcc0d800684432_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lib_ncurses_8c_a916baa177ce9814b4ffcc0d800684432_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{lib_ncurses_8c_a3f8a9f5fee211450d7581f39ae989106}\label{lib_ncurses_8c_a3f8a9f5fee211450d7581f39ae989106}} 
+\index{libNcurses.c@{libNcurses.c}!handleChoice@{handleChoice}}
+\index{handleChoice@{handleChoice}!libNcurses.c@{libNcurses.c}}
+\doxysubsubsection{\texorpdfstring{handleChoice()}{handleChoice()}}
+{\footnotesize\ttfamily int handle\+Choice (\begin{DoxyParamCaption}\item[{int}]{choix }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de gérer le choix de l\textquotesingle{}utilisateur dans le menu principal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em choix} & index de l\textquotesingle{}option choisie par l\textquotesingle{}utilisateur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int return -\/1 si on doit relancer le menu principal, sinon 1 
+\end{DoxyReturn}
+P\+O\+UR LE M\+O\+M\+E\+NT !
+
+Definition at line 431 of file lib\+Ncurses.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lib_ncurses_8c_a3f8a9f5fee211450d7581f39ae989106_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lib_ncurses_8c_a3f8a9f5fee211450d7581f39ae989106_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{lib_ncurses_8c_a9491faf0a8087d1d63fa74a90b5a8fdf}\label{lib_ncurses_8c_a9491faf0a8087d1d63fa74a90b5a8fdf}} 
+\index{libNcurses.c@{libNcurses.c}!initColors@{initColors}}
+\index{initColors@{initColors}!libNcurses.c@{libNcurses.c}}
+\doxysubsubsection{\texorpdfstring{initColors()}{initColors()}}
+{\footnotesize\ttfamily bool init\+Colors (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet d\textquotesingle{}initialiser les couleurs pour notre librairie ncurses. 
+
+\begin{DoxyReturn}{Returns}
+true \+: si le terminal est capable d\textquotesingle{}afficher des couleurs 
+
+false \+: si le terminal n\textquotesingle{}est pas capable d\textquotesingle{}afficher des couleurs 
+\end{DoxyReturn}
+
+
+Definition at line 293 of file lib\+Ncurses.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lib_ncurses_8c_a9491faf0a8087d1d63fa74a90b5a8fdf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{lib_ncurses_8c_a40a181d3637cc186e020e3f0e855a788}\label{lib_ncurses_8c_a40a181d3637cc186e020e3f0e855a788}} 
+\index{libNcurses.c@{libNcurses.c}!initFenetre@{initFenetre}}
+\index{initFenetre@{initFenetre}!libNcurses.c@{libNcurses.c}}
+\doxysubsubsection{\texorpdfstring{initFenetre()}{initFenetre()}}
+{\footnotesize\ttfamily void init\+Fenetre (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet d\textquotesingle{}initialiser la fenêtre, c\textquotesingle{}est-\/à-\/dire mettre un fond bleu, activer la détection des touches, activer les couleurs et afficher la fenêtre. 
+
+
+
+Definition at line 45 of file lib\+Ncurses.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{lib_ncurses_8c_a40a181d3637cc186e020e3f0e855a788_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lib_ncurses_8c_a40a181d3637cc186e020e3f0e855a788_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{lib_ncurses_8c_a04685be81041ee1623f8857c885cf3cf}\label{lib_ncurses_8c_a04685be81041ee1623f8857c885cf3cf}} 
+\index{libNcurses.c@{libNcurses.c}!initFormPartition@{initFormPartition}}
+\index{initFormPartition@{initFormPartition}!libNcurses.c@{libNcurses.c}}
+\doxysubsubsection{\texorpdfstring{initFormPartition()}{initFormPartition()}}
+{\footnotesize\ttfamily int init\+Form\+Partition (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Cette fonction permet d\textquotesingle{}initialiser et d\textquotesingle{}afficher le formulaire \char`\"{}\+Nouvelle Partition\char`\"{}. 
+
+\begin{DoxyReturn}{Returns}
+int return -\/1 si on souhaite revenir au menu principal, 0 sinon 
+\end{DoxyReturn}
+
+
+Definition at line 155 of file lib\+Ncurses.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lib_ncurses_8c_a04685be81041ee1623f8857c885cf3cf_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lib_ncurses_8c_a04685be81041ee1623f8857c885cf3cf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{lib_ncurses_8c_ad37d7746ffb1041d213a557176cf2355}\label{lib_ncurses_8c_ad37d7746ffb1041d213a557176cf2355}} 
+\index{libNcurses.c@{libNcurses.c}!runMenu@{runMenu}}
+\index{runMenu@{runMenu}!libNcurses.c@{libNcurses.c}}
+\doxysubsubsection{\texorpdfstring{runMenu()}{runMenu()}}
+{\footnotesize\ttfamily int run\+Menu (\begin{DoxyParamCaption}\item[{W\+I\+N\+D\+OW $\ast$}]{w\+Parent,  }\item[{int}]{height,  }\item[{int}]{width,  }\item[{int}]{y,  }\item[{int}]{x,  }\item[{char $\ast$}]{choices\mbox{[}$\,$\mbox{]},  }\item[{char}]{titre\mbox{[}20\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de démarrer le menu principal sur la fenêtre principal, en y insérant le titre et les coordonnées. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em w\+Parent} & fenêtre principale \\
+\hline
+{\em height} & hauteur de la fenêtre fille \\
+\hline
+{\em width} & largeur de la fenêtre fille \\
+\hline
+{\em y} & coordonnée y de la fenêtre fille \\
+\hline
+{\em x} & coordonnée x de la fenêtre fille \\
+\hline
+{\em choices} & choix disponibles dans le menu \\
+\hline
+{\em titre} & titre de la fenêtre/bordule \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int return -\/3 si on souhaite quitter l\textquotesingle{}application, sinon retourne l\textquotesingle{}index de l\textquotesingle{}option choisie dans le menu 
+\end{DoxyReturn}
+
+
+Definition at line 316 of file lib\+Ncurses.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{lib_ncurses_8c_ad37d7746ffb1041d213a557176cf2355_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lib_ncurses_8c_ad37d7746ffb1041d213a557176cf2355_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{lib_ncurses_8c_a82a715ca7b0a5c4c79ac5fdc003c4d22}\label{lib_ncurses_8c_a82a715ca7b0a5c4c79ac5fdc003c4d22}} 
+\index{libNcurses.c@{libNcurses.c}!runNcurses@{runNcurses}}
+\index{runNcurses@{runNcurses}!libNcurses.c@{libNcurses.c}}
+\doxysubsubsection{\texorpdfstring{runNcurses()}{runNcurses()}}
+{\footnotesize\ttfamily void run\+Ncurses (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Cette fonction permet de démarrer la librairie ncurses, elle appelle une fonction d\textquotesingle{}initialisation de la fenêtre et elle lance le menu principal de notre librairie. 
+
+Cette fonction permet de démarrer la librairie ncurses, elle appelle une fonction d\textquotesingle{}initialisation de la fenêtre pour obtenir un fond bleu et elle lance le menu principal de notre librairie. 
+
+Definition at line 21 of file lib\+Ncurses.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lib_ncurses_8c_a82a715ca7b0a5c4c79ac5fdc003c4d22_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{lib_ncurses_8c_a82a715ca7b0a5c4c79ac5fdc003c4d22_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{lib_ncurses_8c_a6e7f09d8d818433b540bff4203510c7c}\label{lib_ncurses_8c_a6e7f09d8d818433b540bff4203510c7c}} 
+\index{libNcurses.c@{libNcurses.c}!trim\_whitespaces@{trim\_whitespaces}}
+\index{trim\_whitespaces@{trim\_whitespaces}!libNcurses.c@{libNcurses.c}}
+\doxysubsubsection{\texorpdfstring{trim\_whitespaces()}{trim\_whitespaces()}}
+{\footnotesize\ttfamily char$\ast$ trim\+\_\+whitespaces (\begin{DoxyParamCaption}\item[{char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de supprimer les espaces ajoutés à la fin du champs de formulaire ncurses /!\textbackslash{} On utilise cette fonction car ncurses ajoute des espaces à la fin du champs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & champs de formulaire récupéré dans ncurses \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$ chaine de caractères sans les espaces à la fin 
+\end{DoxyReturn}
+
+
+Definition at line 68 of file lib\+Ncurses.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lib_ncurses_8c_a6e7f09d8d818433b540bff4203510c7c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{lib_ncurses_8c_a5dad0fc619e605137598389cebdef238}\label{lib_ncurses_8c_a5dad0fc619e605137598389cebdef238}} 
+\index{libNcurses.c@{libNcurses.c}!wCenterTitle@{wCenterTitle}}
+\index{wCenterTitle@{wCenterTitle}!libNcurses.c@{libNcurses.c}}
+\doxysubsubsection{\texorpdfstring{wCenterTitle()}{wCenterTitle()}}
+{\footnotesize\ttfamily void w\+Center\+Title (\begin{DoxyParamCaption}\item[{W\+I\+N\+D\+OW $\ast$}]{pwin,  }\item[{const char $\ast$}]{title }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de centrer le titre en haut de la fenêtre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pwin} & fênetre sur laquelle on veut placer le titre \\
+\hline
+{\em title} & titre que l\textquotesingle{}on veut donner \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 263 of file lib\+Ncurses.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lib_ncurses_8c_a5dad0fc619e605137598389cebdef238_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{lib_ncurses_8c_a5aba62cb07979f6d9917707fb26a37fd}\label{lib_ncurses_8c_a5aba62cb07979f6d9917707fb26a37fd}} 
+\index{libNcurses.c@{libNcurses.c}!wclrscr@{wclrscr}}
+\index{wclrscr@{wclrscr}!libNcurses.c@{libNcurses.c}}
+\doxysubsubsection{\texorpdfstring{wclrscr()}{wclrscr()}}
+{\footnotesize\ttfamily void wclrscr (\begin{DoxyParamCaption}\item[{W\+I\+N\+D\+OW $\ast$}]{pwin }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de dessiner le fond de la fenêtre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pwin} & fenêtre sur laquelle on met un fond \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 280 of file lib\+Ncurses.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lib_ncurses_8c_a5aba62cb07979f6d9917707fb26a37fd_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{lib_ncurses_8c_a186d0241c62502fb176689d6e6d56a46}\label{lib_ncurses_8c_a186d0241c62502fb176689d6e6d56a46}} 
+\index{libNcurses.c@{libNcurses.c}!choices@{choices}}
+\index{choices@{choices}!libNcurses.c@{libNcurses.c}}
+\doxysubsubsection{\texorpdfstring{choices}{choices}}
+{\footnotesize\ttfamily char$\ast$ choices\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{stringliteral}{"Nouvelle partition"},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"Charger une partition"},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"Quitter l'application"},}
+\DoxyCodeLine{    NULL}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Liste des choix possibles proposés à l\textquotesingle{}utilisateur dans le menu principal. 
+
+
+
+Definition at line 9 of file lib\+Ncurses.\+c.
+
+\mbox{\Hypertarget{lib_ncurses_8c_ab3105867cb7dd8d3a67bf1113f0045b7}\label{lib_ncurses_8c_ab3105867cb7dd8d3a67bf1113f0045b7}} 
+\index{libNcurses.c@{libNcurses.c}!ret@{ret}}
+\index{ret@{ret}!libNcurses.c@{libNcurses.c}}
+\doxysubsubsection{\texorpdfstring{ret}{ret}}
+{\footnotesize\ttfamily int$\ast$ ret}
+
+
+
+Definition at line 4 of file lib\+Ncurses.\+c.
+

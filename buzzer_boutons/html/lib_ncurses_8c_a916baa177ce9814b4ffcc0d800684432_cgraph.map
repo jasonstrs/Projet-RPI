@@ -1,0 +1,5 @@
+<map id="getWindowBorder" name="getWindowBorder">
+<area shape="rect" id="node1" title="Fonction qui permet de récupérer une fenêtre qui va servir de bordure." alt="" coords="5,31,131,57"/>
+<area shape="rect" id="node2" href="$lib_ncurses_8c.html#a5dad0fc619e605137598389cebdef238" title="Fonction qui permet de centrer le titre en haut de la fenêtre." alt="" coords="179,5,275,32"/>
+<area shape="rect" id="node3" href="$lib_ncurses_8c.html#a5aba62cb07979f6d9917707fb26a37fd" title="Fonction qui permet de dessiner le fond de la fenêtre." alt="" coords="195,56,259,83"/>
+</map>

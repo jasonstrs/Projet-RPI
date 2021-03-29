@@ -1,0 +1,4 @@
+<map id="partition_t" name="partition_t">
+<area shape="rect" id="node1" title="Représente une partition : mélodie + titre." alt="" coords="9,95,88,121"/>
+<area shape="rect" id="node2" href="$structune__note__t.html" title="Représentation d&#39;une note &#45;&gt; fréquence + temps en ms." alt="" coords="5,5,92,32"/>
+</map>

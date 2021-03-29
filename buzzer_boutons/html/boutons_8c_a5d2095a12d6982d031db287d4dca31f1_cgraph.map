@@ -1,0 +1,6 @@
+<map id="threadBoutons" name="threadBoutons">
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,112,57"/>
+<area shape="rect" id="node2" href="$boutons_8c.html#af949d12efe156903031b8c8fb62d1888" title="Analyse tour à tour toute les lignes/colonnes de la matrice, pour voir sur quel bouton on a appuyé" alt="" coords="160,5,276,32"/>
+<area shape="rect" id="node4" href="$boutons_8c.html#a559b62a701ee9273e10efe7d6e001d1d" title="Initialise correctement la matrice de boutons." alt="" coords="174,56,262,83"/>
+<area shape="rect" id="node3" href="$boutons_8c.html#a857895768238d3fb444bcda5a559659c" title="Récupère le numéro du bouton sur lequel on a appuyé, en fonction des broches de ligne/colonne." alt="" coords="324,5,399,32"/>
+</map>

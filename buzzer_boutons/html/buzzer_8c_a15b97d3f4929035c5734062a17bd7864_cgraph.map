@@ -1,0 +1,4 @@
+<map id="majCommandes" name="majCommandes">
+<area shape="rect" id="node1" title="Vérifie si un bouton de commande n&#39;a pas été pressé." alt="" coords="5,5,123,32"/>
+<area shape="rect" id="node2" href="$buzzer_8c.html#a7b0d600704658570364e9b26867de321" title=" " alt="" coords="171,5,245,32"/>
+</map>

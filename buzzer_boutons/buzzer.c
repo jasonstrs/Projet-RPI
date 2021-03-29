@@ -6,15 +6,46 @@ extern int lireMelodie(char *titre,partition_t* melodie);
 int fda;
 extern int commandeBuzzer;
 extern int commandeSDL;
+
+/**
+ * @brief Active ou désactive le fait de jouer les notes
+ * 
+ */
 int playpause = 0;
+/**
+ * @brief reset la mélodie
+ * 
+ */
 int reset = 0;
-int enregistrement = 0, indexEnregistrement = 0;
+
+/**
+ * @brief Définit si la mélodie est en cours d'enregistrement
+ * 
+ */
+int enregistrement = 0;
+
+/**
+ * @brief Indice de la note en cours d'enregistrement
+ * 
+ */
+int indexEnregistrement = 0;
+
+/**
+ * @brief Permet de calculer des temps.
+ * 
+ */
 struct timeval  tv;
 
-
+/**
+ * @brief La partition courante
+ * 
+ */
 partition_t part;
 
-
+/**
+ * @brief Toutes les notes disponibles
+ * 
+ */
 int tabNotes[8] = {DO,RE,MI,FA,SOL,LA,SI,DO2};
 
 void resetPart(){

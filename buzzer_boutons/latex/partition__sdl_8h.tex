@@ -1,0 +1,173 @@
+\hypertarget{partition__sdl_8h}{}\doxysection{partition\+\_\+sdl.\+h File Reference}
+\label{partition__sdl_8h}\index{partition\_sdl.h@{partition\_sdl.h}}
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}projet\+\_\+rpi.\+h\char`\"{}}\newline
+Include dependency graph for partition\+\_\+sdl.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{partition__sdl_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{partition__sdl_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{partition__sdl_8h_ad4ca375f1924ba3810e98a2fefce6ef6}{Get\+Taille\+Tab\+Notes}} (\mbox{\hyperlink{structpartition__t}{partition\+\_\+t}} p)
+\begin{DoxyCompactList}\small\item\em Analyse la partition pour calculer combien de rectangles seront nécessaires pour représenter toutes les notes. \end{DoxyCompactList}\item 
+S\+D\+L\+\_\+\+Rect $\ast$$\ast$ \mbox{\hyperlink{partition__sdl_8h_a2c2e12228605154b7a8dc056b7e3ffff}{Get\+Tab\+Rect\+Notes}} (\mbox{\hyperlink{structpartition__t}{partition\+\_\+t}} p, S\+D\+L\+\_\+\+Rect $\ast$$\ast$tab, int size)
+\begin{DoxyCompactList}\small\item\em Alloue de la mémoire pour le tableau de notes, et le remplit en calculant les coordonnées de chaque notes sur la partition. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{partition__sdl_8h_a62035a227d75616c81e8172fccfa81fc}{ecrire\+Melodie}} (\mbox{\hyperlink{structpartition__t}{partition\+\_\+t}} $\ast$\mbox{\hyperlink{partition__sdl_8c_ae187568fd10eab7b37a0f8df57014d0c}{part}})
+\begin{DoxyCompactList}\small\item\em Fonction qui permet d\textquotesingle{}écrire une mélodie dans un fichier. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{partition__sdl_8h_a38c85efb61ebc11dc402465c0ee2c13d}{lire\+Melodie}} (char $\ast$titre, \mbox{\hyperlink{structpartition__t}{partition\+\_\+t}} $\ast$melodie)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de lire une mélodie dans un fichier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{partition__sdl_8h_a2761c77a56c42ceb1349e46b81986500}{tab\+Notes}} \mbox{[}8\mbox{]}
+\begin{DoxyCompactList}\small\item\em Toutes les notes disponibles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{partition__sdl_8h_a62035a227d75616c81e8172fccfa81fc}\label{partition__sdl_8h_a62035a227d75616c81e8172fccfa81fc}} 
+\index{partition\_sdl.h@{partition\_sdl.h}!ecrireMelodie@{ecrireMelodie}}
+\index{ecrireMelodie@{ecrireMelodie}!partition\_sdl.h@{partition\_sdl.h}}
+\doxysubsubsection{\texorpdfstring{ecrireMelodie()}{ecrireMelodie()}}
+{\footnotesize\ttfamily void ecrire\+Melodie (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpartition__t}{partition\+\_\+t}} $\ast$}]{part }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet d\textquotesingle{}écrire une mélodie dans un fichier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em titre} & titre d\textquotesingle{}une partition (et aussi nom du fichier qui va être créé) \\
+\hline
+{\em part} & partition que l\textquotesingle{}on souhaite écrire dans notre fichier \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 12 of file read\+\_\+write.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{partition__sdl_8h_a62035a227d75616c81e8172fccfa81fc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{partition__sdl_8h_a2c2e12228605154b7a8dc056b7e3ffff}\label{partition__sdl_8h_a2c2e12228605154b7a8dc056b7e3ffff}} 
+\index{partition\_sdl.h@{partition\_sdl.h}!GetTabRectNotes@{GetTabRectNotes}}
+\index{GetTabRectNotes@{GetTabRectNotes}!partition\_sdl.h@{partition\_sdl.h}}
+\doxysubsubsection{\texorpdfstring{GetTabRectNotes()}{GetTabRectNotes()}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Rect$\ast$$\ast$ Get\+Tab\+Rect\+Notes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpartition__t}{partition\+\_\+t}}}]{p,  }\item[{S\+D\+L\+\_\+\+Rect $\ast$$\ast$}]{tab,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Alloue de la mémoire pour le tableau de notes, et le remplit en calculant les coordonnées de chaque notes sur la partition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & La partition \\
+\hline
+{\em tab} & Le tableau de S\+D\+L\+\_\+\+Rect représentant les notes \\
+\hline
+{\em size} & Le nombre de S\+D\+L\+\_\+\+Rect du tableau (calculé grâce à \mbox{\hyperlink{partition__sdl_8h_ad4ca375f1924ba3810e98a2fefce6ef6}{Get\+Taille\+Tab\+Notes()}}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+D\+L\+\_\+\+Rect$\ast$$\ast$ Le tableau de S\+D\+L\+\_\+\+R\+Ect représentant les notes 
+\end{DoxyReturn}
+
+
+Definition at line 72 of file partition\+\_\+sdl.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{partition__sdl_8h_a2c2e12228605154b7a8dc056b7e3ffff_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{partition__sdl_8h_ad4ca375f1924ba3810e98a2fefce6ef6}\label{partition__sdl_8h_ad4ca375f1924ba3810e98a2fefce6ef6}} 
+\index{partition\_sdl.h@{partition\_sdl.h}!GetTailleTabNotes@{GetTailleTabNotes}}
+\index{GetTailleTabNotes@{GetTailleTabNotes}!partition\_sdl.h@{partition\_sdl.h}}
+\doxysubsubsection{\texorpdfstring{GetTailleTabNotes()}{GetTailleTabNotes()}}
+{\footnotesize\ttfamily int Get\+Taille\+Tab\+Notes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpartition__t}{partition\+\_\+t}}}]{p }\end{DoxyParamCaption})}
+
+
+
+Analyse la partition pour calculer combien de rectangles seront nécessaires pour représenter toutes les notes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & La partition \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Le nombre de rectangles 
+\end{DoxyReturn}
+
+
+Definition at line 18 of file partition\+\_\+sdl.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{partition__sdl_8h_ad4ca375f1924ba3810e98a2fefce6ef6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{partition__sdl_8h_a38c85efb61ebc11dc402465c0ee2c13d}\label{partition__sdl_8h_a38c85efb61ebc11dc402465c0ee2c13d}} 
+\index{partition\_sdl.h@{partition\_sdl.h}!lireMelodie@{lireMelodie}}
+\index{lireMelodie@{lireMelodie}!partition\_sdl.h@{partition\_sdl.h}}
+\doxysubsubsection{\texorpdfstring{lireMelodie()}{lireMelodie()}}
+{\footnotesize\ttfamily void lire\+Melodie (\begin{DoxyParamCaption}\item[{char $\ast$}]{titre,  }\item[{\mbox{\hyperlink{structpartition__t}{partition\+\_\+t}} $\ast$}]{melodie }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de lire une mélodie dans un fichier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em titre} & titre de la partition que l\textquotesingle{}on souhaite ouvrir \\
+\hline
+{\em partition} & objet partition que l\textquotesingle{}on va remplir en lisant le fichier \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 50 of file read\+\_\+write.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{partition__sdl_8h_a2761c77a56c42ceb1349e46b81986500}\label{partition__sdl_8h_a2761c77a56c42ceb1349e46b81986500}} 
+\index{partition\_sdl.h@{partition\_sdl.h}!tabNotes@{tabNotes}}
+\index{tabNotes@{tabNotes}!partition\_sdl.h@{partition\_sdl.h}}
+\doxysubsubsection{\texorpdfstring{tabNotes}{tabNotes}}
+{\footnotesize\ttfamily int tab\+Notes\mbox{[}8\mbox{]}}
+
+
+
+Toutes les notes disponibles. 
+
+
+
+Definition at line 49 of file buzzer.\+c.
+

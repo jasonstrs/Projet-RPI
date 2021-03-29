@@ -1,0 +1,223 @@
+\hypertarget{partition__sdl_8c}{}\doxysection{partition\+\_\+sdl.\+c File Reference}
+\label{partition__sdl_8c}\index{partition\_sdl.c@{partition\_sdl.c}}
+{\ttfamily \#include \char`\"{}partition\+\_\+sdl.\+h\char`\"{}}\newline
+Include dependency graph for partition\+\_\+sdl.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{partition__sdl_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{partition__sdl_8c_ad4ca375f1924ba3810e98a2fefce6ef6}{Get\+Taille\+Tab\+Notes}} (\mbox{\hyperlink{structpartition__t}{partition\+\_\+t}} p)
+\begin{DoxyCompactList}\small\item\em Analyse la partition pour calculer combien de rectangles seront nécessaires pour représenter toutes les notes. \end{DoxyCompactList}\item 
+S\+D\+L\+\_\+\+Rect $\ast$$\ast$ \mbox{\hyperlink{partition__sdl_8c_a2c2e12228605154b7a8dc056b7e3ffff}{Get\+Tab\+Rect\+Notes}} (\mbox{\hyperlink{structpartition__t}{partition\+\_\+t}} p, S\+D\+L\+\_\+\+Rect $\ast$$\ast$tab, int size)
+\begin{DoxyCompactList}\small\item\em Alloue de la mémoire pour le tableau de notes, et le remplit en calculant les coordonnées de chaque notes sur la partition. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{partition__sdl_8c_af354ad86b40d7ea1fea79574ac999a93}{thread\+S\+DL}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{partition__sdl_8c_ac0714c5961c5273457724963770bfd20}{hauteurs}} \mbox{[}4\mbox{]} = \{75,245,415,575\}
+\item 
+int \mbox{\hyperlink{partition__sdl_8c_ad77a2190585dc0ac39b378b076b26a84}{diff\+Hauteur}} \mbox{[}8\mbox{]} = \{110,99,88,77,66,56,46,35\}
+\item 
+S\+D\+L\+\_\+\+Rect \mbox{\hyperlink{partition__sdl_8c_a4c7cf26e0854c52bf0d6146d524c01b9}{barre\+Def}} = \{100,75,5,130\}
+\item 
+int \mbox{\hyperlink{partition__sdl_8c_a5c6b4763aee8e1193dfed30ae81e6e1a}{lancer\+Defilement}} = 0
+\item 
+int \mbox{\hyperlink{partition__sdl_8c_ab2cef425e8f5cd9fea96ed2686775048}{lancer\+Enr}} = 0
+\item 
+int \mbox{\hyperlink{partition__sdl_8c_af3cb4a9bf4cd04d0d76fdceca3cc0a8f}{commande\+S\+DL}}
+\begin{DoxyCompactList}\small\item\em Commande à envoyer à la S\+DL. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structpartition__t}{partition\+\_\+t}} \mbox{\hyperlink{partition__sdl_8c_ae187568fd10eab7b37a0f8df57014d0c}{part}}
+\begin{DoxyCompactList}\small\item\em La partition courante. \end{DoxyCompactList}\item 
+S\+D\+L\+\_\+\+Rect $\ast$$\ast$ \mbox{\hyperlink{partition__sdl_8c_aed3e224d6b1d8f61b7f72c2a903bde50}{notes}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{partition__sdl_8c_a2c2e12228605154b7a8dc056b7e3ffff}\label{partition__sdl_8c_a2c2e12228605154b7a8dc056b7e3ffff}} 
+\index{partition\_sdl.c@{partition\_sdl.c}!GetTabRectNotes@{GetTabRectNotes}}
+\index{GetTabRectNotes@{GetTabRectNotes}!partition\_sdl.c@{partition\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{GetTabRectNotes()}{GetTabRectNotes()}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Rect$\ast$$\ast$ Get\+Tab\+Rect\+Notes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpartition__t}{partition\+\_\+t}}}]{p,  }\item[{S\+D\+L\+\_\+\+Rect $\ast$$\ast$}]{tab,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Alloue de la mémoire pour le tableau de notes, et le remplit en calculant les coordonnées de chaque notes sur la partition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & La partition \\
+\hline
+{\em tab} & Le tableau de S\+D\+L\+\_\+\+Rect représentant les notes \\
+\hline
+{\em size} & Le nombre de S\+D\+L\+\_\+\+Rect du tableau (calculé grâce à \mbox{\hyperlink{partition__sdl_8c_ad4ca375f1924ba3810e98a2fefce6ef6}{Get\+Taille\+Tab\+Notes()}}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+D\+L\+\_\+\+Rect$\ast$$\ast$ Le tableau de S\+D\+L\+\_\+\+R\+Ect représentant les notes 
+\end{DoxyReturn}
+
+
+Definition at line 72 of file partition\+\_\+sdl.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{partition__sdl_8c_a2c2e12228605154b7a8dc056b7e3ffff_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{partition__sdl_8c_ad4ca375f1924ba3810e98a2fefce6ef6}\label{partition__sdl_8c_ad4ca375f1924ba3810e98a2fefce6ef6}} 
+\index{partition\_sdl.c@{partition\_sdl.c}!GetTailleTabNotes@{GetTailleTabNotes}}
+\index{GetTailleTabNotes@{GetTailleTabNotes}!partition\_sdl.c@{partition\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{GetTailleTabNotes()}{GetTailleTabNotes()}}
+{\footnotesize\ttfamily int Get\+Taille\+Tab\+Notes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpartition__t}{partition\+\_\+t}}}]{p }\end{DoxyParamCaption})}
+
+
+
+Analyse la partition pour calculer combien de rectangles seront nécessaires pour représenter toutes les notes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & La partition \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Le nombre de rectangles 
+\end{DoxyReturn}
+
+
+Definition at line 18 of file partition\+\_\+sdl.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{partition__sdl_8c_ad4ca375f1924ba3810e98a2fefce6ef6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{partition__sdl_8c_af354ad86b40d7ea1fea79574ac999a93}\label{partition__sdl_8c_af354ad86b40d7ea1fea79574ac999a93}} 
+\index{partition\_sdl.c@{partition\_sdl.c}!threadSDL@{threadSDL}}
+\index{threadSDL@{threadSDL}!partition\_sdl.c@{partition\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{threadSDL()}{threadSDL()}}
+{\footnotesize\ttfamily void$\ast$ thread\+S\+DL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 168 of file partition\+\_\+sdl.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=277pt]{partition__sdl_8c_af354ad86b40d7ea1fea79574ac999a93_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{partition__sdl_8c_af354ad86b40d7ea1fea79574ac999a93_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{partition__sdl_8c_a4c7cf26e0854c52bf0d6146d524c01b9}\label{partition__sdl_8c_a4c7cf26e0854c52bf0d6146d524c01b9}} 
+\index{partition\_sdl.c@{partition\_sdl.c}!barreDef@{barreDef}}
+\index{barreDef@{barreDef}!partition\_sdl.c@{partition\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{barreDef}{barreDef}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Rect barre\+Def = \{100,75,5,130\}}
+
+
+
+Definition at line 5 of file partition\+\_\+sdl.\+c.
+
+\mbox{\Hypertarget{partition__sdl_8c_af3cb4a9bf4cd04d0d76fdceca3cc0a8f}\label{partition__sdl_8c_af3cb4a9bf4cd04d0d76fdceca3cc0a8f}} 
+\index{partition\_sdl.c@{partition\_sdl.c}!commandeSDL@{commandeSDL}}
+\index{commandeSDL@{commandeSDL}!partition\_sdl.c@{partition\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{commandeSDL}{commandeSDL}}
+{\footnotesize\ttfamily int commande\+S\+DL}
+
+
+
+Commande à envoyer à la S\+DL. 
+
+
+
+Definition at line 45 of file boutons.\+c.
+
+\mbox{\Hypertarget{partition__sdl_8c_ad77a2190585dc0ac39b378b076b26a84}\label{partition__sdl_8c_ad77a2190585dc0ac39b378b076b26a84}} 
+\index{partition\_sdl.c@{partition\_sdl.c}!diffHauteur@{diffHauteur}}
+\index{diffHauteur@{diffHauteur}!partition\_sdl.c@{partition\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{diffHauteur}{diffHauteur}}
+{\footnotesize\ttfamily int diff\+Hauteur\mbox{[}8\mbox{]} = \{110,99,88,77,66,56,46,35\}}
+
+
+
+Definition at line 4 of file partition\+\_\+sdl.\+c.
+
+\mbox{\Hypertarget{partition__sdl_8c_ac0714c5961c5273457724963770bfd20}\label{partition__sdl_8c_ac0714c5961c5273457724963770bfd20}} 
+\index{partition\_sdl.c@{partition\_sdl.c}!hauteurs@{hauteurs}}
+\index{hauteurs@{hauteurs}!partition\_sdl.c@{partition\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{hauteurs}{hauteurs}}
+{\footnotesize\ttfamily int hauteurs\mbox{[}4\mbox{]} = \{75,245,415,575\}}
+
+
+
+Definition at line 3 of file partition\+\_\+sdl.\+c.
+
+\mbox{\Hypertarget{partition__sdl_8c_a5c6b4763aee8e1193dfed30ae81e6e1a}\label{partition__sdl_8c_a5c6b4763aee8e1193dfed30ae81e6e1a}} 
+\index{partition\_sdl.c@{partition\_sdl.c}!lancerDefilement@{lancerDefilement}}
+\index{lancerDefilement@{lancerDefilement}!partition\_sdl.c@{partition\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{lancerDefilement}{lancerDefilement}}
+{\footnotesize\ttfamily int lancer\+Defilement = 0}
+
+
+
+Definition at line 6 of file partition\+\_\+sdl.\+c.
+
+\mbox{\Hypertarget{partition__sdl_8c_ab2cef425e8f5cd9fea96ed2686775048}\label{partition__sdl_8c_ab2cef425e8f5cd9fea96ed2686775048}} 
+\index{partition\_sdl.c@{partition\_sdl.c}!lancerEnr@{lancerEnr}}
+\index{lancerEnr@{lancerEnr}!partition\_sdl.c@{partition\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{lancerEnr}{lancerEnr}}
+{\footnotesize\ttfamily int lancer\+Enr = 0}
+
+
+
+Definition at line 7 of file partition\+\_\+sdl.\+c.
+
+\mbox{\Hypertarget{partition__sdl_8c_aed3e224d6b1d8f61b7f72c2a903bde50}\label{partition__sdl_8c_aed3e224d6b1d8f61b7f72c2a903bde50}} 
+\index{partition\_sdl.c@{partition\_sdl.c}!notes@{notes}}
+\index{notes@{notes}!partition\_sdl.c@{partition\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{notes}{notes}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Rect$\ast$$\ast$ notes}
+
+
+
+Definition at line 10 of file partition\+\_\+sdl.\+c.
+
+\mbox{\Hypertarget{partition__sdl_8c_ae187568fd10eab7b37a0f8df57014d0c}\label{partition__sdl_8c_ae187568fd10eab7b37a0f8df57014d0c}} 
+\index{partition\_sdl.c@{partition\_sdl.c}!part@{part}}
+\index{part@{part}!partition\_sdl.c@{partition\_sdl.c}}
+\doxysubsubsection{\texorpdfstring{part}{part}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpartition__t}{partition\+\_\+t}} part}
+
+
+
+La partition courante. 
+
+
+
+Definition at line 43 of file buzzer.\+c.
+

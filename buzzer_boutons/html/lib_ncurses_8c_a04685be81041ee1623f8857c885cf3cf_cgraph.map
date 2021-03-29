@@ -1,0 +1,9 @@
+<map id="initFormPartition" name="initFormPartition">
+<area shape="rect" id="node1" title="Cette fonction permet d&#39;initialiser et d&#39;afficher le formulaire &quot;Nouvelle Partition&quot;." alt="" coords="5,81,123,108"/>
+<area shape="rect" id="node2" href="$lib_ncurses_8c.html#a58f63fe461c12ba902473717d4d2b36e" title="Fonction qui permet de gérer les touches appuyées par l&#39;utilisateur dans le sous menu &quot;Nouvelle Parti..." alt="" coords="206,5,261,32"/>
+<area shape="rect" id="node3" href="$lib_ncurses_8c.html#a50017d15edfc9d7008b46e4007772e7b" title="Fonction qui permet de récupérer l&#39;interface utilisateur sur laquelle sera mise des écritures ou un f..." alt="" coords="174,56,293,83"/>
+<area shape="rect" id="node4" href="$lib_ncurses_8c.html#a916baa177ce9814b4ffcc0d800684432" title="Fonction qui permet de récupérer une fenêtre qui va servir de bordure." alt="" coords="171,107,296,133"/>
+<area shape="rect" id="node7" href="$lib_ncurses_8c.html#a6e7f09d8d818433b540bff4203510c7c" title="Fonction qui permet de supprimer les espaces ajoutés à la fin du champs de formulaire ncurses /!..." alt="" coords="171,157,295,184"/>
+<area shape="rect" id="node5" href="$lib_ncurses_8c.html#a5dad0fc619e605137598389cebdef238" title="Fonction qui permet de centrer le titre en haut de la fenêtre." alt="" coords="344,81,440,108"/>
+<area shape="rect" id="node6" href="$lib_ncurses_8c.html#a5aba62cb07979f6d9917707fb26a37fd" title="Fonction qui permet de dessiner le fond de la fenêtre." alt="" coords="360,132,424,159"/>
+</map>

@@ -135,6 +135,11 @@ WINDOW * getWindowBorder(char *title);
  */
 WINDOW * getUserInterface(WINDOW * wBorder);
 
+/**
+ * @brief Lance le menu ncurses
+ * 
+ * @return int 0
+ */
 int menu();
 
 extern void* threadBoutons();

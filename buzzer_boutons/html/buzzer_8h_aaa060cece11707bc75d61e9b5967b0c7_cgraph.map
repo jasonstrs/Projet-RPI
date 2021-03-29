@@ -1,0 +1,7 @@
+<map id="jouerNote" name="jouerNote">
+<area shape="rect" id="node1" title="Joue une note jusqu&#39;à ce qu&#39;on l&#39;arrête." alt="" coords="5,56,84,83"/>
+<area shape="rect" id="node2" href="$afficheur_8c.html#a863b166fb45e8b2c824075dc121be506" title="Fonction qui permet de décomposer un nombre en nombre de centaine, nombre de dizaine et d&#39;unité pour ..." alt="" coords="132,5,287,32"/>
+<area shape="rect" id="node3" href="$afficheur_8c.html#af7e150874b727c633afd3f107b4d8809" title="Permet d&#39;écrire un numéro dans le buffer du digit." alt="" coords="157,56,262,83"/>
+<area shape="rect" id="node5" href="$afficheur_8c.html#a18e05e0aa9448c279a3c31ee2c061fc2" title="Cette fonction permet d&#39;écrire un numéro sur l&#39;afficheur 7 segment." alt="" coords="162,107,257,133"/>
+<area shape="rect" id="node4" href="$afficheur_8c.html#a6beb43d00a6e5d5ed172863743e53402" title="Fonction qui permet d&#39;allumer la colonne d&#39;un digit suivant le nombre que l&#39;on souhaite afficher." alt="" coords="335,56,439,83"/>
+</map>

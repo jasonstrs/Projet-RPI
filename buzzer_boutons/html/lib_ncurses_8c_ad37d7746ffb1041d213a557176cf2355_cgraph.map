@@ -1,0 +1,5 @@
+<map id="runMenu" name="runMenu">
+<area shape="rect" id="node1" title="Fonction qui permet de démarrer le menu principal sur la fenêtre principal, en y insérant le titre et..." alt="" coords="5,31,77,57"/>
+<area shape="rect" id="node2" href="$lib_ncurses_8c.html#a5dad0fc619e605137598389cebdef238" title="Fonction qui permet de centrer le titre en haut de la fenêtre." alt="" coords="125,5,221,32"/>
+<area shape="rect" id="node3" href="$lib_ncurses_8c.html#a5aba62cb07979f6d9917707fb26a37fd" title="Fonction qui permet de dessiner le fond de la fenêtre." alt="" coords="141,56,205,83"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="wclrscr" name="wclrscr">
+<area shape="rect" id="node1" title="Fonction qui permet de dessiner le fond de la fenêtre." alt="" coords="832,56,896,83"/>
+<area shape="rect" id="node2" href="$lib_ncurses_8h.html#a916baa177ce9814b4ffcc0d800684432" title="Fonction qui permet de récupérer une fenêtre qui va servir de bordure." alt="" coords="659,56,784,83"/>
+<area shape="rect" id="node8" href="$lib_ncurses_8h.html#a660d0b298deb3819c236de8d8f7cce36" title="Fonction qui permet d&#39;initialiser la fenêtre, c&#39;est&#45;à&#45;dire mettre un fond bleu, activer la détection ..." alt="" coords="353,5,436,32"/>
+<area shape="rect" id="node9" href="$lib_ncurses_8h.html#ad37d7746ffb1041d213a557176cf2355" title="Fonction qui permet de démarrer le menu principal sur la fenêtre principal, en y insérant le titre et..." alt="" coords="516,107,588,133"/>
+<area shape="rect" id="node3" href="$lib_ncurses_8h.html#a45213c90c55d8df58037fdfe1e674a77" title="Cette fonction permet d&#39;initialiser et d&#39;afficher le formulaire &quot;Nouvelle Partition&quot;." alt="" coords="493,56,611,83"/>
+<area shape="rect" id="node4" href="$lib_ncurses_8h.html#a3f8a9f5fee211450d7581f39ae989106" title="Fonction qui permet de gérer le choix de l&#39;utilisateur dans le menu principal." alt="" coords="344,56,445,83"/>
+<area shape="rect" id="node5" href="$lib_ncurses_8h.html#a82a715ca7b0a5c4c79ac5fdc003c4d22" title="Cette fonction permet de démarrer la librairie ncurses, elle appelle une fonction d&#39;initialisation de..." alt="" coords="207,56,296,83"/>
+<area shape="rect" id="node6" href="$menu_8c.html#ae83fcdbeb2b6757fc741ae953b633ee1" title="Lance le menu ncurses." alt="" coords="104,56,159,83"/>
+<area shape="rect" id="node7" href="$main_8c.html#aa3345a15bd154061fb3561ad6b24a78c" title=" " alt="" coords="5,56,56,83"/>
+</map>

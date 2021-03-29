@@ -1,0 +1,9 @@
+<map id="GetIndex" name="GetIndex">
+<area shape="rect" id="node1" title="Récupère le numéro du bouton sur lequel on a appuyé, en fonction des broches de ligne/colonne." alt="" coords="812,5,887,32"/>
+<area shape="rect" id="node2" href="$boutons_8h.html#af949d12efe156903031b8c8fb62d1888" title="Analyse tour à tour toute les lignes/colonnes de la matrice, pour voir sur quel bouton on a appuyé" alt="" coords="648,5,764,32"/>
+<area shape="rect" id="node3" href="$main_8h.html#a5d2095a12d6982d031db287d4dca31f1" title=" " alt="" coords="493,5,600,32"/>
+<area shape="rect" id="node4" href="$lib_ncurses_8h.html#a3f8a9f5fee211450d7581f39ae989106" title="Fonction qui permet de gérer le choix de l&#39;utilisateur dans le menu principal." alt="" coords="344,5,445,32"/>
+<area shape="rect" id="node5" href="$lib_ncurses_8h.html#a82a715ca7b0a5c4c79ac5fdc003c4d22" title="Cette fonction permet de démarrer la librairie ncurses, elle appelle une fonction d&#39;initialisation de..." alt="" coords="207,5,296,32"/>
+<area shape="rect" id="node6" href="$menu_8c.html#ae83fcdbeb2b6757fc741ae953b633ee1" title="Lance le menu ncurses." alt="" coords="104,5,159,32"/>
+<area shape="rect" id="node7" href="$main_8c.html#aa3345a15bd154061fb3561ad6b24a78c" title=" " alt="" coords="5,5,56,32"/>
+</map>

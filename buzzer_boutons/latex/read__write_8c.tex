@@ -1,0 +1,145 @@
+\hypertarget{read__write_8c}{}\doxysection{read\+\_\+write.\+c File Reference}
+\label{read__write_8c}\index{read\_write.c@{read\_write.c}}
+{\ttfamily \#include \char`\"{}read\+\_\+write.\+h\char`\"{}}\newline
+Include dependency graph for read\+\_\+write.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{read__write_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{read__write_8c_a62035a227d75616c81e8172fccfa81fc}{ecrire\+Melodie}} (\mbox{\hyperlink{structpartition__t}{partition\+\_\+t}} $\ast$\mbox{\hyperlink{partition__sdl_8c_ae187568fd10eab7b37a0f8df57014d0c}{part}})
+\begin{DoxyCompactList}\small\item\em Fonction qui permet d\textquotesingle{}écrire une mélodie dans un fichier. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{read__write_8c_a38c85efb61ebc11dc402465c0ee2c13d}{lire\+Melodie}} (char $\ast$titre, \mbox{\hyperlink{structpartition__t}{partition\+\_\+t}} $\ast$melodie)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de lire une mélodie dans un fichier. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{read__write_8c_a05701691cc795bb379db0021c6927f60}{count\+Number\+Of\+Line\+Output}} (char $\ast$commande, char $\ast$chemin)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de compter le nombre de ligne du résultat d\textquotesingle{}une commande Cette fonction est utile pour allouer la mémoire dans les tableaux. \end{DoxyCompactList}\item 
+char $\ast$$\ast$ \mbox{\hyperlink{read__write_8c_aab50a8f3105e424cc9aed428ede8c2f4}{get\+Names\+Of\+All\+Partitions}} (int nb\+Partitions)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de récupérer un tableau qui contient l\textquotesingle{}ensemble des noms des partitions et donc des fichiers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{read__write_8c_a05701691cc795bb379db0021c6927f60}\label{read__write_8c_a05701691cc795bb379db0021c6927f60}} 
+\index{read\_write.c@{read\_write.c}!countNumberOfLineOutput@{countNumberOfLineOutput}}
+\index{countNumberOfLineOutput@{countNumberOfLineOutput}!read\_write.c@{read\_write.c}}
+\doxysubsubsection{\texorpdfstring{countNumberOfLineOutput()}{countNumberOfLineOutput()}}
+{\footnotesize\ttfamily int count\+Number\+Of\+Line\+Output (\begin{DoxyParamCaption}\item[{char $\ast$}]{commande,  }\item[{char $\ast$}]{chemin }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de compter le nombre de ligne du résultat d\textquotesingle{}une commande Cette fonction est utile pour allouer la mémoire dans les tableaux. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em commande} & commmande que l\textquotesingle{}on veut exécuter (chemin absolu). Ex\+: /bin/cat \\
+\hline
+{\em chemin} & chemin sur lequel on veut exécuter la commande \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int nombre de lignes du résultat 
+\end{DoxyReturn}
+
+
+Definition at line 106 of file read\+\_\+write.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{read__write_8c_a05701691cc795bb379db0021c6927f60_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{read__write_8c_a62035a227d75616c81e8172fccfa81fc}\label{read__write_8c_a62035a227d75616c81e8172fccfa81fc}} 
+\index{read\_write.c@{read\_write.c}!ecrireMelodie@{ecrireMelodie}}
+\index{ecrireMelodie@{ecrireMelodie}!read\_write.c@{read\_write.c}}
+\doxysubsubsection{\texorpdfstring{ecrireMelodie()}{ecrireMelodie()}}
+{\footnotesize\ttfamily void ecrire\+Melodie (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpartition__t}{partition\+\_\+t}} $\ast$}]{part }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet d\textquotesingle{}écrire une mélodie dans un fichier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em titre} & titre d\textquotesingle{}une partition (et aussi nom du fichier qui va être créé) \\
+\hline
+{\em part} & partition que l\textquotesingle{}on souhaite écrire dans notre fichier \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 12 of file read\+\_\+write.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{read__write_8c_a62035a227d75616c81e8172fccfa81fc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{read__write_8c_aab50a8f3105e424cc9aed428ede8c2f4}\label{read__write_8c_aab50a8f3105e424cc9aed428ede8c2f4}} 
+\index{read\_write.c@{read\_write.c}!getNamesOfAllPartitions@{getNamesOfAllPartitions}}
+\index{getNamesOfAllPartitions@{getNamesOfAllPartitions}!read\_write.c@{read\_write.c}}
+\doxysubsubsection{\texorpdfstring{getNamesOfAllPartitions()}{getNamesOfAllPartitions()}}
+{\footnotesize\ttfamily char$\ast$$\ast$ get\+Names\+Of\+All\+Partitions (\begin{DoxyParamCaption}\item[{int}]{nb\+Partitions }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de récupérer un tableau qui contient l\textquotesingle{}ensemble des noms des partitions et donc des fichiers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nb\+Partitions} & correspond au nombre de partitions présentes dans le répertoire ./partitions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$ tableau contenant les noms des partitions 
+\end{DoxyReturn}
+
+
+Definition at line 142 of file read\+\_\+write.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{read__write_8c_aab50a8f3105e424cc9aed428ede8c2f4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{read__write_8c_a38c85efb61ebc11dc402465c0ee2c13d}\label{read__write_8c_a38c85efb61ebc11dc402465c0ee2c13d}} 
+\index{read\_write.c@{read\_write.c}!lireMelodie@{lireMelodie}}
+\index{lireMelodie@{lireMelodie}!read\_write.c@{read\_write.c}}
+\doxysubsubsection{\texorpdfstring{lireMelodie()}{lireMelodie()}}
+{\footnotesize\ttfamily void lire\+Melodie (\begin{DoxyParamCaption}\item[{char $\ast$}]{titre,  }\item[{\mbox{\hyperlink{structpartition__t}{partition\+\_\+t}} $\ast$}]{melodie }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de lire une mélodie dans un fichier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em titre} & titre de la partition que l\textquotesingle{}on souhaite ouvrir \\
+\hline
+{\em partition} & objet partition que l\textquotesingle{}on va remplir en lisant le fichier \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 50 of file read\+\_\+write.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{read__write_8c_a38c85efb61ebc11dc402465c0ee2c13d_icgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,7 @@
+<map id="initColors" name="initColors">
+<area shape="rect" id="node1" title="Fonction qui permet d&#39;initialiser les couleurs pour notre librairie ncurses." alt="" coords="475,5,552,32"/>
+<area shape="rect" id="node2" href="$lib_ncurses_8h.html#a660d0b298deb3819c236de8d8f7cce36" title="Fonction qui permet d&#39;initialiser la fenêtre, c&#39;est&#45;à&#45;dire mettre un fond bleu, activer la détection ..." alt="" coords="344,5,427,32"/>
+<area shape="rect" id="node3" href="$lib_ncurses_8h.html#a82a715ca7b0a5c4c79ac5fdc003c4d22" title="Cette fonction permet de démarrer la librairie ncurses, elle appelle une fonction d&#39;initialisation de..." alt="" coords="207,5,296,32"/>
+<area shape="rect" id="node4" href="$menu_8c.html#ae83fcdbeb2b6757fc741ae953b633ee1" title="Lance le menu ncurses." alt="" coords="104,5,159,32"/>
+<area shape="rect" id="node5" href="$main_8c.html#aa3345a15bd154061fb3561ad6b24a78c" title=" " alt="" coords="5,5,56,32"/>
+</map>

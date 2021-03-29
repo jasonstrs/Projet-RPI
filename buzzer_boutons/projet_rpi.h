@@ -147,6 +147,10 @@ typedef struct{
  */
 typedef une_note_t melodie_t[MAX_NOTES];
 
+/**
+ * @brief Représente une partition : mélodie + titre
+ * 
+ */
 typedef struct{
   char titre[MAX_TITRE];
   melodie_t mel;

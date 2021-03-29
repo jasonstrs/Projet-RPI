@@ -1,0 +1,314 @@
+\hypertarget{afficheur_8c}{}\doxysection{afficheur.\+c File Reference}
+\label{afficheur_8c}\index{afficheur.c@{afficheur.c}}
+{\ttfamily \#include \char`\"{}afficheur.\+h\char`\"{}}\newline
+Include dependency graph for afficheur.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{afficheur_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{afficheur_8c_ae48e941245d25c1b710fe41d91d8f149}{set\+Brightness}} (int fd, uint8\+\_\+t b)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de régler l\textquotesingle{}intensité lumineuse. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{afficheur_8c_a57c7242b88fb52f1a5d66d31623216fb}{blink\+Rate}} (int fd, uint8\+\_\+t b)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de régler le taux de clignotement. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{afficheur_8c_a3e5ebc47fe80608773bdb9e819b2a620}{begin}} (int fd)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de démarrer l\textquotesingle{}afficheur 7 segments. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{afficheur_8c_a18e05e0aa9448c279a3c31ee2c061fc2}{write\+Display}} (int fd, int offset)
+\begin{DoxyCompactList}\small\item\em Cette fonction permet d\textquotesingle{}écrire un numéro sur l\textquotesingle{}afficheur 7 segment. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{afficheur_8c_a109fc3fa5023f4b9035c9a4c2f915c70}{clear7\+Seg}} (void)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de vider le buffer, autrement dit d\textquotesingle{}éteindre tout le 7 segments. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{afficheur_8c_a6beb43d00a6e5d5ed172863743e53402}{write\+Digit\+Raw}} (uint8\+\_\+t d, uint8\+\_\+t bitmask)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet d\textquotesingle{}allumer la colonne d\textquotesingle{}un digit suivant le nombre que l\textquotesingle{}on souhaite afficher. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{afficheur_8c_af7e150874b727c633afd3f107b4d8809}{write\+Digit\+Num}} (uint8\+\_\+t d, uint8\+\_\+t num, bool dot)
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}écrire un numéro dans le buffer du digit. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{afficheur_8c_a863b166fb45e8b2c824075dc121be506}{decomposer\+Frequence}} (int frequence, int $\ast$centaine, int $\ast$dizaine, int $\ast$unite)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de décomposer un nombre en nombre de centaine, nombre de dizaine et d\textquotesingle{}unité pour les afficher sur chaque digit du 7 segments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{afficheur_8c_ac7f622b21f3d23a621ffe18995641bb7}{numbertable}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Table de nombre, chaque nombre est associé à un code héxa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{afficheur_8c_a3e5ebc47fe80608773bdb9e819b2a620}\label{afficheur_8c_a3e5ebc47fe80608773bdb9e819b2a620}} 
+\index{afficheur.c@{afficheur.c}!begin@{begin}}
+\index{begin@{begin}!afficheur.c@{afficheur.c}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void begin (\begin{DoxyParamCaption}\item[{int}]{fd }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de démarrer l\textquotesingle{}afficheur 7 segments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fd} & int représentant l\textquotesingle{}afficheur 7 segments à démarrer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 53 of file afficheur.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{afficheur_8c_a3e5ebc47fe80608773bdb9e819b2a620_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{afficheur_8c_a3e5ebc47fe80608773bdb9e819b2a620_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{afficheur_8c_a57c7242b88fb52f1a5d66d31623216fb}\label{afficheur_8c_a57c7242b88fb52f1a5d66d31623216fb}} 
+\index{afficheur.c@{afficheur.c}!blinkRate@{blinkRate}}
+\index{blinkRate@{blinkRate}!afficheur.c@{afficheur.c}}
+\doxysubsubsection{\texorpdfstring{blinkRate()}{blinkRate()}}
+{\footnotesize\ttfamily void blink\+Rate (\begin{DoxyParamCaption}\item[{int}]{fd,  }\item[{uint8\+\_\+t}]{b }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de régler le taux de clignotement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fd} & int représentant l\textquotesingle{}afficheur 7 segments \\
+\hline
+{\em b} & taux voulu \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 43 of file afficheur.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{afficheur_8c_a57c7242b88fb52f1a5d66d31623216fb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{afficheur_8c_a109fc3fa5023f4b9035c9a4c2f915c70}\label{afficheur_8c_a109fc3fa5023f4b9035c9a4c2f915c70}} 
+\index{afficheur.c@{afficheur.c}!clear7Seg@{clear7Seg}}
+\index{clear7Seg@{clear7Seg}!afficheur.c@{afficheur.c}}
+\doxysubsubsection{\texorpdfstring{clear7Seg()}{clear7Seg()}}
+{\footnotesize\ttfamily void clear7\+Seg (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de vider le buffer, autrement dit d\textquotesingle{}éteindre tout le 7 segments. 
+
+
+
+Definition at line 82 of file afficheur.\+c.
+
+\mbox{\Hypertarget{afficheur_8c_a863b166fb45e8b2c824075dc121be506}\label{afficheur_8c_a863b166fb45e8b2c824075dc121be506}} 
+\index{afficheur.c@{afficheur.c}!decomposerFrequence@{decomposerFrequence}}
+\index{decomposerFrequence@{decomposerFrequence}!afficheur.c@{afficheur.c}}
+\doxysubsubsection{\texorpdfstring{decomposerFrequence()}{decomposerFrequence()}}
+{\footnotesize\ttfamily void decomposer\+Frequence (\begin{DoxyParamCaption}\item[{int}]{frequence,  }\item[{int $\ast$}]{centaine,  }\item[{int $\ast$}]{dizaine,  }\item[{int $\ast$}]{unite }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de décomposer un nombre en nombre de centaine, nombre de dizaine et d\textquotesingle{}unité pour les afficher sur chaque digit du 7 segments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frequence} & fréquence de la note à décomposer \\
+\hline
+{\em centaine} & nombre de centaine \\
+\hline
+{\em dizaine} & nombre de dizaine \\
+\hline
+{\em unite} & nombre de unité \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 121 of file afficheur.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{afficheur_8c_a863b166fb45e8b2c824075dc121be506_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{afficheur_8c_ae48e941245d25c1b710fe41d91d8f149}\label{afficheur_8c_ae48e941245d25c1b710fe41d91d8f149}} 
+\index{afficheur.c@{afficheur.c}!setBrightness@{setBrightness}}
+\index{setBrightness@{setBrightness}!afficheur.c@{afficheur.c}}
+\doxysubsubsection{\texorpdfstring{setBrightness()}{setBrightness()}}
+{\footnotesize\ttfamily void set\+Brightness (\begin{DoxyParamCaption}\item[{int}]{fd,  }\item[{uint8\+\_\+t}]{b }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de régler l\textquotesingle{}intensité lumineuse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fd} & int représentant l\textquotesingle{}afficheur 7 segments \\
+\hline
+{\em b} & intensité voulue \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 32 of file afficheur.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{afficheur_8c_ae48e941245d25c1b710fe41d91d8f149_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{afficheur_8c_af7e150874b727c633afd3f107b4d8809}\label{afficheur_8c_af7e150874b727c633afd3f107b4d8809}} 
+\index{afficheur.c@{afficheur.c}!writeDigitNum@{writeDigitNum}}
+\index{writeDigitNum@{writeDigitNum}!afficheur.c@{afficheur.c}}
+\doxysubsubsection{\texorpdfstring{writeDigitNum()}{writeDigitNum()}}
+{\footnotesize\ttfamily void write\+Digit\+Num (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{d,  }\item[{uint8\+\_\+t}]{num,  }\item[{bool}]{dot }\end{DoxyParamCaption})}
+
+
+
+Permet d\textquotesingle{}écrire un numéro dans le buffer du digit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & numéro du digit sur lequel on écrit \\
+\hline
+{\em num} & numéro que l\textquotesingle{}on veut écrire \\
+\hline
+{\em dot} & boolean qui permet de savoir si on met un \textquotesingle{}.\textquotesingle{} ou pas sur l\textquotesingle{}affichage \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 107 of file afficheur.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{afficheur_8c_af7e150874b727c633afd3f107b4d8809_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{afficheur_8c_af7e150874b727c633afd3f107b4d8809_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{afficheur_8c_a6beb43d00a6e5d5ed172863743e53402}\label{afficheur_8c_a6beb43d00a6e5d5ed172863743e53402}} 
+\index{afficheur.c@{afficheur.c}!writeDigitRaw@{writeDigitRaw}}
+\index{writeDigitRaw@{writeDigitRaw}!afficheur.c@{afficheur.c}}
+\doxysubsubsection{\texorpdfstring{writeDigitRaw()}{writeDigitRaw()}}
+{\footnotesize\ttfamily void write\+Digit\+Raw (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{d,  }\item[{uint8\+\_\+t}]{bitmask }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet d\textquotesingle{}allumer la colonne d\textquotesingle{}un digit suivant le nombre que l\textquotesingle{}on souhaite afficher. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & correspond au numéro du digit sur lequel on travaille \\
+\hline
+{\em bitmask} & correspond à l\textquotesingle{}adresse hexa du digit choisi \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 95 of file afficheur.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{afficheur_8c_a6beb43d00a6e5d5ed172863743e53402_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{afficheur_8c_a18e05e0aa9448c279a3c31ee2c061fc2}\label{afficheur_8c_a18e05e0aa9448c279a3c31ee2c061fc2}} 
+\index{afficheur.c@{afficheur.c}!writeDisplay@{writeDisplay}}
+\index{writeDisplay@{writeDisplay}!afficheur.c@{afficheur.c}}
+\doxysubsubsection{\texorpdfstring{writeDisplay()}{writeDisplay()}}
+{\footnotesize\ttfamily void write\+Display (\begin{DoxyParamCaption}\item[{int}]{fd,  }\item[{int}]{offset }\end{DoxyParamCaption})}
+
+
+
+Cette fonction permet d\textquotesingle{}écrire un numéro sur l\textquotesingle{}afficheur 7 segment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fd} & int représentant l\textquotesingle{}afficheur 7 segments \\
+\hline
+{\em offset} & position du premier digit (dans notre cas 0) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 66 of file afficheur.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{afficheur_8c_a18e05e0aa9448c279a3c31ee2c061fc2_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{afficheur_8c_ac7f622b21f3d23a621ffe18995641bb7}\label{afficheur_8c_ac7f622b21f3d23a621ffe18995641bb7}} 
+\index{afficheur.c@{afficheur.c}!numbertable@{numbertable}}
+\index{numbertable@{numbertable}!afficheur.c@{afficheur.c}}
+\doxysubsubsection{\texorpdfstring{numbertable}{numbertable}}
+{\footnotesize\ttfamily const uint8\+\_\+t numbertable\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ }
+\DoxyCodeLine{    0x3F,  }
+\DoxyCodeLine{    0x06,  }
+\DoxyCodeLine{    0x5B,  }
+\DoxyCodeLine{    0x4F,  }
+\DoxyCodeLine{    0x66,  }
+\DoxyCodeLine{    0x6D,  }
+\DoxyCodeLine{    0x7D,  }
+\DoxyCodeLine{    0x07,  }
+\DoxyCodeLine{    0x7F,  }
+\DoxyCodeLine{    0x6F,  }
+\DoxyCodeLine{    0x77,  }
+\DoxyCodeLine{    0x7C,  }
+\DoxyCodeLine{    0x39,  }
+\DoxyCodeLine{    0x5E,  }
+\DoxyCodeLine{    0x79,  }
+\DoxyCodeLine{    0x71,  }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Table de nombre, chaque nombre est associé à un code héxa. 
+
+
+
+Definition at line 7 of file afficheur.\+c.
+

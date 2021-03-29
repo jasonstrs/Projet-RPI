@@ -1,0 +1,140 @@
+\hypertarget{main_8h}{}\doxysection{main.\+h File Reference}
+\label{main_8h}\index{main.h@{main.h}}
+{\ttfamily \#include \char`\"{}projet\+\_\+rpi.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}boutons.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}buzzer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}partition\+\_\+sdl.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}read\+\_\+write.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}afficheur.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lib\+Ncurses.\+h\char`\"{}}\newline
+Include dependency graph for main.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=126pt]{main_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \mbox{\hyperlink{main_8h_a5d2095a12d6982d031db287d4dca31f1}{thread\+Boutons}} ()
+\item 
+void $\ast$ \mbox{\hyperlink{main_8h_a5fdd6815142ee67c4b58ab3b0f688971}{thread\+Buzzer}} ()
+\item 
+void $\ast$ \mbox{\hyperlink{main_8h_af354ad86b40d7ea1fea79574ac999a93}{thread\+S\+DL}} ()
+\item 
+void \mbox{\hyperlink{main_8h_a65203354887e76657e96c135b555ddbe}{creer\+Melodie\+Exemple1}} (\mbox{\hyperlink{structpartition__t}{partition\+\_\+t}} $\ast$\mbox{\hyperlink{partition__sdl_8c_ae187568fd10eab7b37a0f8df57014d0c}{part}})
+\begin{DoxyCompactList}\small\item\em Crée une mélodie aléatoire. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8h_a4de9dbb2fc3d2934e6cbfbfe28e7c2c0}{exemple7\+Segments}} (void)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de tester l\textquotesingle{}afficheur 7 segments en écrivant 440 (fréquence du \textquotesingle{}LA\textquotesingle{}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8h_a65203354887e76657e96c135b555ddbe}\label{main_8h_a65203354887e76657e96c135b555ddbe}} 
+\index{main.h@{main.h}!creerMelodieExemple1@{creerMelodieExemple1}}
+\index{creerMelodieExemple1@{creerMelodieExemple1}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{creerMelodieExemple1()}{creerMelodieExemple1()}}
+{\footnotesize\ttfamily void creer\+Melodie\+Exemple1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpartition__t}{partition\+\_\+t}} $\ast$}]{part }\end{DoxyParamCaption})}
+
+
+
+Crée une mélodie aléatoire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mel} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 37 of file main.\+c.
+
+\mbox{\Hypertarget{main_8h_a4de9dbb2fc3d2934e6cbfbfe28e7c2c0}\label{main_8h_a4de9dbb2fc3d2934e6cbfbfe28e7c2c0}} 
+\index{main.h@{main.h}!exemple7Segments@{exemple7Segments}}
+\index{exemple7Segments@{exemple7Segments}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{exemple7Segments()}{exemple7Segments()}}
+{\footnotesize\ttfamily void exemple7\+Segments (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de tester l\textquotesingle{}afficheur 7 segments en écrivant 440 (fréquence du \textquotesingle{}LA\textquotesingle{}) 
+
+\mbox{\Hypertarget{main_8h_a5d2095a12d6982d031db287d4dca31f1}\label{main_8h_a5d2095a12d6982d031db287d4dca31f1}} 
+\index{main.h@{main.h}!threadBoutons@{threadBoutons}}
+\index{threadBoutons@{threadBoutons}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{threadBoutons()}{threadBoutons()}}
+{\footnotesize\ttfamily void$\ast$ thread\+Boutons (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 117 of file boutons.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8h_a5d2095a12d6982d031db287d4dca31f1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8h_a5d2095a12d6982d031db287d4dca31f1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main_8h_a5fdd6815142ee67c4b58ab3b0f688971}\label{main_8h_a5fdd6815142ee67c4b58ab3b0f688971}} 
+\index{main.h@{main.h}!threadBuzzer@{threadBuzzer}}
+\index{threadBuzzer@{threadBuzzer}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{threadBuzzer()}{threadBuzzer()}}
+{\footnotesize\ttfamily void$\ast$ thread\+Buzzer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 60 of file buzzer.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8h_a5fdd6815142ee67c4b58ab3b0f688971_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8h_a5fdd6815142ee67c4b58ab3b0f688971_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main_8h_af354ad86b40d7ea1fea79574ac999a93}\label{main_8h_af354ad86b40d7ea1fea79574ac999a93}} 
+\index{main.h@{main.h}!threadSDL@{threadSDL}}
+\index{threadSDL@{threadSDL}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{threadSDL()}{threadSDL()}}
+{\footnotesize\ttfamily void$\ast$ thread\+S\+DL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 168 of file partition\+\_\+sdl.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=277pt]{main_8h_af354ad86b40d7ea1fea79574ac999a93_cgraph}
+\end{center}
+\end{figure}

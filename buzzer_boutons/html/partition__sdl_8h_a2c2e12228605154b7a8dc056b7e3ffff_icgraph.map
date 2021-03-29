@@ -1,0 +1,8 @@
+<map id="GetTabRectNotes" name="GetTabRectNotes">
+<area shape="rect" id="node1" title="Alloue de la mémoire pour le tableau de notes, et le remplit en calculant les coordonnées de chaque n..." alt="" coords="625,5,753,32"/>
+<area shape="rect" id="node2" href="$partition__sdl_8c.html#af354ad86b40d7ea1fea79574ac999a93" title=" " alt="" coords="493,5,577,32"/>
+<area shape="rect" id="node3" href="$lib_ncurses_8h.html#a3f8a9f5fee211450d7581f39ae989106" title="Fonction qui permet de gérer le choix de l&#39;utilisateur dans le menu principal." alt="" coords="344,5,445,32"/>
+<area shape="rect" id="node4" href="$lib_ncurses_8h.html#a82a715ca7b0a5c4c79ac5fdc003c4d22" title="Cette fonction permet de démarrer la librairie ncurses, elle appelle une fonction d&#39;initialisation de..." alt="" coords="207,5,296,32"/>
+<area shape="rect" id="node5" href="$menu_8c.html#ae83fcdbeb2b6757fc741ae953b633ee1" title="Lance le menu ncurses." alt="" coords="104,5,159,32"/>
+<area shape="rect" id="node6" href="$main_8c.html#aa3345a15bd154061fb3561ad6b24a78c" title=" " alt="" coords="5,5,56,32"/>
+</map>

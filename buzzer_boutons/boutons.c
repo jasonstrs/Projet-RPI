@@ -3,19 +3,52 @@
 
 #include "boutons.h"
 
-//set IDs of the buttons
+/**
+ * @brief Permet de récupérer le numéro du bouton (au sens de la malette (0<=n<=15)) en fonction des lignes et colonnes
+ * 
+ */
 int buttonIDs[4][4] = {{4,3,2,1},{8,7,6,5},{12,11,10,9},{16,15,14,13}};
-//declarate GPIO pins for the lines
+
+/**
+ * @brief Représente les broches wPi correspondant aux lignes de la matrice de boutons
+ * 
+ */
 int rowPins[4] = {2,3,21,22};
-//declarate GPIO pins for the columns
+int ro;
+
+/**
+ * @brief Représente les broches wPi correspondant aux colonnes de la matrice de boutons
+ * 
+ */
 int columnPins[4] = {23,24,25,6};
 
+/**
+ * @brief Dernier bouton pressé
+ * 
+ */
 int lastBtn = 0;
+/**
+ * @brief Temps durant lequel le dernier bouton a été pressé
+ * 
+ */
 int lastTime = 0;
+/**
+ * @brief Un bouton est-il actuellement pressé?
+ * 
+ */
 int isPressed = 0;
-int commandeSDL;
-int commandeBuzzer;
 
+/**
+ * @brief Commande à envoyer à la SDL
+ * 
+ */
+int commandeSDL;
+
+/**
+ * @brief Commande à envoyer au buzzer
+ * 
+ */
+int commandeBuzzer;
 void InitBoutons(){
 	int i;
 	//define 4 inputs with pull up resistors

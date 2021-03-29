@@ -1,0 +1,13 @@
+<map id="decomposerFrequence" name="decomposerFrequence">
+<area shape="rect" id="node1" title="Fonction qui permet de décomposer un nombre en nombre de centaine, nombre de dizaine et d&#39;unité pour ..." alt="" coords="1016,31,1171,57"/>
+<area shape="rect" id="node2" href="$buzzer_8h.html#aaa060cece11707bc75d61e9b5967b0c7" title="Joue une note jusqu&#39;à ce qu&#39;on l&#39;arrête." alt="" coords="869,5,948,32"/>
+<area shape="rect" id="node9" href="$buzzer_8h.html#afcdedcb4d698f3628024f4c672f4ecaf" title="Joue une note pendant un temps défini, puis arrête le buzzer. S&#39;arre en fonction de la variable playp..." alt="" coords="849,56,968,83"/>
+<area shape="rect" id="node3" href="$buzzer_8h.html#aecc9b26cbee4d61d52cbdf8ffb0db537" title="Joue les notes en fonction de l&#39;appui sur les boutons, et les enregistre dans la partition courante." alt="" coords="640,5,801,32"/>
+<area shape="rect" id="node4" href="$main_8h.html#a5fdd6815142ee67c4b58ab3b0f688971" title=" " alt="" coords="493,56,592,83"/>
+<area shape="rect" id="node5" href="$lib_ncurses_8h.html#a3f8a9f5fee211450d7581f39ae989106" title="Fonction qui permet de gérer le choix de l&#39;utilisateur dans le menu principal." alt="" coords="344,56,445,83"/>
+<area shape="rect" id="node6" href="$lib_ncurses_8h.html#a82a715ca7b0a5c4c79ac5fdc003c4d22" title="Cette fonction permet de démarrer la librairie ncurses, elle appelle une fonction d&#39;initialisation de..." alt="" coords="207,56,296,83"/>
+<area shape="rect" id="node7" href="$menu_8c.html#ae83fcdbeb2b6757fc741ae953b633ee1" title="Lance le menu ncurses." alt="" coords="104,56,159,83"/>
+<area shape="rect" id="node8" href="$main_8c.html#aa3345a15bd154061fb3561ad6b24a78c" title=" " alt="" coords="5,56,56,83"/>
+<area shape="rect" id="node10" href="$buzzer_8h.html#a321e1ff3d88a9ae04a7fb83054890153" title="Joue une mélodie d&#39;exemple." alt="" coords="670,56,771,83"/>
+<area shape="rect" id="node11" href="$buzzer_8h.html#a0b63072adfc9482b90a997c96eba8475" title="Joue une mélodie." alt="" coords="673,107,768,133"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="writeDigitNum" name="writeDigitNum">
+<area shape="rect" id="node1" title="Permet d&#39;écrire un numéro dans le buffer du digit." alt="" coords="5,5,111,32"/>
+<area shape="rect" id="node2" href="$afficheur_8c.html#a6beb43d00a6e5d5ed172863743e53402" title="Fonction qui permet d&#39;allumer la colonne d&#39;un digit suivant le nombre que l&#39;on souhaite afficher." alt="" coords="159,5,263,32"/>
+</map>

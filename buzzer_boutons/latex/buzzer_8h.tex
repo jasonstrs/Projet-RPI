@@ -1,0 +1,316 @@
+\hypertarget{buzzer_8h}{}\doxysection{buzzer.\+h File Reference}
+\label{buzzer_8h}\index{buzzer.h@{buzzer.h}}
+{\ttfamily \#include \char`\"{}projet\+\_\+rpi.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$soft\+Tone.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}afficheur.\+h\char`\"{}}\newline
+Include dependency graph for buzzer.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{buzzer_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{buzzer_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{buzzer_8h_a145103118f6d9d1129aa4509cf214a13}{B\+U\+Z\+Z\+ER}}~1
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{buzzer_8h_aaa060cece11707bc75d61e9b5967b0c7}{jouer\+Note}} (\mbox{\hyperlink{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824d}{note\+\_\+t}} note)
+\begin{DoxyCompactList}\small\item\em Joue une note jusqu\textquotesingle{}à ce qu\textquotesingle{}on l\textquotesingle{}arrête. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{buzzer_8h_afcdedcb4d698f3628024f4c672f4ecaf}{jouer\+Note\+Temps}} (\mbox{\hyperlink{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824d}{note\+\_\+t}} note, unsigned int ms)
+\begin{DoxyCompactList}\small\item\em Joue une note pendant un temps défini, puis arrête le buzzer. S\textquotesingle{}arre en fonction de la variable playpause. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{buzzer_8h_a393ff09024bbcb539f6c9ab42ebacda8}{eteindre\+\_\+buzzer}} (void)
+\begin{DoxyCompactList}\small\item\em Eteint le buzzer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{buzzer_8h_aecc9b26cbee4d61d52cbdf8ffb0db537}{enregistrer\+Avec\+Boutons}} ()
+\begin{DoxyCompactList}\small\item\em Joue les notes en fonction de l\textquotesingle{}appui sur les boutons, et les enregistre dans la partition courante. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{buzzer_8h_a321e1ff3d88a9ae04a7fb83054890153}{jouer\+Exemple}} (void)
+\begin{DoxyCompactList}\small\item\em Joue une mélodie d\textquotesingle{}exemple. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{buzzer_8h_a0b63072adfc9482b90a997c96eba8475}{jouer\+Melodie}} (\mbox{\hyperlink{projet__rpi_8h_a951b9b567f140a89da4caed760678bfc}{melodie\+\_\+t}} mel)
+\begin{DoxyCompactList}\small\item\em Joue une mélodie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{buzzer_8h_a92eb0416b8796c8420886708cec09d58}{maj\+Commandes}} (void)
+\begin{DoxyCompactList}\small\item\em Vérifie si un bouton de commande n\textquotesingle{}a pas été pressé. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{buzzer_8h_a940b421aac735da2a3760ad645c4bc74}{last\+Btn}}
+\begin{DoxyCompactList}\small\item\em Dernier bouton pressé \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{buzzer_8h_a3bf6f737f472dad7f01f18d21d9cd0dc}{last\+Time}}
+\begin{DoxyCompactList}\small\item\em Temps durant lequel le dernier bouton a été pressé \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{buzzer_8h_a0f4807e33e63a4746ef6da284705554c}{is\+Pressed}}
+\begin{DoxyCompactList}\small\item\em Un bouton est-\/il actuellement pressé? \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{buzzer_8h_a145103118f6d9d1129aa4509cf214a13}\label{buzzer_8h_a145103118f6d9d1129aa4509cf214a13}} 
+\index{buzzer.h@{buzzer.h}!BUZZER@{BUZZER}}
+\index{BUZZER@{BUZZER}!buzzer.h@{buzzer.h}}
+\doxysubsubsection{\texorpdfstring{BUZZER}{BUZZER}}
+{\footnotesize\ttfamily \#define B\+U\+Z\+Z\+ER~1}
+
+
+
+Definition at line 9 of file buzzer.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{buzzer_8h_aecc9b26cbee4d61d52cbdf8ffb0db537}\label{buzzer_8h_aecc9b26cbee4d61d52cbdf8ffb0db537}} 
+\index{buzzer.h@{buzzer.h}!enregistrerAvecBoutons@{enregistrerAvecBoutons}}
+\index{enregistrerAvecBoutons@{enregistrerAvecBoutons}!buzzer.h@{buzzer.h}}
+\doxysubsubsection{\texorpdfstring{enregistrerAvecBoutons()}{enregistrerAvecBoutons()}}
+{\footnotesize\ttfamily void enregistrer\+Avec\+Boutons (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Joue les notes en fonction de l\textquotesingle{}appui sur les boutons, et les enregistre dans la partition courante. 
+
+
+
+Definition at line 198 of file buzzer.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{buzzer_8h_aecc9b26cbee4d61d52cbdf8ffb0db537_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{buzzer_8h_aecc9b26cbee4d61d52cbdf8ffb0db537_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{buzzer_8h_a393ff09024bbcb539f6c9ab42ebacda8}\label{buzzer_8h_a393ff09024bbcb539f6c9ab42ebacda8}} 
+\index{buzzer.h@{buzzer.h}!eteindre\_buzzer@{eteindre\_buzzer}}
+\index{eteindre\_buzzer@{eteindre\_buzzer}!buzzer.h@{buzzer.h}}
+\doxysubsubsection{\texorpdfstring{eteindre\_buzzer()}{eteindre\_buzzer()}}
+{\footnotesize\ttfamily void eteindre\+\_\+buzzer (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Eteint le buzzer. 
+
+
+
+Definition at line 247 of file buzzer.\+c.
+
+\mbox{\Hypertarget{buzzer_8h_a321e1ff3d88a9ae04a7fb83054890153}\label{buzzer_8h_a321e1ff3d88a9ae04a7fb83054890153}} 
+\index{buzzer.h@{buzzer.h}!jouerExemple@{jouerExemple}}
+\index{jouerExemple@{jouerExemple}!buzzer.h@{buzzer.h}}
+\doxysubsubsection{\texorpdfstring{jouerExemple()}{jouerExemple()}}
+{\footnotesize\ttfamily void jouer\+Exemple (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Joue une mélodie d\textquotesingle{}exemple. 
+
+
+
+Definition at line 110 of file buzzer.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{buzzer_8h_a321e1ff3d88a9ae04a7fb83054890153_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{buzzer_8h_a0b63072adfc9482b90a997c96eba8475}\label{buzzer_8h_a0b63072adfc9482b90a997c96eba8475}} 
+\index{buzzer.h@{buzzer.h}!jouerMelodie@{jouerMelodie}}
+\index{jouerMelodie@{jouerMelodie}!buzzer.h@{buzzer.h}}
+\doxysubsubsection{\texorpdfstring{jouerMelodie()}{jouerMelodie()}}
+{\footnotesize\ttfamily void jouer\+Melodie (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{projet__rpi_8h_a951b9b567f140a89da4caed760678bfc}{melodie\+\_\+t}}}]{mel }\end{DoxyParamCaption})}
+
+
+
+Joue une mélodie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mel} & La mélodie à jouer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 255 of file buzzer.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{buzzer_8h_a0b63072adfc9482b90a997c96eba8475_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{buzzer_8h_a0b63072adfc9482b90a997c96eba8475_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{buzzer_8h_aaa060cece11707bc75d61e9b5967b0c7}\label{buzzer_8h_aaa060cece11707bc75d61e9b5967b0c7}} 
+\index{buzzer.h@{buzzer.h}!jouerNote@{jouerNote}}
+\index{jouerNote@{jouerNote}!buzzer.h@{buzzer.h}}
+\doxysubsubsection{\texorpdfstring{jouerNote()}{jouerNote()}}
+{\footnotesize\ttfamily void jouer\+Note (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824d}{note\+\_\+t}}}]{note }\end{DoxyParamCaption})}
+
+
+
+Joue une note jusqu\textquotesingle{}à ce qu\textquotesingle{}on l\textquotesingle{}arrête. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em note} & La fréquence à jouer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 160 of file buzzer.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{buzzer_8h_aaa060cece11707bc75d61e9b5967b0c7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{buzzer_8h_aaa060cece11707bc75d61e9b5967b0c7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{buzzer_8h_afcdedcb4d698f3628024f4c672f4ecaf}\label{buzzer_8h_afcdedcb4d698f3628024f4c672f4ecaf}} 
+\index{buzzer.h@{buzzer.h}!jouerNoteTemps@{jouerNoteTemps}}
+\index{jouerNoteTemps@{jouerNoteTemps}!buzzer.h@{buzzer.h}}
+\doxysubsubsection{\texorpdfstring{jouerNoteTemps()}{jouerNoteTemps()}}
+{\footnotesize\ttfamily void jouer\+Note\+Temps (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824d}{note\+\_\+t}}}]{note,  }\item[{unsigned int}]{ms }\end{DoxyParamCaption})}
+
+
+
+Joue une note pendant un temps défini, puis arrête le buzzer. S\textquotesingle{}arre en fonction de la variable playpause. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em note} & La note à jouer (DO -\/$>$ DO ou B\+L\+A\+NC) \\
+\hline
+{\em ms} & Le temps (en ms) pendant lequel jouer la note \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 172 of file buzzer.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{buzzer_8h_afcdedcb4d698f3628024f4c672f4ecaf_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{buzzer_8h_afcdedcb4d698f3628024f4c672f4ecaf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{buzzer_8h_a92eb0416b8796c8420886708cec09d58}\label{buzzer_8h_a92eb0416b8796c8420886708cec09d58}} 
+\index{buzzer.h@{buzzer.h}!majCommandes@{majCommandes}}
+\index{majCommandes@{majCommandes}!buzzer.h@{buzzer.h}}
+\doxysubsubsection{\texorpdfstring{majCommandes()}{majCommandes()}}
+{\footnotesize\ttfamily void maj\+Commandes (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Vérifie si un bouton de commande n\textquotesingle{}a pas été pressé. 
+
+
+
+Definition at line 279 of file buzzer.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{buzzer_8h_a92eb0416b8796c8420886708cec09d58_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{buzzer_8h_a92eb0416b8796c8420886708cec09d58_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{buzzer_8h_a0f4807e33e63a4746ef6da284705554c}\label{buzzer_8h_a0f4807e33e63a4746ef6da284705554c}} 
+\index{buzzer.h@{buzzer.h}!isPressed@{isPressed}}
+\index{isPressed@{isPressed}!buzzer.h@{buzzer.h}}
+\doxysubsubsection{\texorpdfstring{isPressed}{isPressed}}
+{\footnotesize\ttfamily int is\+Pressed}
+
+
+
+Un bouton est-\/il actuellement pressé? 
+
+Un bouton est-\/il pressé sur la matrice ? 
+
+Definition at line 39 of file boutons.\+c.
+
+\mbox{\Hypertarget{buzzer_8h_a940b421aac735da2a3760ad645c4bc74}\label{buzzer_8h_a940b421aac735da2a3760ad645c4bc74}} 
+\index{buzzer.h@{buzzer.h}!lastBtn@{lastBtn}}
+\index{lastBtn@{lastBtn}!buzzer.h@{buzzer.h}}
+\doxysubsubsection{\texorpdfstring{lastBtn}{lastBtn}}
+{\footnotesize\ttfamily int last\+Btn}
+
+
+
+Dernier bouton pressé 
+
+Numéro du dernier bouton pressé 
+
+Definition at line 29 of file boutons.\+c.
+
+\mbox{\Hypertarget{buzzer_8h_a3bf6f737f472dad7f01f18d21d9cd0dc}\label{buzzer_8h_a3bf6f737f472dad7f01f18d21d9cd0dc}} 
+\index{buzzer.h@{buzzer.h}!lastTime@{lastTime}}
+\index{lastTime@{lastTime}!buzzer.h@{buzzer.h}}
+\doxysubsubsection{\texorpdfstring{lastTime}{lastTime}}
+{\footnotesize\ttfamily int last\+Time}
+
+
+
+Temps durant lequel le dernier bouton a été pressé 
+
+Temps pendant lequel le dernier bouton a été pressé 
+
+Definition at line 34 of file boutons.\+c.
+

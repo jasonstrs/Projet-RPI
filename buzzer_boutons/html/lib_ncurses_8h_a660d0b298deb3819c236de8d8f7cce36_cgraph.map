@@ -1,0 +1,5 @@
+<map id="initFenetre" name="initFenetre">
+<area shape="rect" id="node1" title="Fonction qui permet d&#39;initialiser la fenêtre, c&#39;est&#45;à&#45;dire mettre un fond bleu, activer la détection ..." alt="" coords="5,31,88,57"/>
+<area shape="rect" id="node2" href="$lib_ncurses_8c.html#a9491faf0a8087d1d63fa74a90b5a8fdf" title="Fonction qui permet d&#39;initialiser les couleurs pour notre librairie ncurses." alt="" coords="136,5,213,32"/>
+<area shape="rect" id="node3" href="$lib_ncurses_8c.html#a5aba62cb07979f6d9917707fb26a37fd" title="Fonction qui permet de dessiner le fond de la fenêtre." alt="" coords="143,56,207,83"/>
+</map>

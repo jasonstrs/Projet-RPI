@@ -1,0 +1,422 @@
+\hypertarget{afficheur_8h}{}\doxysection{afficheur.\+h File Reference}
+\label{afficheur_8h}\index{afficheur.h@{afficheur.h}}
+{\ttfamily \#include \char`\"{}projet\+\_\+rpi.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$wiring\+Pi\+I2\+C.\+h$>$}\newline
+{\ttfamily \#include $<$sys/time.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for afficheur.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{afficheur_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=265pt]{afficheur_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{afficheur_8h_aeb60d0ffe0a4c33d7ce5fdec022c8f1c}{H\+T16\+K33\+\_\+\+B\+L\+I\+N\+K\+\_\+\+C\+MD}}~0x80
+\item 
+\#define \mbox{\hyperlink{afficheur_8h_acc966bd287c69bc0f9641fb8b9dae262}{H\+T16\+K33\+\_\+\+B\+L\+I\+N\+K\+\_\+\+D\+I\+S\+P\+L\+A\+Y\+ON}}~0x01
+\item 
+\#define \mbox{\hyperlink{afficheur_8h_a5faf7e84c279ea8d19f8c1f0315ef963}{H\+T16\+K33\+\_\+\+B\+L\+I\+N\+K\+\_\+\+O\+FF}}~0
+\item 
+\#define \mbox{\hyperlink{afficheur_8h_a1d5927a7ca671294e0259dbc3ca87e2b}{H\+T16\+K33\+\_\+\+B\+L\+I\+N\+K\+\_\+2\+HZ}}~1
+\item 
+\#define \mbox{\hyperlink{afficheur_8h_a94f162a076f4f17d869eb93689897eac}{H\+T16\+K33\+\_\+\+B\+L\+I\+N\+K\+\_\+1\+HZ}}~2
+\item 
+\#define \mbox{\hyperlink{afficheur_8h_aab50e117a4af389744d156f8e0c1befd}{H\+T16\+K33\+\_\+\+B\+L\+I\+N\+K\+\_\+\+H\+A\+L\+F\+HZ}}~3
+\item 
+\#define \mbox{\hyperlink{afficheur_8h_ac76491bd5700a8b369fec090bb6761fd}{H\+T16\+K33\+\_\+\+C\+M\+D\+\_\+\+B\+R\+I\+G\+H\+T\+N\+E\+SS}}~0x\+E0
+\item 
+\#define \mbox{\hyperlink{afficheur_8h_a5b377c04c67d8f647cfcf89452074893}{S\+E\+V\+E\+N\+S\+E\+G\+\_\+\+D\+I\+G\+I\+TS}}~5
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{afficheur_8h_ae48e941245d25c1b710fe41d91d8f149}{set\+Brightness}} (int fd, uint8\+\_\+t b)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de régler l\textquotesingle{}intensité lumineuse. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{afficheur_8h_a57c7242b88fb52f1a5d66d31623216fb}{blink\+Rate}} (int fd, uint8\+\_\+t b)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de régler le taux de clignotement. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{afficheur_8h_a3e5ebc47fe80608773bdb9e819b2a620}{begin}} (int fd)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de démarrer l\textquotesingle{}afficheur 7 segments. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{afficheur_8h_a18e05e0aa9448c279a3c31ee2c061fc2}{write\+Display}} (int fd, int offset)
+\begin{DoxyCompactList}\small\item\em Cette fonction permet d\textquotesingle{}écrire un numéro sur l\textquotesingle{}afficheur 7 segment. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{afficheur_8h_a109fc3fa5023f4b9035c9a4c2f915c70}{clear7\+Seg}} (void)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de vider le buffer, autrement dit d\textquotesingle{}éteindre tout le 7 segments. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{afficheur_8h_a6beb43d00a6e5d5ed172863743e53402}{write\+Digit\+Raw}} (uint8\+\_\+t d, uint8\+\_\+t bitmask)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet d\textquotesingle{}allumer la colonne d\textquotesingle{}un digit suivant le nombre que l\textquotesingle{}on souhaite afficher. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{afficheur_8h_af7e150874b727c633afd3f107b4d8809}{write\+Digit\+Num}} (uint8\+\_\+t d, uint8\+\_\+t num, bool dot)
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}écrire un numéro dans le buffer du digit. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{afficheur_8h_a863b166fb45e8b2c824075dc121be506}{decomposer\+Frequence}} (int frequence, int $\ast$centaine, int $\ast$dizaine, int $\ast$unite)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de décomposer un nombre en nombre de centaine, nombre de dizaine et d\textquotesingle{}unité pour les afficher sur chaque digit du 7 segments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{afficheur_8h_a345d148ebbbb590a7a660266e0905368}{displaybuffer}} \mbox{[}12\mbox{]}
+\begin{DoxyCompactList}\small\item\em Fonction qui permet d\textquotesingle{}afficher le buffer. \end{DoxyCompactList}\item 
+const uint8\+\_\+t \mbox{\hyperlink{afficheur_8h_ac7f622b21f3d23a621ffe18995641bb7}{numbertable}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Table de nombre, chaque nombre est associé à un code héxa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{afficheur_8h_a94f162a076f4f17d869eb93689897eac}\label{afficheur_8h_a94f162a076f4f17d869eb93689897eac}} 
+\index{afficheur.h@{afficheur.h}!HT16K33\_BLINK\_1HZ@{HT16K33\_BLINK\_1HZ}}
+\index{HT16K33\_BLINK\_1HZ@{HT16K33\_BLINK\_1HZ}!afficheur.h@{afficheur.h}}
+\doxysubsubsection{\texorpdfstring{HT16K33\_BLINK\_1HZ}{HT16K33\_BLINK\_1HZ}}
+{\footnotesize\ttfamily \#define H\+T16\+K33\+\_\+\+B\+L\+I\+N\+K\+\_\+1\+HZ~2}
+
+
+
+Definition at line 18 of file afficheur.\+h.
+
+\mbox{\Hypertarget{afficheur_8h_a1d5927a7ca671294e0259dbc3ca87e2b}\label{afficheur_8h_a1d5927a7ca671294e0259dbc3ca87e2b}} 
+\index{afficheur.h@{afficheur.h}!HT16K33\_BLINK\_2HZ@{HT16K33\_BLINK\_2HZ}}
+\index{HT16K33\_BLINK\_2HZ@{HT16K33\_BLINK\_2HZ}!afficheur.h@{afficheur.h}}
+\doxysubsubsection{\texorpdfstring{HT16K33\_BLINK\_2HZ}{HT16K33\_BLINK\_2HZ}}
+{\footnotesize\ttfamily \#define H\+T16\+K33\+\_\+\+B\+L\+I\+N\+K\+\_\+2\+HZ~1}
+
+
+
+Definition at line 17 of file afficheur.\+h.
+
+\mbox{\Hypertarget{afficheur_8h_aeb60d0ffe0a4c33d7ce5fdec022c8f1c}\label{afficheur_8h_aeb60d0ffe0a4c33d7ce5fdec022c8f1c}} 
+\index{afficheur.h@{afficheur.h}!HT16K33\_BLINK\_CMD@{HT16K33\_BLINK\_CMD}}
+\index{HT16K33\_BLINK\_CMD@{HT16K33\_BLINK\_CMD}!afficheur.h@{afficheur.h}}
+\doxysubsubsection{\texorpdfstring{HT16K33\_BLINK\_CMD}{HT16K33\_BLINK\_CMD}}
+{\footnotesize\ttfamily \#define H\+T16\+K33\+\_\+\+B\+L\+I\+N\+K\+\_\+\+C\+MD~0x80}
+
+
+
+Definition at line 14 of file afficheur.\+h.
+
+\mbox{\Hypertarget{afficheur_8h_acc966bd287c69bc0f9641fb8b9dae262}\label{afficheur_8h_acc966bd287c69bc0f9641fb8b9dae262}} 
+\index{afficheur.h@{afficheur.h}!HT16K33\_BLINK\_DISPLAYON@{HT16K33\_BLINK\_DISPLAYON}}
+\index{HT16K33\_BLINK\_DISPLAYON@{HT16K33\_BLINK\_DISPLAYON}!afficheur.h@{afficheur.h}}
+\doxysubsubsection{\texorpdfstring{HT16K33\_BLINK\_DISPLAYON}{HT16K33\_BLINK\_DISPLAYON}}
+{\footnotesize\ttfamily \#define H\+T16\+K33\+\_\+\+B\+L\+I\+N\+K\+\_\+\+D\+I\+S\+P\+L\+A\+Y\+ON~0x01}
+
+
+
+Definition at line 15 of file afficheur.\+h.
+
+\mbox{\Hypertarget{afficheur_8h_aab50e117a4af389744d156f8e0c1befd}\label{afficheur_8h_aab50e117a4af389744d156f8e0c1befd}} 
+\index{afficheur.h@{afficheur.h}!HT16K33\_BLINK\_HALFHZ@{HT16K33\_BLINK\_HALFHZ}}
+\index{HT16K33\_BLINK\_HALFHZ@{HT16K33\_BLINK\_HALFHZ}!afficheur.h@{afficheur.h}}
+\doxysubsubsection{\texorpdfstring{HT16K33\_BLINK\_HALFHZ}{HT16K33\_BLINK\_HALFHZ}}
+{\footnotesize\ttfamily \#define H\+T16\+K33\+\_\+\+B\+L\+I\+N\+K\+\_\+\+H\+A\+L\+F\+HZ~3}
+
+
+
+Definition at line 19 of file afficheur.\+h.
+
+\mbox{\Hypertarget{afficheur_8h_a5faf7e84c279ea8d19f8c1f0315ef963}\label{afficheur_8h_a5faf7e84c279ea8d19f8c1f0315ef963}} 
+\index{afficheur.h@{afficheur.h}!HT16K33\_BLINK\_OFF@{HT16K33\_BLINK\_OFF}}
+\index{HT16K33\_BLINK\_OFF@{HT16K33\_BLINK\_OFF}!afficheur.h@{afficheur.h}}
+\doxysubsubsection{\texorpdfstring{HT16K33\_BLINK\_OFF}{HT16K33\_BLINK\_OFF}}
+{\footnotesize\ttfamily \#define H\+T16\+K33\+\_\+\+B\+L\+I\+N\+K\+\_\+\+O\+FF~0}
+
+
+
+Definition at line 16 of file afficheur.\+h.
+
+\mbox{\Hypertarget{afficheur_8h_ac76491bd5700a8b369fec090bb6761fd}\label{afficheur_8h_ac76491bd5700a8b369fec090bb6761fd}} 
+\index{afficheur.h@{afficheur.h}!HT16K33\_CMD\_BRIGHTNESS@{HT16K33\_CMD\_BRIGHTNESS}}
+\index{HT16K33\_CMD\_BRIGHTNESS@{HT16K33\_CMD\_BRIGHTNESS}!afficheur.h@{afficheur.h}}
+\doxysubsubsection{\texorpdfstring{HT16K33\_CMD\_BRIGHTNESS}{HT16K33\_CMD\_BRIGHTNESS}}
+{\footnotesize\ttfamily \#define H\+T16\+K33\+\_\+\+C\+M\+D\+\_\+\+B\+R\+I\+G\+H\+T\+N\+E\+SS~0x\+E0}
+
+
+
+Definition at line 20 of file afficheur.\+h.
+
+\mbox{\Hypertarget{afficheur_8h_a5b377c04c67d8f647cfcf89452074893}\label{afficheur_8h_a5b377c04c67d8f647cfcf89452074893}} 
+\index{afficheur.h@{afficheur.h}!SEVENSEG\_DIGITS@{SEVENSEG\_DIGITS}}
+\index{SEVENSEG\_DIGITS@{SEVENSEG\_DIGITS}!afficheur.h@{afficheur.h}}
+\doxysubsubsection{\texorpdfstring{SEVENSEG\_DIGITS}{SEVENSEG\_DIGITS}}
+{\footnotesize\ttfamily \#define S\+E\+V\+E\+N\+S\+E\+G\+\_\+\+D\+I\+G\+I\+TS~5}
+
+
+
+Definition at line 22 of file afficheur.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{afficheur_8h_a3e5ebc47fe80608773bdb9e819b2a620}\label{afficheur_8h_a3e5ebc47fe80608773bdb9e819b2a620}} 
+\index{afficheur.h@{afficheur.h}!begin@{begin}}
+\index{begin@{begin}!afficheur.h@{afficheur.h}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void begin (\begin{DoxyParamCaption}\item[{int}]{fd }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de démarrer l\textquotesingle{}afficheur 7 segments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fd} & int représentant l\textquotesingle{}afficheur 7 segments à démarrer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 53 of file afficheur.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{afficheur_8h_a3e5ebc47fe80608773bdb9e819b2a620_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{afficheur_8h_a3e5ebc47fe80608773bdb9e819b2a620_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{afficheur_8h_a57c7242b88fb52f1a5d66d31623216fb}\label{afficheur_8h_a57c7242b88fb52f1a5d66d31623216fb}} 
+\index{afficheur.h@{afficheur.h}!blinkRate@{blinkRate}}
+\index{blinkRate@{blinkRate}!afficheur.h@{afficheur.h}}
+\doxysubsubsection{\texorpdfstring{blinkRate()}{blinkRate()}}
+{\footnotesize\ttfamily void blink\+Rate (\begin{DoxyParamCaption}\item[{int}]{fd,  }\item[{uint8\+\_\+t}]{b }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de régler le taux de clignotement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fd} & int représentant l\textquotesingle{}afficheur 7 segments \\
+\hline
+{\em b} & taux voulu \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 43 of file afficheur.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{afficheur_8h_a57c7242b88fb52f1a5d66d31623216fb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{afficheur_8h_a109fc3fa5023f4b9035c9a4c2f915c70}\label{afficheur_8h_a109fc3fa5023f4b9035c9a4c2f915c70}} 
+\index{afficheur.h@{afficheur.h}!clear7Seg@{clear7Seg}}
+\index{clear7Seg@{clear7Seg}!afficheur.h@{afficheur.h}}
+\doxysubsubsection{\texorpdfstring{clear7Seg()}{clear7Seg()}}
+{\footnotesize\ttfamily void clear7\+Seg (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de vider le buffer, autrement dit d\textquotesingle{}éteindre tout le 7 segments. 
+
+
+
+Definition at line 82 of file afficheur.\+c.
+
+\mbox{\Hypertarget{afficheur_8h_a863b166fb45e8b2c824075dc121be506}\label{afficheur_8h_a863b166fb45e8b2c824075dc121be506}} 
+\index{afficheur.h@{afficheur.h}!decomposerFrequence@{decomposerFrequence}}
+\index{decomposerFrequence@{decomposerFrequence}!afficheur.h@{afficheur.h}}
+\doxysubsubsection{\texorpdfstring{decomposerFrequence()}{decomposerFrequence()}}
+{\footnotesize\ttfamily void decomposer\+Frequence (\begin{DoxyParamCaption}\item[{int}]{frequence,  }\item[{int $\ast$}]{centaine,  }\item[{int $\ast$}]{dizaine,  }\item[{int $\ast$}]{unite }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de décomposer un nombre en nombre de centaine, nombre de dizaine et d\textquotesingle{}unité pour les afficher sur chaque digit du 7 segments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frequence} & fréquence de la note à décomposer \\
+\hline
+{\em centaine} & nombre de centaine \\
+\hline
+{\em dizaine} & nombre de dizaine \\
+\hline
+{\em unite} & nombre de unité \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 121 of file afficheur.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{afficheur_8h_a863b166fb45e8b2c824075dc121be506_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{afficheur_8h_ae48e941245d25c1b710fe41d91d8f149}\label{afficheur_8h_ae48e941245d25c1b710fe41d91d8f149}} 
+\index{afficheur.h@{afficheur.h}!setBrightness@{setBrightness}}
+\index{setBrightness@{setBrightness}!afficheur.h@{afficheur.h}}
+\doxysubsubsection{\texorpdfstring{setBrightness()}{setBrightness()}}
+{\footnotesize\ttfamily void set\+Brightness (\begin{DoxyParamCaption}\item[{int}]{fd,  }\item[{uint8\+\_\+t}]{b }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de régler l\textquotesingle{}intensité lumineuse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fd} & int représentant l\textquotesingle{}afficheur 7 segments \\
+\hline
+{\em b} & intensité voulue \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 32 of file afficheur.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{afficheur_8h_ae48e941245d25c1b710fe41d91d8f149_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{afficheur_8h_af7e150874b727c633afd3f107b4d8809}\label{afficheur_8h_af7e150874b727c633afd3f107b4d8809}} 
+\index{afficheur.h@{afficheur.h}!writeDigitNum@{writeDigitNum}}
+\index{writeDigitNum@{writeDigitNum}!afficheur.h@{afficheur.h}}
+\doxysubsubsection{\texorpdfstring{writeDigitNum()}{writeDigitNum()}}
+{\footnotesize\ttfamily void write\+Digit\+Num (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{d,  }\item[{uint8\+\_\+t}]{num,  }\item[{bool}]{dot }\end{DoxyParamCaption})}
+
+
+
+Permet d\textquotesingle{}écrire un numéro dans le buffer du digit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & numéro du digit sur lequel on écrit \\
+\hline
+{\em num} & numéro que l\textquotesingle{}on veut écrire \\
+\hline
+{\em dot} & boolean qui permet de savoir si on met un \textquotesingle{}.\textquotesingle{} ou pas sur l\textquotesingle{}affichage \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 107 of file afficheur.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{afficheur_8h_af7e150874b727c633afd3f107b4d8809_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{afficheur_8h_af7e150874b727c633afd3f107b4d8809_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{afficheur_8h_a6beb43d00a6e5d5ed172863743e53402}\label{afficheur_8h_a6beb43d00a6e5d5ed172863743e53402}} 
+\index{afficheur.h@{afficheur.h}!writeDigitRaw@{writeDigitRaw}}
+\index{writeDigitRaw@{writeDigitRaw}!afficheur.h@{afficheur.h}}
+\doxysubsubsection{\texorpdfstring{writeDigitRaw()}{writeDigitRaw()}}
+{\footnotesize\ttfamily void write\+Digit\+Raw (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{d,  }\item[{uint8\+\_\+t}]{bitmask }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet d\textquotesingle{}allumer la colonne d\textquotesingle{}un digit suivant le nombre que l\textquotesingle{}on souhaite afficher. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & correspond au numéro du digit sur lequel on travaille \\
+\hline
+{\em bitmask} & correspond à l\textquotesingle{}adresse hexa du digit choisi \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 95 of file afficheur.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{afficheur_8h_a6beb43d00a6e5d5ed172863743e53402_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{afficheur_8h_a18e05e0aa9448c279a3c31ee2c061fc2}\label{afficheur_8h_a18e05e0aa9448c279a3c31ee2c061fc2}} 
+\index{afficheur.h@{afficheur.h}!writeDisplay@{writeDisplay}}
+\index{writeDisplay@{writeDisplay}!afficheur.h@{afficheur.h}}
+\doxysubsubsection{\texorpdfstring{writeDisplay()}{writeDisplay()}}
+{\footnotesize\ttfamily void write\+Display (\begin{DoxyParamCaption}\item[{int}]{fd,  }\item[{int}]{offset }\end{DoxyParamCaption})}
+
+
+
+Cette fonction permet d\textquotesingle{}écrire un numéro sur l\textquotesingle{}afficheur 7 segment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fd} & int représentant l\textquotesingle{}afficheur 7 segments \\
+\hline
+{\em offset} & position du premier digit (dans notre cas 0) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 66 of file afficheur.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{afficheur_8h_a18e05e0aa9448c279a3c31ee2c061fc2_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{afficheur_8h_a345d148ebbbb590a7a660266e0905368}\label{afficheur_8h_a345d148ebbbb590a7a660266e0905368}} 
+\index{afficheur.h@{afficheur.h}!displaybuffer@{displaybuffer}}
+\index{displaybuffer@{displaybuffer}!afficheur.h@{afficheur.h}}
+\doxysubsubsection{\texorpdfstring{displaybuffer}{displaybuffer}}
+{\footnotesize\ttfamily uint16\+\_\+t displaybuffer\mbox{[}12\mbox{]}}
+
+
+
+Fonction qui permet d\textquotesingle{}afficher le buffer. 
+
+
+
+Definition at line 33 of file afficheur.\+h.
+
+\mbox{\Hypertarget{afficheur_8h_ac7f622b21f3d23a621ffe18995641bb7}\label{afficheur_8h_ac7f622b21f3d23a621ffe18995641bb7}} 
+\index{afficheur.h@{afficheur.h}!numbertable@{numbertable}}
+\index{numbertable@{numbertable}!afficheur.h@{afficheur.h}}
+\doxysubsubsection{\texorpdfstring{numbertable}{numbertable}}
+{\footnotesize\ttfamily const uint8\+\_\+t numbertable\mbox{[}$\,$\mbox{]}}
+
+
+
+Table de nombre, chaque nombre est associé à un code héxa. 
+
+
+
+Definition at line 7 of file afficheur.\+c.
+

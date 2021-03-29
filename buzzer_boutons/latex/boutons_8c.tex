@@ -1,0 +1,297 @@
+\hypertarget{boutons_8c}{}\doxysection{boutons.\+c File Reference}
+\label{boutons_8c}\index{boutons.c@{boutons.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$wiring\+Pi.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}boutons.\+h\char`\"{}}\newline
+Include dependency graph for boutons.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{boutons_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{boutons_8c_a559b62a701ee9273e10efe7d6e001d1d}{Init\+Boutons}} ()
+\begin{DoxyCompactList}\small\item\em Initialise correctement la matrice de boutons. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{boutons_8c_a857895768238d3fb444bcda5a559659c}{Get\+Index}} (int row, int col)
+\begin{DoxyCompactList}\small\item\em Récupère le numéro du bouton sur lequel on a appuyé, en fonction des broches de ligne/colonne. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{boutons_8c_a2c6d151a33cbd789d194443d8f4abb23}{Held\+Down}} (int pin)
+\item 
+void \mbox{\hyperlink{boutons_8c_af949d12efe156903031b8c8fb62d1888}{Analyser\+Matrice}} (void)
+\begin{DoxyCompactList}\small\item\em Analyse tour à tour toute les lignes/colonnes de la matrice, pour voir sur quel bouton on a appuyé \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{boutons_8c_a5d2095a12d6982d031db287d4dca31f1}{thread\+Boutons}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{boutons_8c_a9049e235c31f60b1cee5c141ff316a78}{button\+I\+Ds}} \mbox{[}4\mbox{]}\mbox{[}4\mbox{]} = \{\{4,3,2,1\},\{8,7,6,5\},\{12,11,10,9\},\{16,15,14,13\}\}
+\begin{DoxyCompactList}\small\item\em Permet de récupérer le numéro du bouton (au sens de la malette (0$<$=n$<$=15)) en fonction des lignes et colonnes. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{boutons_8c_a80394fa1544888769f8446076ade6d2d}{row\+Pins}} \mbox{[}4\mbox{]} = \{2,3,21,22\}
+\begin{DoxyCompactList}\small\item\em Représente les broches w\+Pi correspondant aux lignes de la matrice de boutons. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{boutons_8c_a14f9dd5cd5344b0eefd3e7c08316d445}{ro}}
+\item 
+int \mbox{\hyperlink{boutons_8c_a86dbbb867f287c90d4bad35dfd593bfa}{column\+Pins}} \mbox{[}4\mbox{]} = \{23,24,25,6\}
+\begin{DoxyCompactList}\small\item\em Représente les broches w\+Pi correspondant aux colonnes de la matrice de boutons. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{boutons_8c_a940b421aac735da2a3760ad645c4bc74}{last\+Btn}} = 0
+\begin{DoxyCompactList}\small\item\em Dernier bouton pressé \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{boutons_8c_a3bf6f737f472dad7f01f18d21d9cd0dc}{last\+Time}} = 0
+\begin{DoxyCompactList}\small\item\em Temps durant lequel le dernier bouton a été pressé \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{boutons_8c_a0f4807e33e63a4746ef6da284705554c}{is\+Pressed}} = 0
+\begin{DoxyCompactList}\small\item\em Un bouton est-\/il actuellement pressé? \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{boutons_8c_af3cb4a9bf4cd04d0d76fdceca3cc0a8f}{commande\+S\+DL}}
+\begin{DoxyCompactList}\small\item\em Commande à envoyer à la S\+DL. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{boutons_8c_a96708e07abf503a2f9488802ec31a7b1}{commande\+Buzzer}}
+\begin{DoxyCompactList}\small\item\em Commande à envoyer au buzzer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{boutons_8c_af949d12efe156903031b8c8fb62d1888}\label{boutons_8c_af949d12efe156903031b8c8fb62d1888}} 
+\index{boutons.c@{boutons.c}!AnalyserMatrice@{AnalyserMatrice}}
+\index{AnalyserMatrice@{AnalyserMatrice}!boutons.c@{boutons.c}}
+\doxysubsubsection{\texorpdfstring{AnalyserMatrice()}{AnalyserMatrice()}}
+{\footnotesize\ttfamily void Analyser\+Matrice (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Analyse tour à tour toute les lignes/colonnes de la matrice, pour voir sur quel bouton on a appuyé 
+
+/!\textbackslash{} Ne détecte l\textquotesingle{}appui que sur 1 bouton à la fois !
+
+Met à jour les variables globales last\+Btn, last\+Time et is\+Pressed, pour que les autres threads puissent suivre l\textquotesingle{}état de la matrice. 
+
+Definition at line 74 of file boutons.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=259pt]{boutons_8c_af949d12efe156903031b8c8fb62d1888_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{boutons_8c_af949d12efe156903031b8c8fb62d1888_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{boutons_8c_a857895768238d3fb444bcda5a559659c}\label{boutons_8c_a857895768238d3fb444bcda5a559659c}} 
+\index{boutons.c@{boutons.c}!GetIndex@{GetIndex}}
+\index{GetIndex@{GetIndex}!boutons.c@{boutons.c}}
+\doxysubsubsection{\texorpdfstring{GetIndex()}{GetIndex()}}
+{\footnotesize\ttfamily int Get\+Index (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+Récupère le numéro du bouton sur lequel on a appuyé, en fonction des broches de ligne/colonne. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & Broche correspondant à la ligne du bouton \\
+\hline
+{\em col} & Broche correspondant à la colonne du bouton \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Numéro du bouton tel que défini sur la malette (\mbox{[}1;16\mbox{]}) 
+\end{DoxyReturn}
+
+
+Definition at line 64 of file boutons.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{boutons_8c_a857895768238d3fb444bcda5a559659c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{boutons_8c_a2c6d151a33cbd789d194443d8f4abb23}\label{boutons_8c_a2c6d151a33cbd789d194443d8f4abb23}} 
+\index{boutons.c@{boutons.c}!HeldDown@{HeldDown}}
+\index{HeldDown@{HeldDown}!boutons.c@{boutons.c}}
+\doxysubsubsection{\texorpdfstring{HeldDown()}{HeldDown()}}
+{\footnotesize\ttfamily int Held\+Down (\begin{DoxyParamCaption}\item[{int}]{pin }\end{DoxyParamCaption})}
+
+
+
+Definition at line 70 of file boutons.\+c.
+
+\mbox{\Hypertarget{boutons_8c_a559b62a701ee9273e10efe7d6e001d1d}\label{boutons_8c_a559b62a701ee9273e10efe7d6e001d1d}} 
+\index{boutons.c@{boutons.c}!InitBoutons@{InitBoutons}}
+\index{InitBoutons@{InitBoutons}!boutons.c@{boutons.c}}
+\doxysubsubsection{\texorpdfstring{InitBoutons()}{InitBoutons()}}
+{\footnotesize\ttfamily void Init\+Boutons (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialise correctement la matrice de boutons. 
+
+
+
+Definition at line 52 of file boutons.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{boutons_8c_a559b62a701ee9273e10efe7d6e001d1d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{boutons_8c_a5d2095a12d6982d031db287d4dca31f1}\label{boutons_8c_a5d2095a12d6982d031db287d4dca31f1}} 
+\index{boutons.c@{boutons.c}!threadBoutons@{threadBoutons}}
+\index{threadBoutons@{threadBoutons}!boutons.c@{boutons.c}}
+\doxysubsubsection{\texorpdfstring{threadBoutons()}{threadBoutons()}}
+{\footnotesize\ttfamily void$\ast$ thread\+Boutons (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 117 of file boutons.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{boutons_8c_a5d2095a12d6982d031db287d4dca31f1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{boutons_8c_a5d2095a12d6982d031db287d4dca31f1_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{boutons_8c_a9049e235c31f60b1cee5c141ff316a78}\label{boutons_8c_a9049e235c31f60b1cee5c141ff316a78}} 
+\index{boutons.c@{boutons.c}!buttonIDs@{buttonIDs}}
+\index{buttonIDs@{buttonIDs}!boutons.c@{boutons.c}}
+\doxysubsubsection{\texorpdfstring{buttonIDs}{buttonIDs}}
+{\footnotesize\ttfamily int button\+I\+Ds\mbox{[}4\mbox{]}\mbox{[}4\mbox{]} = \{\{4,3,2,1\},\{8,7,6,5\},\{12,11,10,9\},\{16,15,14,13\}\}}
+
+
+
+Permet de récupérer le numéro du bouton (au sens de la malette (0$<$=n$<$=15)) en fonction des lignes et colonnes. 
+
+
+
+Definition at line 10 of file boutons.\+c.
+
+\mbox{\Hypertarget{boutons_8c_a86dbbb867f287c90d4bad35dfd593bfa}\label{boutons_8c_a86dbbb867f287c90d4bad35dfd593bfa}} 
+\index{boutons.c@{boutons.c}!columnPins@{columnPins}}
+\index{columnPins@{columnPins}!boutons.c@{boutons.c}}
+\doxysubsubsection{\texorpdfstring{columnPins}{columnPins}}
+{\footnotesize\ttfamily int column\+Pins\mbox{[}4\mbox{]} = \{23,24,25,6\}}
+
+
+
+Représente les broches w\+Pi correspondant aux colonnes de la matrice de boutons. 
+
+
+
+Definition at line 23 of file boutons.\+c.
+
+\mbox{\Hypertarget{boutons_8c_a96708e07abf503a2f9488802ec31a7b1}\label{boutons_8c_a96708e07abf503a2f9488802ec31a7b1}} 
+\index{boutons.c@{boutons.c}!commandeBuzzer@{commandeBuzzer}}
+\index{commandeBuzzer@{commandeBuzzer}!boutons.c@{boutons.c}}
+\doxysubsubsection{\texorpdfstring{commandeBuzzer}{commandeBuzzer}}
+{\footnotesize\ttfamily int commande\+Buzzer}
+
+
+
+Commande à envoyer au buzzer. 
+
+
+
+Definition at line 51 of file boutons.\+c.
+
+\mbox{\Hypertarget{boutons_8c_af3cb4a9bf4cd04d0d76fdceca3cc0a8f}\label{boutons_8c_af3cb4a9bf4cd04d0d76fdceca3cc0a8f}} 
+\index{boutons.c@{boutons.c}!commandeSDL@{commandeSDL}}
+\index{commandeSDL@{commandeSDL}!boutons.c@{boutons.c}}
+\doxysubsubsection{\texorpdfstring{commandeSDL}{commandeSDL}}
+{\footnotesize\ttfamily int commande\+S\+DL}
+
+
+
+Commande à envoyer à la S\+DL. 
+
+
+
+Definition at line 45 of file boutons.\+c.
+
+\mbox{\Hypertarget{boutons_8c_a0f4807e33e63a4746ef6da284705554c}\label{boutons_8c_a0f4807e33e63a4746ef6da284705554c}} 
+\index{boutons.c@{boutons.c}!isPressed@{isPressed}}
+\index{isPressed@{isPressed}!boutons.c@{boutons.c}}
+\doxysubsubsection{\texorpdfstring{isPressed}{isPressed}}
+{\footnotesize\ttfamily int is\+Pressed = 0}
+
+
+
+Un bouton est-\/il actuellement pressé? 
+
+Un bouton est-\/il pressé sur la matrice ?
+
+Definition at line 39 of file boutons.\+c.
+
+\mbox{\Hypertarget{boutons_8c_a940b421aac735da2a3760ad645c4bc74}\label{boutons_8c_a940b421aac735da2a3760ad645c4bc74}} 
+\index{boutons.c@{boutons.c}!lastBtn@{lastBtn}}
+\index{lastBtn@{lastBtn}!boutons.c@{boutons.c}}
+\doxysubsubsection{\texorpdfstring{lastBtn}{lastBtn}}
+{\footnotesize\ttfamily int last\+Btn = 0}
+
+
+
+Dernier bouton pressé 
+
+Numéro du dernier bouton pressé
+
+Definition at line 29 of file boutons.\+c.
+
+\mbox{\Hypertarget{boutons_8c_a3bf6f737f472dad7f01f18d21d9cd0dc}\label{boutons_8c_a3bf6f737f472dad7f01f18d21d9cd0dc}} 
+\index{boutons.c@{boutons.c}!lastTime@{lastTime}}
+\index{lastTime@{lastTime}!boutons.c@{boutons.c}}
+\doxysubsubsection{\texorpdfstring{lastTime}{lastTime}}
+{\footnotesize\ttfamily int last\+Time = 0}
+
+
+
+Temps durant lequel le dernier bouton a été pressé 
+
+Temps pendant lequel le dernier bouton a été pressé
+
+Definition at line 34 of file boutons.\+c.
+
+\mbox{\Hypertarget{boutons_8c_a14f9dd5cd5344b0eefd3e7c08316d445}\label{boutons_8c_a14f9dd5cd5344b0eefd3e7c08316d445}} 
+\index{boutons.c@{boutons.c}!ro@{ro}}
+\index{ro@{ro}!boutons.c@{boutons.c}}
+\doxysubsubsection{\texorpdfstring{ro}{ro}}
+{\footnotesize\ttfamily int ro}
+
+
+
+Definition at line 17 of file boutons.\+c.
+
+\mbox{\Hypertarget{boutons_8c_a80394fa1544888769f8446076ade6d2d}\label{boutons_8c_a80394fa1544888769f8446076ade6d2d}} 
+\index{boutons.c@{boutons.c}!rowPins@{rowPins}}
+\index{rowPins@{rowPins}!boutons.c@{boutons.c}}
+\doxysubsubsection{\texorpdfstring{rowPins}{rowPins}}
+{\footnotesize\ttfamily int row\+Pins\mbox{[}4\mbox{]} = \{2,3,21,22\}}
+
+
+
+Représente les broches w\+Pi correspondant aux lignes de la matrice de boutons. 
+
+
+
+Definition at line 16 of file boutons.\+c.
+

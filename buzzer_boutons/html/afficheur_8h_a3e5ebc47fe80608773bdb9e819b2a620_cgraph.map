@@ -1,0 +1,5 @@
+<map id="begin" name="begin">
+<area shape="rect" id="node1" title="Fonction qui permet de démarrer l&#39;afficheur 7 segments." alt="" coords="5,31,59,57"/>
+<area shape="rect" id="node2" href="$afficheur_8c.html#a57c7242b88fb52f1a5d66d31623216fb" title="Fonction qui permet de régler le taux de clignotement." alt="" coords="119,5,197,32"/>
+<area shape="rect" id="node3" href="$afficheur_8c.html#ae48e941245d25c1b710fe41d91d8f149" title="Fonction qui permet de régler l&#39;intensité lumineuse." alt="" coords="107,56,209,83"/>
+</map>

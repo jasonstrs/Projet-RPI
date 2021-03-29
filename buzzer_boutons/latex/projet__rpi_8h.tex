@@ -1,0 +1,437 @@
+\hypertarget{projet__rpi_8h}{}\doxysection{projet\+\_\+rpi.\+h File Reference}
+\label{projet__rpi_8h}\index{projet\_rpi.h@{projet\_rpi.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$wiring\+Pi.\+h$>$}\newline
+{\ttfamily \#include $<$dirent.\+h$>$}\newline
+{\ttfamily \#include $<$sys/time.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$inttypes.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+Include dependency graph for projet\+\_\+rpi.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{projet__rpi_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{projet__rpi_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structune__note__t}{une\+\_\+note\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Représentation d\textquotesingle{}une note -\/$>$ fréquence + temps en ms. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structpartition__t}{partition\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Représente une partition \+: mélodie + titre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{projet__rpi_8h_aceb70c1ed7e11f0863a868704f02214b}{clear\+Screen}}()~\{ printf(\char`\"{}\textbackslash{}033\mbox{[}H\textbackslash{}033\mbox{[}2J\char`\"{});fflush(stdout); \}
+\begin{DoxyCompactList}\small\item\em Efface le contenu de la console. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{projet__rpi_8h_acf606de56cdab82b079547445b9d0ec1}{set\+Term}}(param)~\{ printf(\char`\"{}\textbackslash{}033\mbox{[}1m\textbackslash{}033\mbox{[}\%dm\char`\"{}, param); fflush(stdout); \}
+\begin{DoxyCompactList}\small\item\em Définit la couleur qui sera utilisée dans la console. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{projet__rpi_8h_acf7b6c96a243dbd25939fab056879618}{reset\+Term}}()~\mbox{\hyperlink{projet__rpi_8h_acf606de56cdab82b079547445b9d0ec1}{set\+Term}}(0);
+\begin{DoxyCompactList}\small\item\em Réinitialise la couleur d\textquotesingle{}affichage dans la console. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{projet__rpi_8h_ad3fe337408f16c132c895f2b59326410}{C\+H\+E\+CK}}(sts,  msg)~if ((sts)==-\/1) \{perror(msg); exit(-\/1);\}
+\begin{DoxyCompactList}\small\item\em Gère l\textquotesingle{}execution d\textquotesingle{}un appel système. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{projet__rpi_8h_afe96f14246554fa05677fec6b1218030}{C\+H\+E\+C\+K\+\_\+T}}(status,  msg)
+\begin{DoxyCompactList}\small\item\em Gère l\textquotesingle{}execution des fonctions de gestion de threads. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{projet__rpi_8h_aa5fa50882b37b44f22e236b0ef9db4a2}{C\+H\+E\+C\+K\+\_\+P}}(sts,  msg)~if ((sts)==N\+U\+LL) \{perror(msg); exit(-\/1);\}
+\begin{DoxyCompactList}\small\item\em Gère l\textquotesingle{}execution de fonctions retournant des poiinteurs. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{projet__rpi_8h_a5666ac5930c9f903698073ab1fa694f7}{P\+A\+U\+SE}}~\mbox{\hyperlink{projet__rpi_8h_acf606de56cdab82b079547445b9d0ec1}{set\+Term}}(\mbox{\hyperlink{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731aa60bd322f93178d68184e30e162571ca}{G\+R\+E\+EN}});printf(\char`\"{}\textbackslash{}n\textbackslash{}t\textbackslash{}t\textbackslash{}t\+Appuyer sur Entrée pour continuer...\textbackslash{}n\char`\"{});getchar();\mbox{\hyperlink{projet__rpi_8h_acf7b6c96a243dbd25939fab056879618}{reset\+Term}}();
+\begin{DoxyCompactList}\small\item\em Suspend l\textquotesingle{}execution jusqu\textquotesingle{}à l\textquotesingle{}appui sur Entrer. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{projet__rpi_8h_a5edf8a74ee6f8a4dcc832484cbe273a0}{M\+A\+X\+\_\+\+N\+O\+T\+ES}}~100
+\item 
+\#define \mbox{\hyperlink{projet__rpi_8h_a197e8828e62166e47cb04657487b7e69}{M\+A\+X\+\_\+\+T\+I\+T\+RE}}~50
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void $\ast$($\ast$ \mbox{\hyperlink{projet__rpi_8h_a85f15cc2d2114b8d00c4d32410ef69ee}{pf\+\_\+t}}) (void $\ast$)
+\item 
+typedef \mbox{\hyperlink{structune__note__t}{une\+\_\+note\+\_\+t}} \mbox{\hyperlink{projet__rpi_8h_a951b9b567f140a89da4caed760678bfc}{melodie\+\_\+t}}\mbox{[}\mbox{\hyperlink{projet__rpi_8h_a5edf8a74ee6f8a4dcc832484cbe273a0}{M\+A\+X\+\_\+\+N\+O\+T\+ES}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Une mélodie est un tableau de \mbox{\hyperlink{structune__note__t}{une\+\_\+note\+\_\+t}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731}{couleur\+\_\+aff\+\_\+t}} \{ \newline
+\mbox{\hyperlink{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731af77fb67151d0c18d397069ad8c271ba3}{B\+L\+A\+CK}} = 30, 
+\mbox{\hyperlink{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731af80f9a890089d211842d59625e561f88}{R\+ED}}, 
+\mbox{\hyperlink{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731aa60bd322f93178d68184e30e162571ca}{G\+R\+E\+EN}}, 
+\mbox{\hyperlink{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731ae735a848bf82163a19236ead1c3ef2d2}{Y\+E\+L\+L\+OW}}, 
+\newline
+\mbox{\hyperlink{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731a35d6719cb4d7577c031b3d79057a1b79}{B\+L\+UE}}, 
+\mbox{\hyperlink{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731a56926c820ad72d0977e7ee44d9916e62}{M\+A\+G\+E\+N\+TA}}, 
+\mbox{\hyperlink{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731aafe71cad474c15ce63b300c470eef8cc}{C\+Y\+AN}}, 
+\mbox{\hyperlink{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731a283fc479650da98250635b9c3c0e7e50}{W\+H\+I\+TE}}, 
+\newline
+\mbox{\hyperlink{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731a43e7c26b8df0104b9f389e32ac3f72c7}{B\+L\+I\+NK}} = 5, 
+\mbox{\hyperlink{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731a1d5111a25c9f1de77e5c34c3e6f3ac8b}{H\+I\+G\+H\+\_\+\+F\+O\+NT}} = 1, 
+\mbox{\hyperlink{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731a003b741848d7128e25831a8376672700}{I\+NV}} = 7
+ \}
+\begin{DoxyCompactList}\small\item\em Couleur d\textquotesingle{}affichage dans la console. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824d}{note\+\_\+t}} \{ \newline
+\mbox{\hyperlink{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824dabfea6036e64d9c7c773d277a57d2f959}{DO}} =261, 
+\mbox{\hyperlink{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824dabed02005ef92308e7a34ce44e9cdbc1d}{RE}} =293, 
+\mbox{\hyperlink{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824da8b9857852eaaa2816b407b5de9348565}{MI}} =329, 
+\mbox{\hyperlink{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824da587607b9ab280181a8b20a9fb147bad3}{FA}} =349, 
+\newline
+\mbox{\hyperlink{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824da37f261ee11356d4d704e814d4a7e7be4}{S\+OL}} =392, 
+\mbox{\hyperlink{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824da82d0cb31c97caff6777714eac4f1038c}{LA}} =440, 
+\mbox{\hyperlink{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824da6cbe5ff42f143903e1c67abf94613791}{SI}} =493, 
+\mbox{\hyperlink{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824da84631f113424d76e0c4d1f49c16c3b58}{D\+O2}} =523, 
+\newline
+\mbox{\hyperlink{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824da35653913ced93d8199f0378ec538a0c7}{B\+L\+A\+NC}} =0
+ \}
+\begin{DoxyCompactList}\small\item\em Associe une note à sa fréquence. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{projet__rpi_8h_ac79385e060cbcc230abecf1be30220e5}{bouton\+\_\+commande\+\_\+t}} \{ \newline
+\mbox{\hyperlink{projet__rpi_8h_ac79385e060cbcc230abecf1be30220e5acc7a0dda0af51bb187d1eb0c518587f4}{P\+L\+A\+Y\+\_\+\+P\+A\+U\+SE}} = 8, 
+\mbox{\hyperlink{projet__rpi_8h_ac79385e060cbcc230abecf1be30220e5a16d11ce7a97f2868aaac41bd7d675e32}{D\+E\+B\+U\+T\+\_\+\+F\+I\+N\+\_\+\+E\+NR}} = 9, 
+\mbox{\hyperlink{projet__rpi_8h_ac79385e060cbcc230abecf1be30220e5a395c354deee923febda769c084102e5a}{R\+E\+T\+O\+U\+R\+\_\+\+D\+E\+B\+UT}} = 10, 
+\mbox{\hyperlink{projet__rpi_8h_ac79385e060cbcc230abecf1be30220e5a589b7d94a3d91d145720e2fed0eb3a05}{R\+E\+S\+ET}} = 11, 
+\newline
+\mbox{\hyperlink{projet__rpi_8h_ac79385e060cbcc230abecf1be30220e5a6adf77b455035d7776cce30fcde13dbf}{S\+A\+U\+V\+E\+G\+A\+R\+D\+ER}} = 12, 
+\mbox{\hyperlink{projet__rpi_8h_ac79385e060cbcc230abecf1be30220e5a8e639928892ca56805cccf6606dcff63}{Q\+U\+I\+T\+T\+ER}} = 13
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{projet__rpi_8h_a2761c77a56c42ceb1349e46b81986500}{tab\+Notes}} \mbox{[}8\mbox{]}
+\begin{DoxyCompactList}\small\item\em Toutes les notes disponibles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{projet__rpi_8h_ad3fe337408f16c132c895f2b59326410}\label{projet__rpi_8h_ad3fe337408f16c132c895f2b59326410}} 
+\index{projet\_rpi.h@{projet\_rpi.h}!CHECK@{CHECK}}
+\index{CHECK@{CHECK}!projet\_rpi.h@{projet\_rpi.h}}
+\doxysubsubsection{\texorpdfstring{CHECK}{CHECK}}
+{\footnotesize\ttfamily \#define C\+H\+E\+CK(\begin{DoxyParamCaption}\item[{}]{sts,  }\item[{}]{msg }\end{DoxyParamCaption})~if ((sts)==-\/1) \{perror(msg); exit(-\/1);\}}
+
+
+
+Gère l\textquotesingle{}execution d\textquotesingle{}un appel système. 
+
+
+
+Definition at line 71 of file projet\+\_\+rpi.\+h.
+
+\mbox{\Hypertarget{projet__rpi_8h_aa5fa50882b37b44f22e236b0ef9db4a2}\label{projet__rpi_8h_aa5fa50882b37b44f22e236b0ef9db4a2}} 
+\index{projet\_rpi.h@{projet\_rpi.h}!CHECK\_P@{CHECK\_P}}
+\index{CHECK\_P@{CHECK\_P}!projet\_rpi.h@{projet\_rpi.h}}
+\doxysubsubsection{\texorpdfstring{CHECK\_P}{CHECK\_P}}
+{\footnotesize\ttfamily \#define C\+H\+E\+C\+K\+\_\+P(\begin{DoxyParamCaption}\item[{}]{sts,  }\item[{}]{msg }\end{DoxyParamCaption})~if ((sts)==N\+U\+LL) \{perror(msg); exit(-\/1);\}}
+
+
+
+Gère l\textquotesingle{}execution de fonctions retournant des poiinteurs. 
+
+
+
+Definition at line 87 of file projet\+\_\+rpi.\+h.
+
+\mbox{\Hypertarget{projet__rpi_8h_afe96f14246554fa05677fec6b1218030}\label{projet__rpi_8h_afe96f14246554fa05677fec6b1218030}} 
+\index{projet\_rpi.h@{projet\_rpi.h}!CHECK\_T@{CHECK\_T}}
+\index{CHECK\_T@{CHECK\_T}!projet\_rpi.h@{projet\_rpi.h}}
+\doxysubsubsection{\texorpdfstring{CHECK\_T}{CHECK\_T}}
+{\footnotesize\ttfamily \#define C\+H\+E\+C\+K\+\_\+T(\begin{DoxyParamCaption}\item[{}]{status,  }\item[{}]{msg }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if} (0 != (status))   \{                            \(\backslash\)}
+\DoxyCodeLine{    fprintf(stderr, \textcolor{stringliteral}{"pthread erreur : \%s\(\backslash\)n"}, msg);  \(\backslash\)}
+\DoxyCodeLine{    exit (EXIT\_FAILURE);                            \(\backslash\)}
+\DoxyCodeLine{  \}}
+
+\end{DoxyCode}
+
+
+Gère l\textquotesingle{}execution des fonctions de gestion de threads. 
+
+
+
+Definition at line 77 of file projet\+\_\+rpi.\+h.
+
+\mbox{\Hypertarget{projet__rpi_8h_aceb70c1ed7e11f0863a868704f02214b}\label{projet__rpi_8h_aceb70c1ed7e11f0863a868704f02214b}} 
+\index{projet\_rpi.h@{projet\_rpi.h}!clearScreen@{clearScreen}}
+\index{clearScreen@{clearScreen}!projet\_rpi.h@{projet\_rpi.h}}
+\doxysubsubsection{\texorpdfstring{clearScreen}{clearScreen}}
+{\footnotesize\ttfamily \#define clear\+Screen(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\{ printf(\char`\"{}\textbackslash{}033\mbox{[}H\textbackslash{}033\mbox{[}2J\char`\"{});fflush(stdout); \}}
+
+
+
+Efface le contenu de la console. 
+
+
+
+Definition at line 46 of file projet\+\_\+rpi.\+h.
+
+\mbox{\Hypertarget{projet__rpi_8h_a5edf8a74ee6f8a4dcc832484cbe273a0}\label{projet__rpi_8h_a5edf8a74ee6f8a4dcc832484cbe273a0}} 
+\index{projet\_rpi.h@{projet\_rpi.h}!MAX\_NOTES@{MAX\_NOTES}}
+\index{MAX\_NOTES@{MAX\_NOTES}!projet\_rpi.h@{projet\_rpi.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_NOTES}{MAX\_NOTES}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+N\+O\+T\+ES~100}
+
+
+
+Definition at line 97 of file projet\+\_\+rpi.\+h.
+
+\mbox{\Hypertarget{projet__rpi_8h_a197e8828e62166e47cb04657487b7e69}\label{projet__rpi_8h_a197e8828e62166e47cb04657487b7e69}} 
+\index{projet\_rpi.h@{projet\_rpi.h}!MAX\_TITRE@{MAX\_TITRE}}
+\index{MAX\_TITRE@{MAX\_TITRE}!projet\_rpi.h@{projet\_rpi.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_TITRE}{MAX\_TITRE}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+T\+I\+T\+RE~50}
+
+
+
+Definition at line 98 of file projet\+\_\+rpi.\+h.
+
+\mbox{\Hypertarget{projet__rpi_8h_a5666ac5930c9f903698073ab1fa694f7}\label{projet__rpi_8h_a5666ac5930c9f903698073ab1fa694f7}} 
+\index{projet\_rpi.h@{projet\_rpi.h}!PAUSE@{PAUSE}}
+\index{PAUSE@{PAUSE}!projet\_rpi.h@{projet\_rpi.h}}
+\doxysubsubsection{\texorpdfstring{PAUSE}{PAUSE}}
+{\footnotesize\ttfamily \#define P\+A\+U\+SE~\mbox{\hyperlink{projet__rpi_8h_acf606de56cdab82b079547445b9d0ec1}{set\+Term}}(\mbox{\hyperlink{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731aa60bd322f93178d68184e30e162571ca}{G\+R\+E\+EN}});printf(\char`\"{}\textbackslash{}n\textbackslash{}t\textbackslash{}t\textbackslash{}t\+Appuyer sur Entrée pour continuer...\textbackslash{}n\char`\"{});getchar();\mbox{\hyperlink{projet__rpi_8h_acf7b6c96a243dbd25939fab056879618}{reset\+Term}}();}
+
+
+
+Suspend l\textquotesingle{}execution jusqu\textquotesingle{}à l\textquotesingle{}appui sur Entrer. 
+
+
+
+Definition at line 94 of file projet\+\_\+rpi.\+h.
+
+\mbox{\Hypertarget{projet__rpi_8h_acf7b6c96a243dbd25939fab056879618}\label{projet__rpi_8h_acf7b6c96a243dbd25939fab056879618}} 
+\index{projet\_rpi.h@{projet\_rpi.h}!resetTerm@{resetTerm}}
+\index{resetTerm@{resetTerm}!projet\_rpi.h@{projet\_rpi.h}}
+\doxysubsubsection{\texorpdfstring{resetTerm}{resetTerm}}
+{\footnotesize\ttfamily \#define reset\+Term(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\mbox{\hyperlink{projet__rpi_8h_acf606de56cdab82b079547445b9d0ec1}{set\+Term}}(0);}
+
+
+
+Réinitialise la couleur d\textquotesingle{}affichage dans la console. 
+
+
+
+Definition at line 58 of file projet\+\_\+rpi.\+h.
+
+\mbox{\Hypertarget{projet__rpi_8h_acf606de56cdab82b079547445b9d0ec1}\label{projet__rpi_8h_acf606de56cdab82b079547445b9d0ec1}} 
+\index{projet\_rpi.h@{projet\_rpi.h}!setTerm@{setTerm}}
+\index{setTerm@{setTerm}!projet\_rpi.h@{projet\_rpi.h}}
+\doxysubsubsection{\texorpdfstring{setTerm}{setTerm}}
+{\footnotesize\ttfamily \#define set\+Term(\begin{DoxyParamCaption}\item[{}]{param }\end{DoxyParamCaption})~\{ printf(\char`\"{}\textbackslash{}033\mbox{[}1m\textbackslash{}033\mbox{[}\%dm\char`\"{}, param); fflush(stdout); \}}
+
+
+
+Définit la couleur qui sera utilisée dans la console. 
+
+
+
+Definition at line 52 of file projet\+\_\+rpi.\+h.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{projet__rpi_8h_a951b9b567f140a89da4caed760678bfc}\label{projet__rpi_8h_a951b9b567f140a89da4caed760678bfc}} 
+\index{projet\_rpi.h@{projet\_rpi.h}!melodie\_t@{melodie\_t}}
+\index{melodie\_t@{melodie\_t}!projet\_rpi.h@{projet\_rpi.h}}
+\doxysubsubsection{\texorpdfstring{melodie\_t}{melodie\_t}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{structune__note__t}{une\+\_\+note\+\_\+t}} melodie\+\_\+t\mbox{[}\mbox{\hyperlink{projet__rpi_8h_a5edf8a74ee6f8a4dcc832484cbe273a0}{M\+A\+X\+\_\+\+N\+O\+T\+ES}}\mbox{]}}
+
+
+
+Une mélodie est un tableau de \mbox{\hyperlink{structune__note__t}{une\+\_\+note\+\_\+t}}. 
+
+
+
+Definition at line 148 of file projet\+\_\+rpi.\+h.
+
+\mbox{\Hypertarget{projet__rpi_8h_a85f15cc2d2114b8d00c4d32410ef69ee}\label{projet__rpi_8h_a85f15cc2d2114b8d00c4d32410ef69ee}} 
+\index{projet\_rpi.h@{projet\_rpi.h}!pf\_t@{pf\_t}}
+\index{pf\_t@{pf\_t}!projet\_rpi.h@{projet\_rpi.h}}
+\doxysubsubsection{\texorpdfstring{pf\_t}{pf\_t}}
+{\footnotesize\ttfamily typedef void$\ast$($\ast$ pf\+\_\+t) (void $\ast$)}
+
+
+
+Definition at line 106 of file projet\+\_\+rpi.\+h.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{projet__rpi_8h_ac79385e060cbcc230abecf1be30220e5}\label{projet__rpi_8h_ac79385e060cbcc230abecf1be30220e5}} 
+\index{projet\_rpi.h@{projet\_rpi.h}!bouton\_commande\_t@{bouton\_commande\_t}}
+\index{bouton\_commande\_t@{bouton\_commande\_t}!projet\_rpi.h@{projet\_rpi.h}}
+\doxysubsubsection{\texorpdfstring{bouton\_commande\_t}{bouton\_commande\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{projet__rpi_8h_ac79385e060cbcc230abecf1be30220e5}{bouton\+\_\+commande\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PLAY\_PAUSE@{PLAY\_PAUSE}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!PLAY\_PAUSE@{PLAY\_PAUSE}}}\mbox{\Hypertarget{projet__rpi_8h_ac79385e060cbcc230abecf1be30220e5acc7a0dda0af51bb187d1eb0c518587f4}\label{projet__rpi_8h_ac79385e060cbcc230abecf1be30220e5acc7a0dda0af51bb187d1eb0c518587f4}} 
+P\+L\+A\+Y\+\_\+\+P\+A\+U\+SE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DEBUT\_FIN\_ENR@{DEBUT\_FIN\_ENR}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!DEBUT\_FIN\_ENR@{DEBUT\_FIN\_ENR}}}\mbox{\Hypertarget{projet__rpi_8h_ac79385e060cbcc230abecf1be30220e5a16d11ce7a97f2868aaac41bd7d675e32}\label{projet__rpi_8h_ac79385e060cbcc230abecf1be30220e5a16d11ce7a97f2868aaac41bd7d675e32}} 
+D\+E\+B\+U\+T\+\_\+\+F\+I\+N\+\_\+\+E\+NR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RETOUR\_DEBUT@{RETOUR\_DEBUT}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!RETOUR\_DEBUT@{RETOUR\_DEBUT}}}\mbox{\Hypertarget{projet__rpi_8h_ac79385e060cbcc230abecf1be30220e5a395c354deee923febda769c084102e5a}\label{projet__rpi_8h_ac79385e060cbcc230abecf1be30220e5a395c354deee923febda769c084102e5a}} 
+R\+E\+T\+O\+U\+R\+\_\+\+D\+E\+B\+UT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RESET@{RESET}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!RESET@{RESET}}}\mbox{\Hypertarget{projet__rpi_8h_ac79385e060cbcc230abecf1be30220e5a589b7d94a3d91d145720e2fed0eb3a05}\label{projet__rpi_8h_ac79385e060cbcc230abecf1be30220e5a589b7d94a3d91d145720e2fed0eb3a05}} 
+R\+E\+S\+ET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SAUVEGARDER@{SAUVEGARDER}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!SAUVEGARDER@{SAUVEGARDER}}}\mbox{\Hypertarget{projet__rpi_8h_ac79385e060cbcc230abecf1be30220e5a6adf77b455035d7776cce30fcde13dbf}\label{projet__rpi_8h_ac79385e060cbcc230abecf1be30220e5a6adf77b455035d7776cce30fcde13dbf}} 
+S\+A\+U\+V\+E\+G\+A\+R\+D\+ER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{QUITTER@{QUITTER}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!QUITTER@{QUITTER}}}\mbox{\Hypertarget{projet__rpi_8h_ac79385e060cbcc230abecf1be30220e5a8e639928892ca56805cccf6606dcff63}\label{projet__rpi_8h_ac79385e060cbcc230abecf1be30220e5a8e639928892ca56805cccf6606dcff63}} 
+Q\+U\+I\+T\+T\+ER&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 123 of file projet\+\_\+rpi.\+h.
+
+\mbox{\Hypertarget{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731}\label{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731}} 
+\index{projet\_rpi.h@{projet\_rpi.h}!couleur\_aff\_t@{couleur\_aff\_t}}
+\index{couleur\_aff\_t@{couleur\_aff\_t}!projet\_rpi.h@{projet\_rpi.h}}
+\doxysubsubsection{\texorpdfstring{couleur\_aff\_t}{couleur\_aff\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731}{couleur\+\_\+aff\+\_\+t}}}
+
+
+
+Couleur d\textquotesingle{}affichage dans la console. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLACK@{BLACK}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!BLACK@{BLACK}}}\mbox{\Hypertarget{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731af77fb67151d0c18d397069ad8c271ba3}\label{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731af77fb67151d0c18d397069ad8c271ba3}} 
+B\+L\+A\+CK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RED@{RED}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!RED@{RED}}}\mbox{\Hypertarget{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731af80f9a890089d211842d59625e561f88}\label{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731af80f9a890089d211842d59625e561f88}} 
+R\+ED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GREEN@{GREEN}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!GREEN@{GREEN}}}\mbox{\Hypertarget{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731aa60bd322f93178d68184e30e162571ca}\label{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731aa60bd322f93178d68184e30e162571ca}} 
+G\+R\+E\+EN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{YELLOW@{YELLOW}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!YELLOW@{YELLOW}}}\mbox{\Hypertarget{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731ae735a848bf82163a19236ead1c3ef2d2}\label{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731ae735a848bf82163a19236ead1c3ef2d2}} 
+Y\+E\+L\+L\+OW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLUE@{BLUE}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!BLUE@{BLUE}}}\mbox{\Hypertarget{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731a35d6719cb4d7577c031b3d79057a1b79}\label{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731a35d6719cb4d7577c031b3d79057a1b79}} 
+B\+L\+UE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MAGENTA@{MAGENTA}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!MAGENTA@{MAGENTA}}}\mbox{\Hypertarget{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731a56926c820ad72d0977e7ee44d9916e62}\label{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731a56926c820ad72d0977e7ee44d9916e62}} 
+M\+A\+G\+E\+N\+TA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CYAN@{CYAN}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!CYAN@{CYAN}}}\mbox{\Hypertarget{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731aafe71cad474c15ce63b300c470eef8cc}\label{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731aafe71cad474c15ce63b300c470eef8cc}} 
+C\+Y\+AN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WHITE@{WHITE}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!WHITE@{WHITE}}}\mbox{\Hypertarget{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731a283fc479650da98250635b9c3c0e7e50}\label{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731a283fc479650da98250635b9c3c0e7e50}} 
+W\+H\+I\+TE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLINK@{BLINK}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!BLINK@{BLINK}}}\mbox{\Hypertarget{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731a43e7c26b8df0104b9f389e32ac3f72c7}\label{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731a43e7c26b8df0104b9f389e32ac3f72c7}} 
+B\+L\+I\+NK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HIGH\_FONT@{HIGH\_FONT}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!HIGH\_FONT@{HIGH\_FONT}}}\mbox{\Hypertarget{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731a1d5111a25c9f1de77e5c34c3e6f3ac8b}\label{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731a1d5111a25c9f1de77e5c34c3e6f3ac8b}} 
+H\+I\+G\+H\+\_\+\+F\+O\+NT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INV@{INV}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!INV@{INV}}}\mbox{\Hypertarget{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731a003b741848d7128e25831a8376672700}\label{projet__rpi_8h_a5f4feb16ebed0a1f1a37a06b19472731a003b741848d7128e25831a8376672700}} 
+I\+NV&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 27 of file projet\+\_\+rpi.\+h.
+
+\mbox{\Hypertarget{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824d}\label{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824d}} 
+\index{projet\_rpi.h@{projet\_rpi.h}!note\_t@{note\_t}}
+\index{note\_t@{note\_t}!projet\_rpi.h@{projet\_rpi.h}}
+\doxysubsubsection{\texorpdfstring{note\_t}{note\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824d}{note\+\_\+t}}}
+
+
+
+Associe une note à sa fréquence. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DO@{DO}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!DO@{DO}}}\mbox{\Hypertarget{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824dabfea6036e64d9c7c773d277a57d2f959}\label{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824dabfea6036e64d9c7c773d277a57d2f959}} 
+DO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RE@{RE}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!RE@{RE}}}\mbox{\Hypertarget{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824dabed02005ef92308e7a34ce44e9cdbc1d}\label{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824dabed02005ef92308e7a34ce44e9cdbc1d}} 
+RE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MI@{MI}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!MI@{MI}}}\mbox{\Hypertarget{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824da8b9857852eaaa2816b407b5de9348565}\label{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824da8b9857852eaaa2816b407b5de9348565}} 
+MI&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FA@{FA}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!FA@{FA}}}\mbox{\Hypertarget{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824da587607b9ab280181a8b20a9fb147bad3}\label{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824da587607b9ab280181a8b20a9fb147bad3}} 
+FA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SOL@{SOL}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!SOL@{SOL}}}\mbox{\Hypertarget{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824da37f261ee11356d4d704e814d4a7e7be4}\label{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824da37f261ee11356d4d704e814d4a7e7be4}} 
+S\+OL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LA@{LA}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!LA@{LA}}}\mbox{\Hypertarget{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824da82d0cb31c97caff6777714eac4f1038c}\label{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824da82d0cb31c97caff6777714eac4f1038c}} 
+LA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SI@{SI}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!SI@{SI}}}\mbox{\Hypertarget{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824da6cbe5ff42f143903e1c67abf94613791}\label{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824da6cbe5ff42f143903e1c67abf94613791}} 
+SI&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DO2@{DO2}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!DO2@{DO2}}}\mbox{\Hypertarget{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824da84631f113424d76e0c4d1f49c16c3b58}\label{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824da84631f113424d76e0c4d1f49c16c3b58}} 
+D\+O2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLANC@{BLANC}!projet\_rpi.h@{projet\_rpi.h}}\index{projet\_rpi.h@{projet\_rpi.h}!BLANC@{BLANC}}}\mbox{\Hypertarget{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824da35653913ced93d8199f0378ec538a0c7}\label{projet__rpi_8h_a4cc1c8fb54f5a8cd2b7f59389a88824da35653913ced93d8199f0378ec538a0c7}} 
+B\+L\+A\+NC&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 111 of file projet\+\_\+rpi.\+h.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{projet__rpi_8h_a2761c77a56c42ceb1349e46b81986500}\label{projet__rpi_8h_a2761c77a56c42ceb1349e46b81986500}} 
+\index{projet\_rpi.h@{projet\_rpi.h}!tabNotes@{tabNotes}}
+\index{tabNotes@{tabNotes}!projet\_rpi.h@{projet\_rpi.h}}
+\doxysubsubsection{\texorpdfstring{tabNotes}{tabNotes}}
+{\footnotesize\ttfamily int tab\+Notes\mbox{[}8\mbox{]}}
+
+
+
+Toutes les notes disponibles. 
+
+
+
+Definition at line 49 of file buzzer.\+c.
+

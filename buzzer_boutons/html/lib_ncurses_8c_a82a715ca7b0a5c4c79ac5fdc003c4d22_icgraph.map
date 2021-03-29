@@ -1,0 +1,5 @@
+<map id="runNcurses" name="runNcurses">
+<area shape="rect" id="node1" title="Cette fonction permet de démarrer la librairie ncurses, elle appelle une fonction d&#39;initialisation de..." alt="" coords="207,5,296,32"/>
+<area shape="rect" id="node2" href="$menu_8c.html#ae83fcdbeb2b6757fc741ae953b633ee1" title="Lance le menu ncurses." alt="" coords="104,5,159,32"/>
+<area shape="rect" id="node3" href="$main_8c.html#aa3345a15bd154061fb3561ad6b24a78c" title=" " alt="" coords="5,5,56,32"/>
+</map>

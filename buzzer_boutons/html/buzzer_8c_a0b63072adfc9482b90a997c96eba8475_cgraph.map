@@ -1,0 +1,10 @@
+<map id="jouerMelodie" name="jouerMelodie">
+<area shape="rect" id="node1" title="Joue une mélodie." alt="" coords="5,31,100,57"/>
+<area shape="rect" id="node2" href="$buzzer_8c.html#afcdedcb4d698f3628024f4c672f4ecaf" title="Joue une note pendant un temps défini, puis arrête le buzzer. S&#39;arre en fonction de la variable playp..." alt="" coords="148,56,267,83"/>
+<area shape="rect" id="node4" href="$buzzer_8c.html#a15b97d3f4929035c5734062a17bd7864" title="Vérifie si un bouton de commande n&#39;a pas été pressé." alt="" coords="333,5,451,32"/>
+<area shape="rect" id="node3" href="$afficheur_8c.html#a863b166fb45e8b2c824075dc121be506" title="Fonction qui permet de décomposer un nombre en nombre de centaine, nombre de dizaine et d&#39;unité pour ..." alt="" coords="315,56,469,83"/>
+<area shape="rect" id="node6" href="$afficheur_8c.html#af7e150874b727c633afd3f107b4d8809" title="Permet d&#39;écrire un numéro dans le buffer du digit." alt="" coords="339,107,445,133"/>
+<area shape="rect" id="node8" href="$afficheur_8c.html#a18e05e0aa9448c279a3c31ee2c061fc2" title="Cette fonction permet d&#39;écrire un numéro sur l&#39;afficheur 7 segment." alt="" coords="345,157,439,184"/>
+<area shape="rect" id="node5" href="$buzzer_8c.html#a7b0d600704658570364e9b26867de321" title=" " alt="" coords="532,5,607,32"/>
+<area shape="rect" id="node7" href="$afficheur_8c.html#a6beb43d00a6e5d5ed172863743e53402" title="Fonction qui permet d&#39;allumer la colonne d&#39;un digit suivant le nombre que l&#39;on souhaite afficher." alt="" coords="517,107,621,133"/>
+</map>

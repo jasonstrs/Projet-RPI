@@ -13,7 +13,7 @@ SDL_Rect** notes;
  * @brief Analyse la partition pour calculer combien de rectangles seront nécessaires pour représenter toutes les notes
  * 
  * @param p La partition
- * @return int Le nomnbre de rectangles
+ * @return int Le nombre de rectangles
  */
 int GetTailleTabNotes(partition_t p){
     //on veut savoir combien de rectangles seront nécessaires pour dessiner toutes les notes.
